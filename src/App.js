@@ -5,7 +5,8 @@ import LandingPage from "./pages/landing-page.component";
 const App = () => {
   return (
     <Switch>
-      <Route exact path="/" component={LandingPage} />
+      {/* <Route exact path="/" component={LandingPage} /> */}
+      <Route exact path="/" render={(props) => <LandingPage {...props} />} />
     </Switch>
   );
 };
