@@ -13,7 +13,7 @@ import {
   Container,
 } from "reactstrap";
 
-function NavbarMain() {
+const NavbarMain = () => {
   const [navbarColor, setNavbarColor] = useState("navbar-success");
   const [collapseOpen, setCollapseOpen] = useState(false);
   // lifecycle
@@ -109,6 +109,6 @@ function NavbarMain() {
       </Navbar>
     </>
   );
-}
+};
 
 export default NavbarMain;
