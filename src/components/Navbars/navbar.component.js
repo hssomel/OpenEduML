@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { ReactComponent as Logo } from "../../assets/img/3d.svg";
 // reactstrap components
 import {
   Collapse,
-  DropdownToggle,
   UncontrolledDropdown,
-  NavbarBrand,
   Navbar,
   NavItem,
   NavLink,
@@ -47,21 +46,15 @@ const NavbarMain = () => {
           }}
         />
       ) : null}
-      <Navbar className={"fixed-top " + navbarColor} expand="lg" color="info">
+      <Navbar
+        className={"fixed-top " + navbarColor}
+        expand="lg"
+        color="#20232a"
+        style={{ backgroundColor: "#20232a" }}
+      >
         <Container>
           <UncontrolledDropdown className="button-dropdown">
-            <DropdownToggle
-              caret
-              data-toggle="dropdown"
-              href="#pablo"
-              id="navbarDropdown"
-              tag="a"
-              onClick={(e) => e.preventDefault()}
-            >
-              <span className="button-bar"></span>
-              <span className="button-bar"></span>
-              <span className="button-bar"></span>
-            </DropdownToggle>
+            <Logo style={styles.logo} />
           </UncontrolledDropdown>
           <div className="navbar-translate">
             <button
@@ -102,3 +95,11 @@ const NavbarMain = () => {
 };
 
 export default NavbarMain;
+
+const styles = {
+  logo: {
+    height: 26,
+    width: 26,
+    marginBottom: 5,
+  },
+};
