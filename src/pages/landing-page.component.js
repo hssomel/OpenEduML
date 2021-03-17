@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 // reactstrap components
 import {
   Button,
@@ -12,11 +12,13 @@ import {
 } from "reactstrap";
 // core components
 import NavbarMain from "../components/Navbars/navbar.component.js";
+import LandingPageHeader from "../components/Headers/landing-header.component";
 
 const LandingPage = () => {
-  const [firstFocus, setFirstFocus] = React.useState(false);
-  const [lastFocus, setLastFocus] = React.useState(false);
-  React.useEffect(() => {
+  const [firstFocus, setFirstFocus] = useState(false);
+  const [lastFocus, setLastFocus] = useState(false);
+  //   lifecycle methods
+  useEffect(() => {
     document.body.classList.add("landing-page");
     document.body.classList.add("sidebar-collapse");
     document.documentElement.classList.remove("nav-open");
@@ -30,6 +32,9 @@ const LandingPage = () => {
   return (
     <>
       <NavbarMain />
+      <div className="wrapper">
+        <LandingPageHeader />
+      </div>
     </>
   );
 };

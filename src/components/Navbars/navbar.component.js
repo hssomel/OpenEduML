@@ -12,9 +12,9 @@ import {
   Nav,
   Container,
 } from "reactstrap";
-
+//
 const NavbarMain = () => {
-  const [navbarColor, setNavbarColor] = useState("navbar-success");
+  const [navbarColor, setNavbarColor] = useState("navbar-transparent");
   const [collapseOpen, setCollapseOpen] = useState(false);
   // lifecycle
   useEffect(() => {
@@ -23,12 +23,12 @@ const NavbarMain = () => {
         document.documentElement.scrollTop > 399 ||
         document.body.scrollTop > 399
       ) {
-        setNavbarColor("navbar-success");
+        setNavbarColor("");
       } else if (
         document.documentElement.scrollTop < 400 ||
         document.body.scrollTop < 400
       ) {
-        setNavbarColor("navbar-success");
+        setNavbarColor("navbar-transparent");
       }
     };
     window.addEventListener("scroll", updateNavbarColor);
@@ -47,11 +47,7 @@ const NavbarMain = () => {
           }}
         />
       ) : null}
-      <Navbar
-        className={"fixed-top " + navbarColor}
-        expand="lg"
-        style={{ backgroundColor: "#343a40" }}
-      >
+      <Navbar className={"fixed-top " + navbarColor} expand="lg" color="info">
         <Container>
           <UncontrolledDropdown className="button-dropdown">
             <DropdownToggle
@@ -68,9 +64,6 @@ const NavbarMain = () => {
             </DropdownToggle>
           </UncontrolledDropdown>
           <div className="navbar-translate">
-            <NavbarBrand target="_blank" id="navbar-brand">
-              OpenEduML
-            </NavbarBrand>
             <button
               className="navbar-toggler navbar-toggler"
               onClick={() => {
@@ -92,15 +85,12 @@ const NavbarMain = () => {
           >
             <Nav navbar>
               <NavItem>
-                <NavLink to="/" tag={Link}>
+                <NavLink
+                  to="/"
+                  tag={Link}
+                  style={{ fontSize: 15, fontWeight: 700 }}
+                >
                   SIGN IN
-                </NavLink>
-              </NavItem>
-
-              <NavItem>
-                <NavLink target="_blank" id="instagram-tooltip">
-                  <i className="fab fa-instagram"></i>
-                  <p className="d-lg-none d-xl-none">Instagram</p>
                 </NavLink>
               </NavItem>
             </Nav>
