@@ -35,6 +35,7 @@ const NavbarMain = () => {
       window.removeEventListener("scroll", updateNavbarColor);
     };
   });
+
   return (
     <>
       {collapseOpen ? (
@@ -54,7 +55,9 @@ const NavbarMain = () => {
       >
         <Container>
           <UncontrolledDropdown className="button-dropdown">
-            <Logo style={styles.logo} />
+            <Link to="/">
+              <Logo style={styles.logo} />
+            </Link>
           </UncontrolledDropdown>
           <div className="navbar-translate">
             <button
@@ -79,7 +82,7 @@ const NavbarMain = () => {
             <Nav navbar>
               <NavItem>
                 <NavLink
-                  to="/"
+                  to="/signin"
                   tag={Link}
                   style={{ fontSize: 15, fontWeight: 700 }}
                 >

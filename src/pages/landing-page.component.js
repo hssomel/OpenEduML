@@ -1,15 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 // reactstrap components
-import {
-  Button,
-  Input,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroup,
-  Container,
-  Row,
-  Col,
-} from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
 // core components
 import NavbarMain from "../components/Navbars/navbar.component.js";
 import LandingPageHeader from "../components/Headers/landing-header.component";
@@ -18,8 +9,6 @@ import { ReactComponent as Logo2 } from "../assets/img/JupyterHub.svg";
 import { ReactComponent as Logo3 } from "../assets/img/Jupyter-Notebook.svg";
 
 const LandingPage = () => {
-  const [firstFocus, setFirstFocus] = useState(false);
-  const [lastFocus, setLastFocus] = useState(false);
   //   lifecycle methods
   useEffect(() => {
     document.body.classList.add("landing-page");

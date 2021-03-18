@@ -5505,10 +5505,10 @@ img {
 .login-page .card-login {
   border-radius: 0.25rem;
   padding-bottom: 0.7rem;
-  max-width: 320px;
+  max-width: 380px;
 }
 .login-page .card-login .btn-wd {
-  min-width: 180px;
+  min-width: 240px;
 }
 .login-page .card-login .logo-container {
   width: 65px;

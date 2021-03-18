@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import LandingPage from "./pages/landing-page.component";
 import SignInSignUpPage from "./pages/sign-in-sign-up.component";
