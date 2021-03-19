@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-
-// reactstrap components
 import {
   Button,
   Card,
@@ -13,10 +11,37 @@ import {
   InputGroupText,
   InputGroup,
 } from "reactstrap";
+import { auth, signInWithGoogle } from "../firebase/firebase.utils";
 
 const LoginForm = () => {
   const [firstFocus, setFirstFocus] = useState(false);
   const [lastFocus, setLastFocus] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleEmailChange = (event) => {
+    const { value } = event.target;
+    setEmail(value);
+  };
+
+  const handlePasswordChange = (event) => {
+    const { value } = event.target;
+    setPassword(value);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      console.log("success");
+      setEmail("");
+      setPassword("");
+    } catch (err) {
+      console.log("FAILED");
+      console.log(err);
+    }
+  };
 
   return (
     <>
@@ -44,12 +69,14 @@ const LoginForm = () => {
                 </InputGroupText>
               </InputGroupAddon>
               <Input
-                placeholder="Username..."
+                placeholder="Email..."
                 type="text"
                 onFocus={() => setFirstFocus(true)}
                 onBlur={() => setFirstFocus(false)}
+                onChange={(e) => handleEmailChange(e)}
               ></Input>
             </InputGroup>
+            {/* */}
             <InputGroup
               className={
                 "no-border input-lg" + (lastFocus ? " input-group-focus" : "")
@@ -65,6 +92,7 @@ const LoginForm = () => {
                 type="text"
                 onFocus={() => setLastFocus(true)}
                 onBlur={() => setLastFocus(false)}
+                onChange={(e) => handlePasswordChange(e)}
               ></Input>
             </InputGroup>
           </CardBody>
@@ -75,7 +103,7 @@ const LoginForm = () => {
               style={{ color: "#9c27b0" }}
               outline
               type="button"
-              onClick={(e) => e.preventDefault()}
+              onClick={(e) => handleSubmit(e)}
               size="lg"
             >
               LOGIN
