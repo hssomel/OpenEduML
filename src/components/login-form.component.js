@@ -34,11 +34,9 @@ const LoginForm = () => {
 
     try {
       await auth.signInWithEmailAndPassword(email, password);
-      console.log("success");
       setEmail("");
       setPassword("");
     } catch (err) {
-      console.log("FAILED");
       console.log(err);
     }
   };
