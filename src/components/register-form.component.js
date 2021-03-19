@@ -33,7 +33,7 @@ const RegisterForm = () => {
       >
         <Form action="" className="form" method="">
           <CardHeader className="text-center">
-            <h4 style={{ fontWeight: 700 }}>CRsEATE A NEW ACCOUNT</h4>
+            <h4 style={{ fontWeight: 700 }}>CREATE A NEW ACCOUNT</h4>
           </CardHeader>
           <CardBody>
             <InputGroup
