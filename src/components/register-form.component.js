@@ -118,7 +118,11 @@ const RegisterForm = () => {
 
             <div className="pull-right">
               <h6>
-                <a className="link" onClick={(e) => e.preventDefault()}>
+                <a
+                  className="link"
+                  href="/"
+                  onClick={(e) => e.preventDefault()}
+                >
                   Need Help?
                 </a>
               </h6>

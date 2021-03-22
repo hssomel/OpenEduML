@@ -3,7 +3,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import LandingPage from "./pages/landing-page.component";
 import SignInSignUpPage from "./pages/sign-in-sign-up.component";
-import DashBoardPage from "./pages/dashboard.component";
+import AdminPage from "./pages/admin.component";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/user/user.actions";
 
@@ -40,7 +40,7 @@ const App = ({ currentUser, setCurrentUser }) => {
         path="/signin"
         render={(routeProps) =>
           currentUser ? (
-            <Redirect to="/dashboard" {...routeProps} />
+            <Redirect to="/admin" {...routeProps} />
           ) : (
             <SignInSignUpPage />
           )
@@ -48,10 +48,10 @@ const App = ({ currentUser, setCurrentUser }) => {
       />
       <Route
         exact
-        path="/dashboard"
+        path="/admin"
         render={(routeProps) =>
           currentUser ? (
-            <DashBoardPage {...routeProps} />
+            <AdminPage {...routeProps} />
           ) : (
             <Redirect to="/signin" {...routeProps} />
           )
