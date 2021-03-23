@@ -37,6 +37,9 @@ const LoginForm = () => {
       setEmail("");
       setPassword("");
     } catch (err) {
+      setEmail("");
+      setPassword("");
+      console.log("error");
       console.log(err);
     }
   };
@@ -72,6 +75,7 @@ const LoginForm = () => {
                 onFocus={() => setFirstFocus(true)}
                 onBlur={() => setFirstFocus(false)}
                 onChange={(e) => handleEmailChange(e)}
+                value={email}
               ></Input>
             </InputGroup>
             {/* */}
@@ -91,6 +95,7 @@ const LoginForm = () => {
                 onFocus={() => setLastFocus(true)}
                 onBlur={() => setLastFocus(false)}
                 onChange={(e) => handlePasswordChange(e)}
+                value={password}
               ></Input>
             </InputGroup>
           </CardBody>

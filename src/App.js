@@ -34,7 +34,6 @@ const App = ({ currentUser, setCurrentUser }) => {
   return (
     <Switch>
       <Route exact path="/" render={(props) => <LandingPage {...props} />} />
-
       <Route
         exact
         path="/signin"
