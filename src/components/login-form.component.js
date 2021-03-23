@@ -44,6 +44,15 @@ const LoginForm = () => {
     }
   };
 
+  const handleGoogleSignIn = async () => {
+    try {
+      await signInWithGoogle();
+      console.log("SUCCESS WITH GOOGLE");
+    } catch (err) {
+      console.log("oops error");
+    }
+  };
+
   return (
     <>
       <Card
@@ -116,7 +125,7 @@ const LoginForm = () => {
               block
               className="btn-round"
               style={{ backgroundColor: "#9c27b0" }}
-              onClick={(e) => e.preventDefault()}
+              onClick={(e) => handleGoogleSignIn(e)}
               size="lg"
             >
               SIGN IN WITH GOOGLE
@@ -125,7 +134,7 @@ const LoginForm = () => {
               <h6>
                 <a
                   className="link"
-                  href="#pablo"
+                  href="/"
                   onClick={(e) => e.preventDefault()}
                 >
                   Need Help?
