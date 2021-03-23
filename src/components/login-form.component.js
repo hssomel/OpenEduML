@@ -11,9 +11,11 @@ import {
   InputGroupText,
   InputGroup,
 } from "reactstrap";
+import { connect } from "react-redux";
 import { auth, signInWithGoogle } from "../firebase/firebase.utils";
+import { setLoginError } from "../redux/alerts/alerts.actions";
 
-const LoginForm = () => {
+const LoginForm = ({ setLoginError }) => {
   const [firstFocus, setFirstFocus] = useState(false);
   const [lastFocus, setLastFocus] = useState(false);
   const [email, setEmail] = useState("");
@@ -39,8 +41,7 @@ const LoginForm = () => {
     } catch (err) {
       setEmail("");
       setPassword("");
-      console.log("error");
-      console.log(err);
+      setLoginError(err.message);
     }
   };
 
@@ -49,7 +50,7 @@ const LoginForm = () => {
       await signInWithGoogle();
       console.log("SUCCESS WITH GOOGLE");
     } catch (err) {
-      console.log("oops error");
+      setLoginError(err.message);
     }
   };
 
@@ -100,7 +101,7 @@ const LoginForm = () => {
               </InputGroupAddon>
               <Input
                 placeholder="Password..."
-                type="text"
+                type="password"
                 onFocus={() => setLastFocus(true)}
                 onBlur={() => setLastFocus(false)}
                 onChange={(e) => handlePasswordChange(e)}
@@ -148,4 +149,6 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+const mapStateToProps = (state) => ({});
+
+export default connect(mapStateToProps, { setLoginError })(LoginForm);

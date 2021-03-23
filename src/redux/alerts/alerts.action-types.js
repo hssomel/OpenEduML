@@ -1,0 +1,4 @@
+export const AlertActionTypes = {
+  SET_LOGIN_ERROR: "SET_LOGIN_ERROR",
+  CLEAR_LOGIN_ERROR: "CLEAR_LOGIN_ERROR",
+};
