@@ -30,7 +30,7 @@ const AdminPage = ({ ...rest }) => {
   };
 
   const resizeFunction = () => {
-    if (window.innerWidth >= 960) {
+    if (window.innerWidth <= 1360) {
       setMobileOpen(false);
     }
   };

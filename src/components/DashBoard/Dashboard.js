@@ -5,11 +5,9 @@ import ChartistGraph from "react-chartist";
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
 import Store from "@material-ui/icons/Store";
-import Warning from "@material-ui/icons/Warning";
 import DateRange from "@material-ui/icons/DateRange";
 import LocalOffer from "@material-ui/icons/LocalOffer";
 import Update from "@material-ui/icons/Update";
-import ArrowUpward from "@material-ui/icons/ArrowUpward";
 import AccessTime from "@material-ui/icons/AccessTime";
 import Accessibility from "@material-ui/icons/Accessibility";
 import BugReport from "@material-ui/icons/BugReport";
@@ -21,16 +19,17 @@ import GridContainer from "./dashcomponents/Grid/GridContainer.js";
 import Table from "./dashcomponents/Table/Table.js";
 import Tasks from "./dashcomponents/Tasks/Tasks.js";
 import CustomTabs from "./dashcomponents/CustomTabs/CustomTabs.js";
-import Danger from "./dashcomponents/Typography/Danger.js";
 import Card from "./dashcomponents/Card/Card.js";
 import CardHeader from "./dashcomponents/Card/CardHeader.js";
 import CardIcon from "./dashcomponents/Card/CardIcon.js";
 import CardBody from "./dashcomponents/Card/CardBody.js";
 import CardFooter from "./dashcomponents/Card/CardFooter.js";
-
+//
+import ClusterAccessFree from "./ClusterAccess.component";
+import NotebookState from "./NotebookState.component";
 import { bugs, website, server } from "./general.js";
 
-import { dailySalesChart, emailsSubscriptionChart } from "./charts.js";
+import { emailsSubscriptionChart } from "./charts.js";
 
 import styles from "../../assets/jss/material-dashboard-react/views/dashboardStyle.js";
 
@@ -42,27 +41,7 @@ const Dashboard = () => {
     <div>
       <GridContainer>
         <GridItem xs={12} sm={6} md={3}>
-          <Card>
-            <CardHeader color="warning" stats icon>
-              <CardIcon color="warning">
-                <Store />
-              </CardIcon>
-              <p className={classes.cardCategory}>Used Space</p>
-              <h3 className={classes.cardTitle}>
-                49/50 <small>GB</small>
-              </h3>
-            </CardHeader>
-            <CardFooter stats>
-              <div className={classes.stats}>
-                <Danger>
-                  <Warning />
-                </Danger>
-                <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                  Get more space
-                </a>
-              </div>
-            </CardFooter>
-          </Card>
+          <NotebookState />
         </GridItem>
         <GridItem xs={12} sm={6} md={3}>
           <Card>
@@ -118,31 +97,7 @@ const Dashboard = () => {
       </GridContainer>
       <GridContainer>
         <GridItem xs={12} sm={12} md={6}>
-          <Card chart>
-            <CardHeader color="success">
-              <ChartistGraph
-                className="ct-chart"
-                data={dailySalesChart.data}
-                type="Line"
-                options={dailySalesChart.options}
-                listener={dailySalesChart.animation}
-              />
-            </CardHeader>
-            <CardBody>
-              <h4 className={classes.cardTitle}>Daily Sales</h4>
-              <p className={classes.cardCategory}>
-                <span className={classes.successText}>
-                  <ArrowUpward className={classes.upArrowCardCategory} /> 55%
-                </span>{" "}
-                increase in today sales.
-              </p>
-            </CardBody>
-            <CardFooter chart>
-              <div className={classes.stats}>
-                <AccessTime /> updated 4 minutes ago
-              </div>
-            </CardFooter>
-          </Card>
+          <ClusterAccessFree />
         </GridItem>
         <GridItem xs={12} sm={12} md={6}>
           <Card chart>
