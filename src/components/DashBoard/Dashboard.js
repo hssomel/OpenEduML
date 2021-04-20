@@ -4,11 +4,7 @@ import ChartistGraph from "react-chartist";
 // @material-ui/core
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
-import Store from "@material-ui/icons/Store";
-import LocalOffer from "@material-ui/icons/LocalOffer";
-import Update from "@material-ui/icons/Update";
 import AccessTime from "@material-ui/icons/AccessTime";
-import Accessibility from "@material-ui/icons/Accessibility";
 import BugReport from "@material-ui/icons/BugReport";
 import Code from "@material-ui/icons/Code";
 import Cloud from "@material-ui/icons/Cloud";
@@ -20,13 +16,14 @@ import Tasks from "./dashcomponents/Tasks/Tasks.js";
 import CustomTabs from "./dashcomponents/CustomTabs/CustomTabs.js";
 import Card from "./dashcomponents/Card/Card.js";
 import CardHeader from "./dashcomponents/Card/CardHeader.js";
-import CardIcon from "./dashcomponents/Card/CardIcon.js";
 import CardBody from "./dashcomponents/Card/CardBody.js";
 import CardFooter from "./dashcomponents/Card/CardFooter.js";
-//
+// dashboard modular components
 import ClusterAccessFree from "./customdashcomponents/ClusterAccess.component";
 import NotebookState from "./customdashcomponents/NotebookState.component";
 import TimeRemaining from "./customdashcomponents/TimeRemaining.component";
+import Resources from "./customdashcomponents/Resources.component";
+import GpuResources from "./customdashcomponents/GpuResources.component";
 import { bugs, website, server } from "./general.js";
 
 import { emailsSubscriptionChart } from "./charts.js";
@@ -47,38 +44,10 @@ const Dashboard = () => {
           <TimeRemaining />
         </GridItem>
         <GridItem xs={12} sm={6} md={3}>
-          <Card>
-            <CardHeader color="danger" stats icon>
-              <CardIcon color="danger">
-                <Store />
-              </CardIcon>
-              <p className={classes.cardCategory}>Fixed Issues</p>
-              <h3 className={classes.cardTitle}>75</h3>
-            </CardHeader>
-            <CardFooter stats>
-              <div className={classes.stats}>
-                <LocalOffer />
-                Tracked from Github
-              </div>
-            </CardFooter>
-          </Card>
+          <Resources />
         </GridItem>
         <GridItem xs={12} sm={6} md={3}>
-          <Card>
-            <CardHeader color="info" stats icon>
-              <CardIcon color="info">
-                <Accessibility />
-              </CardIcon>
-              <p className={classes.cardCategory}>Followers</p>
-              <h3 className={classes.cardTitle}>+245</h3>
-            </CardHeader>
-            <CardFooter stats>
-              <div className={classes.stats}>
-                <Update />
-                Just Updated
-              </div>
-            </CardFooter>
-          </Card>
+          <GpuResources />
         </GridItem>
       </GridContainer>
       <GridContainer>

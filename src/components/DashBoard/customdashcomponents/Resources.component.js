@@ -2,8 +2,8 @@ import React from "react";
 // @material-ui/core
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
-import DateRange from "@material-ui/icons/DateRange";
-import AccessTime from "@material-ui/icons/AccessTime";
+import ComputerIcon from "@material-ui/icons/Computer";
+import CloudIcon from "@material-ui/icons/Cloud";
 // core components
 import Card from "../dashcomponents/Card/Card.js";
 import CardHeader from "../dashcomponents/Card/CardHeader.js";
@@ -14,25 +14,25 @@ import styles from "../../../assets/jss/material-dashboard-react/views/dashboard
 
 const useStyles = makeStyles(styles);
 
-const TimeRemaining = () => {
+const Resources = () => {
   const classes = useStyles();
   return (
     <Card>
-      <CardHeader color="warning" stats icon>
-        <CardIcon color="danger">
-          <AccessTime />
+      <CardHeader color="info" stats icon>
+        <CardIcon color="info">
+          <ComputerIcon />
         </CardIcon>
-        <p className={classes.cardCategory}>Time Remaining</p>
-        <h4 className={classes.cardTitle}>00:30:00</h4>
+        <p className={classes.cardCategory}>Minimum Notebook CPU</p>
+        <h4 className={classes.cardTitle}>4 vCPUs / 8GB RAM</h4>
       </CardHeader>
       <CardFooter stats>
         <div className={classes.stats}>
-          <DateRange />
-          Date Last Accessed: 5/04/21
+          <CloudIcon />
+          Intel Skylake P-8175
         </div>
       </CardFooter>
     </Card>
   );
 };
 
-export default TimeRemaining;
+export default Resources;

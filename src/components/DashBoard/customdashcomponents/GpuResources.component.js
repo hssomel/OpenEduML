@@ -2,8 +2,8 @@ import React from "react";
 // @material-ui/core
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
-import DateRange from "@material-ui/icons/DateRange";
-import AccessTime from "@material-ui/icons/AccessTime";
+import CloudIcon from "@material-ui/icons/Cloud";
+import GrainIcon from "@material-ui/icons/Grain";
 // core components
 import Card from "../dashcomponents/Card/Card.js";
 import CardHeader from "../dashcomponents/Card/CardHeader.js";
@@ -14,25 +14,25 @@ import styles from "../../../assets/jss/material-dashboard-react/views/dashboard
 
 const useStyles = makeStyles(styles);
 
-const TimeRemaining = () => {
+const GpuResources = () => {
   const classes = useStyles();
   return (
     <Card>
-      <CardHeader color="warning" stats icon>
-        <CardIcon color="danger">
-          <AccessTime />
+      <CardHeader color="success" stats icon>
+        <CardIcon color="success">
+          <GrainIcon />
         </CardIcon>
-        <p className={classes.cardCategory}>Time Remaining</p>
-        <h4 className={classes.cardTitle}>00:30:00</h4>
+        <p className={classes.cardCategory}>Minimum Notebook GPU</p>
+        <h4 className={classes.cardTitle}>8 vGPUs / 32GB RAM</h4>
       </CardHeader>
       <CardFooter stats>
         <div className={classes.stats}>
-          <DateRange />
-          Date Last Accessed: 5/04/21
+          <CloudIcon />
+          Nvidia V100
         </div>
       </CardFooter>
     </Card>
   );
 };
 
-export default TimeRemaining;
+export default GpuResources;
