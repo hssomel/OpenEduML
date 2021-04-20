@@ -6,11 +6,11 @@ import Button from "@material-ui/core/Button";
 import AccessTime from "@material-ui/icons/AccessTime";
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 // core components
-import Card from "./dashcomponents/Card/Card.js";
-import CardHeader from "./dashcomponents/Card/CardHeader.js";
-import CardBody from "./dashcomponents/Card/CardBody.js";
-import CardFooter from "./dashcomponents/Card/CardFooter.js";
-import styles from "../../assets/jss/material-dashboard-react/views/dashboardStyle.js";
+import Card from "../dashcomponents/Card/Card.js";
+import CardHeader from "../dashcomponents/Card/CardHeader.js";
+import CardBody from "../dashcomponents/Card/CardBody.js";
+import CardFooter from "../dashcomponents/Card/CardFooter.js";
+import styles from "../../../assets/jss/material-dashboard-react/views/dashboardStyle.js";
 
 const useStyles = makeStyles(styles);
 

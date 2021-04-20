@@ -34,6 +34,7 @@ const App = ({ currentUser, setCurrentUser }) => {
   return (
     <Switch>
       <Route exact path="/" render={(props) => <LandingPage {...props} />} />
+
       <Route
         exact
         path="/signin"
@@ -55,6 +56,11 @@ const App = ({ currentUser, setCurrentUser }) => {
             <Redirect to="/signin" {...routeProps} />
           )
         }
+      />
+      <Route
+        exact
+        path="/admintest"
+        render={(routeProps) => <AdminPage {...routeProps} />}
       />
     </Switch>
   );

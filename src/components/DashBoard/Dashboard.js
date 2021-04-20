@@ -5,7 +5,6 @@ import ChartistGraph from "react-chartist";
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
 import Store from "@material-ui/icons/Store";
-import DateRange from "@material-ui/icons/DateRange";
 import LocalOffer from "@material-ui/icons/LocalOffer";
 import Update from "@material-ui/icons/Update";
 import AccessTime from "@material-ui/icons/AccessTime";
@@ -25,8 +24,9 @@ import CardIcon from "./dashcomponents/Card/CardIcon.js";
 import CardBody from "./dashcomponents/Card/CardBody.js";
 import CardFooter from "./dashcomponents/Card/CardFooter.js";
 //
-import ClusterAccessFree from "./ClusterAccess.component";
-import NotebookState from "./NotebookState.component";
+import ClusterAccessFree from "./customdashcomponents/ClusterAccess.component";
+import NotebookState from "./customdashcomponents/NotebookState.component";
+import TimeRemaining from "./customdashcomponents/TimeRemaining.component";
 import { bugs, website, server } from "./general.js";
 
 import { emailsSubscriptionChart } from "./charts.js";
@@ -44,21 +44,7 @@ const Dashboard = () => {
           <NotebookState />
         </GridItem>
         <GridItem xs={12} sm={6} md={3}>
-          <Card>
-            <CardHeader color="success" stats icon>
-              <CardIcon color="success">
-                <Store />
-              </CardIcon>
-              <p className={classes.cardCategory}>Revenue</p>
-              <h3 className={classes.cardTitle}>$34,245</h3>
-            </CardHeader>
-            <CardFooter stats>
-              <div className={classes.stats}>
-                <DateRange />
-                Last 24 Hours
-              </div>
-            </CardFooter>
-          </Card>
+          <TimeRemaining />
         </GridItem>
         <GridItem xs={12} sm={6} md={3}>
           <Card>

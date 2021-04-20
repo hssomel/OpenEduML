@@ -13,13 +13,61 @@ import {
   InputGroupText,
   InputGroup,
 } from "reactstrap";
+import { connect } from "react-redux";
+import { auth, createUserProfileDocument } from "../firebase/firebase.utils";
+import { setLoginError } from "../redux/alerts/alerts.actions";
 
-const RegisterForm = () => {
+const RegisterForm = ({ setLoginError }) => {
   const [firstFocus, setfirstFocus] = useState(false);
   const [secondFocus, setsecondFocus] = useState(false);
   const [thirdFocus, setthirdFocus] = useState(false);
   const [fourthFocus, setfourthFocus] = useState(false);
   //
+  const [displayName, setDisplayName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  //
+  const handleNameChange = (event) => {
+    const { value } = event.target;
+    setDisplayName(value);
+  };
+
+  const handleEmailChange = (event) => {
+    const { value } = event.target;
+    setEmail(value);
+  };
+
+  const handlePasswordChange = (event) => {
+    const { value } = event.target;
+    setPassword(value);
+  };
+
+  const handleCPasswordChange = (event) => {
+    const { value } = event.target;
+    setConfirmPassword(value);
+  };
+  //
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (password !== confirmPassword) {
+      alert("passwords don't match");
+      return;
+    }
+    try {
+      const { user } = await auth.createUserWithEmailAndPassword(
+        email,
+        password
+      );
+      await createUserProfileDocument(user, { displayName });
+    } catch (error) {
+      setDisplayName("");
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
+      setLoginError(error.message);
+    }
+  };
 
   return (
     <>
@@ -51,6 +99,9 @@ const RegisterForm = () => {
                 type="text"
                 onFocus={() => setfirstFocus(true)}
                 onBlur={() => setfirstFocus(false)}
+                onChange={(e) => handleNameChange(e)}
+                value={displayName}
+                minLength="8"
               ></Input>
             </InputGroup>
             <InputGroup
@@ -68,6 +119,8 @@ const RegisterForm = () => {
                 type="text"
                 onFocus={() => setsecondFocus(true)}
                 onBlur={() => setsecondFocus(false)}
+                onChange={(e) => handleEmailChange(e)}
+                value={email}
               ></Input>
             </InputGroup>
             <InputGroup
@@ -82,9 +135,12 @@ const RegisterForm = () => {
               </InputGroupAddon>
               <Input
                 placeholder="Password..."
-                type="text"
+                type="password"
                 onFocus={() => setthirdFocus(true)}
                 onBlur={() => setthirdFocus(false)}
+                onChange={(e) => handlePasswordChange(e)}
+                value={password}
+                minLength="8"
               ></Input>
             </InputGroup>
             <InputGroup
@@ -99,9 +155,12 @@ const RegisterForm = () => {
               </InputGroupAddon>
               <Input
                 placeholder="Confirm Password..."
-                type="text"
+                type="password"
                 onFocus={() => setfourthFocus(true)}
                 onBlur={() => setfourthFocus(false)}
+                onChange={(e) => handleCPasswordChange(e)}
+                value={confirmPassword}
+                minLength="8"
               ></Input>
             </InputGroup>
           </CardBody>
@@ -110,7 +169,7 @@ const RegisterForm = () => {
               block
               className="btn-round"
               style={{ backgroundColor: "#9c27b0" }}
-              onClick={(e) => e.preventDefault()}
+              onClick={(e) => handleSubmit(e)}
               size="lg"
             >
               REGISTER
@@ -134,4 +193,6 @@ const RegisterForm = () => {
   );
 };
 
-export default RegisterForm;
+const mapStateToProps = (state) => ({});
+
+export default connect(mapStateToProps, { setLoginError })(RegisterForm);
