@@ -64,11 +64,17 @@ const NavbarMain = ({ currentUser }) => {
         style={{ backgroundColor: "#20232a" }}
       >
         <Container>
-          <UncontrolledDropdown className="button-dropdown">
+          <UncontrolledDropdown
+            className="button-dropdown"
+            style={{ marginRight: -20 }}
+          >
             <Link to="/">
               <Logo style={styles.logo} />
             </Link>
           </UncontrolledDropdown>
+          <NavLink to="/" tag={Link} style={{ fontSize: 15, fontWeight: 700 }}>
+            OpenEduML
+          </NavLink>
           <div className="navbar-translate">
             <button
               className="navbar-toggler navbar-toggler"
@@ -107,9 +113,18 @@ const NavbarMain = ({ currentUser }) => {
                     tag={Link}
                     style={{ fontSize: 15, fontWeight: 700 }}
                   >
-                    SIGN IN
+                    LOGIN
                   </NavLink>
                 )}
+              </NavItem>
+              <NavItem>
+                <NavLink
+                  to="/admin"
+                  tag={Link}
+                  style={{ fontSize: 15, fontWeight: 700 }}
+                >
+                  CONSOLE
+                </NavLink>
               </NavItem>
             </Nav>
           </Collapse>

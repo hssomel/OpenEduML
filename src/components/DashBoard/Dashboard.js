@@ -5,29 +5,23 @@ import ChartistGraph from "react-chartist";
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
 import AccessTime from "@material-ui/icons/AccessTime";
-import BugReport from "@material-ui/icons/BugReport";
-import Code from "@material-ui/icons/Code";
-import Cloud from "@material-ui/icons/Cloud";
 // core components
 import GridItem from "./dashcomponents/Grid/GridItem.js";
 import GridContainer from "./dashcomponents/Grid/GridContainer.js";
 import Table from "./dashcomponents/Table/Table.js";
-import Tasks from "./dashcomponents/Tasks/Tasks.js";
-import CustomTabs from "./dashcomponents/CustomTabs/CustomTabs.js";
 import Card from "./dashcomponents/Card/Card.js";
 import CardHeader from "./dashcomponents/Card/CardHeader.js";
 import CardBody from "./dashcomponents/Card/CardBody.js";
 import CardFooter from "./dashcomponents/Card/CardFooter.js";
 // dashboard modular components
 import ClusterAccessFree from "./customdashcomponents/ClusterAccess.component";
+import FreeVsPremium from "./customdashcomponents/FreeVsPremium.component";
 import NotebookState from "./customdashcomponents/NotebookState.component";
 import TimeRemaining from "./customdashcomponents/TimeRemaining.component";
 import Resources from "./customdashcomponents/Resources.component";
 import GpuResources from "./customdashcomponents/GpuResources.component";
-import { bugs, website, server } from "./general.js";
 
 import { emailsSubscriptionChart } from "./charts.js";
-
 import styles from "../../assets/jss/material-dashboard-react/views/dashboardStyle.js";
 
 const useStyles = makeStyles(styles);
@@ -37,24 +31,24 @@ const Dashboard = () => {
   return (
     <div>
       <GridContainer>
-        <GridItem xs={12} sm={6} md={3}>
+        <GridItem xs={12} sm={6} lg={3}>
           <NotebookState />
         </GridItem>
-        <GridItem xs={12} sm={6} md={3}>
+        <GridItem xs={12} sm={6} lg={3}>
           <TimeRemaining />
         </GridItem>
-        <GridItem xs={12} sm={6} md={3}>
+        <GridItem xs={12} sm={6} lg={3}>
           <Resources />
         </GridItem>
-        <GridItem xs={12} sm={6} md={3}>
+        <GridItem xs={12} sm={6} lg={3}>
           <GpuResources />
         </GridItem>
       </GridContainer>
       <GridContainer>
-        <GridItem xs={12} sm={12} md={6}>
+        <GridItem xs={12} sm={12} md={12} lg={6}>
           <ClusterAccessFree />
         </GridItem>
-        <GridItem xs={12} sm={12} md={6}>
+        <GridItem xs={12} sm={12} md={12} lg={6}>
           <Card chart>
             <CardHeader color="warning">
               <ChartistGraph
@@ -68,7 +62,7 @@ const Dashboard = () => {
             </CardHeader>
             <CardBody>
               <h4 className={classes.cardTitle}>Email Subscriptions</h4>
-              <p className={classes.cardCategory}>Last Campaign Performance</p>
+              <p className={classes.cardCategory}>Last Campaigns Performance</p>
             </CardBody>
             <CardFooter chart>
               <div className={classes.stats}>
@@ -79,48 +73,10 @@ const Dashboard = () => {
         </GridItem>
       </GridContainer>
       <GridContainer>
-        <GridItem xs={12} sm={12} md={6}>
-          <CustomTabs
-            title="Tasks:"
-            headerColor="primary"
-            tabs={[
-              {
-                tabName: "Bugs",
-                tabIcon: BugReport,
-                tabContent: (
-                  <Tasks
-                    checkedIndexes={[0, 3]}
-                    tasksIndexes={[0, 1, 2, 3]}
-                    tasks={bugs}
-                  />
-                ),
-              },
-              {
-                tabName: "Website",
-                tabIcon: Code,
-                tabContent: (
-                  <Tasks
-                    checkedIndexes={[0]}
-                    tasksIndexes={[0, 1]}
-                    tasks={website}
-                  />
-                ),
-              },
-              {
-                tabName: "Server",
-                tabIcon: Cloud,
-                tabContent: (
-                  <Tasks
-                    checkedIndexes={[1]}
-                    tasksIndexes={[0, 1, 2]}
-                    tasks={server}
-                  />
-                ),
-              },
-            ]}
-          />
+        <GridItem xs={12} sm={12} md={12} lg={6}>
+          <FreeVsPremium />
         </GridItem>
-        <GridItem xs={12} sm={12} md={6}>
+        <GridItem xs={12} sm={12} md={12} lg={6}>
           <Card>
             <CardHeader color="warning">
               <h4 className={classes.cardTitleWhite}>Employees Stats</h4>
