@@ -90,6 +90,7 @@ const Sidebar = (props) => {
               OPENEDUML
             </a>
           </div>
+          {/* Links from Top */}
           <div className={classes.sidebarWrapper}>{linksFromTop}</div>
 
           {image !== undefined ? (

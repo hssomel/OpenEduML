@@ -19,15 +19,22 @@ const ClusterAccessFree = () => {
   return (
     <Card>
       <CardHeader color="info">
-        <h4 className={classes.cardTitleWhite}>
+        <h4 className={classes.cardTitleWhite} style={{ fontWeight: 500 }}>
           Access your Free OpenEduML Jupyter Notebook
         </h4>
       </CardHeader>
       <CardBody>
-        <h4 className={classes.cardTitle}>Notebook Ready to Launch</h4>
+        <h4 className={classes.cardTitle} style={{ marginTop: 10 }}>
+          Notebook Ready to Launch
+        </h4>
         <p
           className={classes.cardCategory}
-          style={{ marginBottom: 20, marginTop: 10, color: "#505050" }}
+          style={{
+            marginBottom: 25,
+            marginTop: 10,
+            color: "#303030",
+            fontSize: 15,
+          }}
         >
           With your free tier membership of OpenEduML you get 30 minutes access
           every 24 hours to your Jupyter Notebook hosted on OpenEduML's cluster.
@@ -40,7 +47,12 @@ const ClusterAccessFree = () => {
           color="secondary"
           className={classes.button}
           startIcon={<PowerSettingsNewIcon />}
-          style={{ marginBottom: 10 }}
+          style={{
+            marginBottom: 15,
+            marginTop: 15,
+            minWidth: 140,
+            fontWeight: 700,
+          }}
         >
           Launch
         </Button>

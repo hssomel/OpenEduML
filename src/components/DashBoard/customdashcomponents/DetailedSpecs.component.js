@@ -14,7 +14,7 @@ import styles from "../../../assets/jss/material-dashboard-react/views/dashboard
 
 const useStyles = makeStyles(styles);
 
-const FreeVsPremium = () => {
+const DetailedSpecs = () => {
   const classes = useStyles();
   return (
     <CustomTabs
@@ -55,4 +55,4 @@ const FreeVsPremium = () => {
   );
 };
 
-export default FreeVsPremium;
+export default DetailedSpecs;

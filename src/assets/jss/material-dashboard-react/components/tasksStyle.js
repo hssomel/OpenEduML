@@ -31,6 +31,14 @@ const tasksStyle = {
     lineHeight: "1.42857143",
     fontSize: "14px",
   },
+  tableCell2: {
+    ...defaultFont,
+    padding: "8px",
+    verticalAlign: "middle",
+    border: "none",
+    lineHeight: "1.42857143",
+    fontSize: "14px",
+  },
   tableCellRTL: {
     textAlign: "right",
   },
