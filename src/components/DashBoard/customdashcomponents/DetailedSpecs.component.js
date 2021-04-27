@@ -1,52 +1,51 @@
 import React from "react";
-// @material-ui/core
-import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
-import BugReport from "@material-ui/icons/BugReport";
-import Code from "@material-ui/icons/Code";
-import Cloud from "@material-ui/icons/Cloud";
+import MoneyOffIcon from "@material-ui/icons/MoneyOff";
+import AddBoxIcon from "@material-ui/icons/AddBox";
+import AllInclusiveIcon from "@material-ui/icons/AllInclusive";
 // core components
 import Tasks from "../dashcomponents/Tasks/Tasks.js";
 import CustomTabs from "../dashcomponents/CustomTabs/CustomTabs.js";
-import { bugs, website, server } from "../general.js";
-
-import styles from "../../../assets/jss/material-dashboard-react/views/dashboardStyle.js";
-
-const useStyles = makeStyles(styles);
+import { categories, free } from "../general.js";
 
 const DetailedSpecs = () => {
-  const classes = useStyles();
   return (
     <CustomTabs
-      title="Tasks:"
-      headerColor="primary"
+      title="Jupyter Notebook Specs: "
+      headerColor="warning"
       tabs={[
         {
-          tabName: "Bugs",
-          tabIcon: BugReport,
+          tabName: "Free",
+          tabIcon: MoneyOffIcon,
           tabContent: (
             <Tasks
-              checkedIndexes={[0, 3]}
-              tasksIndexes={[0, 1, 2, 3]}
-              tasks={bugs}
+              tasksIndexes={[0, 1, 2, 3, 4, 5, 6]}
+              tasks={free}
+              categories={categories}
             />
           ),
         },
         {
-          tabName: "Websites",
-          tabIcon: Code,
+          tabName: "Plus",
+          tabIcon: AddBoxIcon,
           tabContent: (
-            <Tasks checkedIndexes={[0]} tasksIndexes={[0, 1]} tasks={website} />
+            <Tasks
+              checkedIndexes={[0]}
+              tasksIndexes={[0, 1]}
+              tasks={free}
+              categories={categories}
+            />
           ),
         },
         {
-          tabName: "Server",
-          tabIcon: Cloud,
+          tabName: "Pro",
+          tabIcon: AllInclusiveIcon,
           tabContent: (
             <Tasks
               checkedIndexes={[1]}
               tasksIndexes={[0, 1, 2]}
-              tasks={server}
+              tasks={free}
+              categories={categories}
             />
           ),
         },

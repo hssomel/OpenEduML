@@ -19,14 +19,12 @@ const ClusterAccessFree = () => {
   return (
     <Card>
       <CardHeader color="info">
-        <h4 className={classes.cardTitleWhite} style={{ fontWeight: 500 }}>
+        <h4 style={{ margin: 5, fontWeight: 700 }}>
           Access your Free OpenEduML Jupyter Notebook
         </h4>
       </CardHeader>
       <CardBody>
-        <h4 className={classes.cardTitle} style={{ marginTop: 10 }}>
-          Notebook Ready to Launch
-        </h4>
+        <h4 style={{ marginTop: 10 }}>Notebook Ready to Launch </h4>
         <p
           className={classes.cardCategory}
           style={{

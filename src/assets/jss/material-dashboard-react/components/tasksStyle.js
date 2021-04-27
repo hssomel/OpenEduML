@@ -1,5 +1,4 @@
 import {
-  defaultFont,
   primaryColor,
   dangerColor,
   grayColor,
@@ -24,15 +23,23 @@ const tasksStyle = {
     verticalAlign: "middle",
   },
   tableCell: {
-    ...defaultFont,
+    // ...defaultFont,
     padding: "8px",
     verticalAlign: "middle",
     border: "none",
     lineHeight: "1.42857143",
     fontSize: "14px",
   },
+  cardCategory: {
+    color: grayColor[0],
+    margin: "0",
+    fontSize: "14px",
+    marginTop: "0",
+    paddingTop: "10px",
+    marginBottom: "0",
+  },
   tableCell2: {
-    ...defaultFont,
+    // ...defaultFont,
     padding: "8px",
     verticalAlign: "middle",
     border: "none",

@@ -20,6 +20,20 @@ const customTabsStyle = {
       fontSize: "0.875rem",
     },
   },
+  cardTitleWhite: {
+    color: whiteColor,
+    marginTop: "0px",
+    minHeight: "auto",
+    fontWeight: "300",
+    fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
+    marginBottom: "3px",
+    textDecoration: "none",
+    "& small": {
+      color: whiteColor,
+      fontWeight: "400",
+      lineHeight: "1",
+    },
+  },
   tabRootButton: {
     minHeight: "unset !important",
     minWidth: "unset !important",
