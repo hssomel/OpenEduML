@@ -34,10 +34,9 @@ const ClusterAccessFree = () => {
             fontSize: 15,
           }}
         >
-          With your free tier membership of OpenEduML you get 30 minutes access
-          every 24 hours to your Jupyter Notebook hosted on OpenEduML's cluster.
-          Where you can build, train, and test Machine-learning models in
-          parallel
+          With your free tier membership of OpenEduML you get 30 minutes access every 24
+          hours to your Jupyter Notebook hosted on OpenEduML's cluster. Where you can
+          build, train, and test Machine-learning models in parallel
         </p>
 
         <Button
