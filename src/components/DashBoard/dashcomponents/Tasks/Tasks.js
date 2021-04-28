@@ -24,32 +24,15 @@ export default function Tasks(props) {
               <CustomGridItem
                 xs={12}
                 lg={7}
-                style={{
-                  justifyContent: "flex-start",
-                }}
+                style={{ justifyContent: "flex-start", marginTop: 5 }}
               >
-                <CardBody>
-                  <p style={{ fontSize: 14, margin: 5 }}>{categories[value]}</p>
-                </CardBody>
+                <CardBody>{categories[value]}</CardBody>
               </CustomGridItem>
-
-              <CustomGridItem
-                xs={12}
-                lg={5}
-                style={{
-                  justifyContent: "center",
-                }}
-              >
-                <CardBody
-                  style={{
-                    justifyContent: "center",
-                    display: "flex",
-                  }}
-                >
+              <CustomGridItem xs={12} lg={5} style={{ justifyContent: "center" }}>
+                <CardBody style={{ justifyContent: "center", display: "flex" }}>
                   {tasks[value]}
                 </CardBody>
               </CustomGridItem>
-              {/*  */}
             </GridContainer>
           </TableRow>
         ))}

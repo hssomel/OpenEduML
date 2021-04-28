@@ -51,8 +51,11 @@ const CompareTiers = () => {
           </CustomGridItem>
         </GridContainer>
       </CardHeader>
-      <Paper style={{ maxHeight: 400, overflow: "auto", paddingLeft: 25 }}>
-        <Table className={classes.table}>
+      <Paper
+        className={classes.customScroll}
+        style={{ maxHeight: 400, overflow: "auto", paddingLeft: 25, overflowX: "hidden" }}
+      >
+        <Table className={classes.table} style={{ marginTop: 5 }}>
           <TableBody>
             {tasksIndexes.map((value) => (
               <TableRow key={value} className={classes.tableRow}>

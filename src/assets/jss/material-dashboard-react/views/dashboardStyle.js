@@ -35,7 +35,8 @@ const dashboardStyle = {
     },
   },
   cardCategory: {
-    color: grayColor[0],
+    // color: grayColor[0],
+    color: "#606060",
     margin: "0",
     fontSize: "14px",
     marginTop: "0",

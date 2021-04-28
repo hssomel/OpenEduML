@@ -66,7 +66,10 @@ export default function CustomTabs(props) {
         </Tabs>
       </CardHeader>
       {/* only rendering one tab/set of tasks at a time */}
-      <Paper style={{ maxHeight: 300, overflow: "auto", paddingLeft: 25 }}>
+      <Paper
+        className={classes.customScroll}
+        style={{ maxHeight: 300, overflow: "auto", paddingLeft: 25, overflowX: "hidden" }}
+      >
         {tabs.map((prop, index) => {
           if (index === value) {
             return <div key={index}>{prop.tabContent}</div>;

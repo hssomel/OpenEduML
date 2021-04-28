@@ -1,8 +1,4 @@
-import {
-  primaryColor,
-  dangerColor,
-  grayColor,
-} from "../../material-dashboard-react.js";
+import { primaryColor, dangerColor, grayColor } from "../../material-dashboard-react.js";
 import tooltipStyle from "../../material-dashboard-react/tooltipStyle.js";
 import checkboxAdnRadioStyle from "../../material-dashboard-react/checkboxAdnRadioStyle.js";
 const tasksStyle = {
@@ -57,6 +53,18 @@ const tasksStyle = {
   tableActionButtonIcon: {
     width: "17px",
     height: "17px",
+  },
+  customScroll: {
+    "&::-webkit-scrollbar": {
+      width: 7,
+    },
+    "&::-webkit-scrollbar-track": {
+      boxShadow: `inset 0 0 6px rgba(0, 0, 0, 0.3)`,
+    },
+    "&::-webkit-scrollbar-thumb": {
+      backgroundColor: "darkgrey",
+      outline: `1px solid slategrey`,
+    },
   },
   edit: {
     backgroundColor: "transparent",

@@ -6,7 +6,7 @@ import AllInclusiveIcon from "@material-ui/icons/AllInclusive";
 // core components
 import Tasks from "../dashcomponents/Tasks/Tasks.js";
 import CustomTabs from "../dashcomponents/CustomTabs/CustomTabs.js";
-import { categories, free } from "../general.js";
+import { categories, free, plus, pro } from "../general.js";
 
 const DetailedSpecs = () => {
   return (
@@ -19,7 +19,7 @@ const DetailedSpecs = () => {
           tabIcon: MoneyOffIcon,
           tabContent: (
             <Tasks
-              tasksIndexes={[0, 1, 2, 3, 4, 5, 6]}
+              tasksIndexes={[0, 1, 2, 3, 4, 5, 6, 7]}
               tasks={free}
               categories={categories}
             />
@@ -30,9 +30,8 @@ const DetailedSpecs = () => {
           tabIcon: AddBoxIcon,
           tabContent: (
             <Tasks
-              checkedIndexes={[0]}
-              tasksIndexes={[0, 1]}
-              tasks={free}
+              tasksIndexes={[0, 1, 2, 3, 4, 5, 6, 7]}
+              tasks={plus}
               categories={categories}
             />
           ),
@@ -42,9 +41,8 @@ const DetailedSpecs = () => {
           tabIcon: AllInclusiveIcon,
           tabContent: (
             <Tasks
-              checkedIndexes={[1]}
-              tasksIndexes={[0, 1, 2]}
-              tasks={free}
+              tasksIndexes={[0, 1, 2, 3, 4, 5, 6, 7]}
+              tasks={pro}
               categories={categories}
             />
           ),
