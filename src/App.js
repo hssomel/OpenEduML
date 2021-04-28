@@ -1,9 +1,13 @@
 import React, { useEffect } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+// Pages
 import LandingPage from "./pages/landing-page.component";
 import SignInSignUpPage from "./pages/sign-in-sign-up.component";
 import AdminPage from "./pages/admin.component";
+import PaymentPage from "./pages/payment.component";
+import ProfilePage from "./pages/profile.component";
+//
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/user/user.actions";
 
@@ -34,16 +38,11 @@ const App = ({ currentUser, setCurrentUser }) => {
   return (
     <Switch>
       <Route exact path="/" render={(props) => <LandingPage {...props} />} />
-
       <Route
         exact
         path="/signin"
         render={(routeProps) =>
-          currentUser ? (
-            <Redirect to="/admin" {...routeProps} />
-          ) : (
-            <SignInSignUpPage />
-          )
+          currentUser ? <Redirect to="/admin" {...routeProps} /> : <SignInSignUpPage />
         }
       />
       <Route
@@ -51,16 +50,25 @@ const App = ({ currentUser, setCurrentUser }) => {
         path="/admin"
         render={(routeProps) =>
           currentUser ? (
-            <AdminPage {...routeProps} />
+            <Redirect to="/admin/dashboard" {...routeProps} />
           ) : (
             <Redirect to="/signin" {...routeProps} />
           )
         }
       />
+      <Route exact path="/admin/dashboard" render={(props) => <AdminPage {...props} />} />
+      <Route exact path="/admin/profile" render={(props) => <ProfilePage {...props} />} />
+      <Route exact path="/admin/payment" render={(props) => <PaymentPage {...props} />} />
       <Route
         exact
-        path="/admintest"
-        render={(routeProps) => <AdminPage {...routeProps} />}
+        path="/admin/upgrade"
+        render={(routeProps) =>
+          currentUser ? (
+            <Redirect to="/admin/payment" {...routeProps} />
+          ) : (
+            <Redirect to="/signin" {...routeProps} />
+          )
+        }
       />
     </Switch>
   );
