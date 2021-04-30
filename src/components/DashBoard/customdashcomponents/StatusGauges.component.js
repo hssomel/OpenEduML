@@ -2,13 +2,12 @@ import React from "react";
 // @material-ui/core
 import { makeStyles } from "@material-ui/core/styles";
 // core components
-import GridItem from "../dashcomponents/Grid/GridItem.js";
-import GridContainer from "../dashcomponents/Grid/GridContainer.js";
 import Danger from "../dashcomponents/Typography/Danger.js";
 import Card from "../dashcomponents/Card/Card.js";
 import CardHeader from "../dashcomponents/Card/CardHeader.js";
 import CardIcon from "../dashcomponents/Card/CardIcon.js";
 import CardFooter from "../dashcomponents/Card/CardFooter.js";
+import Grid from "@material-ui/core/Grid";
 // @material-ui/icons
 import Warning from "@material-ui/icons/Warning";
 import BatteryAlertIcon from "@material-ui/icons/BatteryAlert";
@@ -25,8 +24,8 @@ const useStyles = makeStyles(styles);
 const StatusGauges = () => {
   const classes = useStyles();
   return (
-    <GridContainer>
-      <GridItem xs={12} sm={6} lg={3}>
+    <Grid container spacing={10}>
+      <Grid item xs={12} sm={6} lg={3}>
         <Card>
           <CardHeader color="warning" stats icon>
             <CardIcon color="warning">
@@ -44,9 +43,9 @@ const StatusGauges = () => {
             </div>
           </CardFooter>
         </Card>
-      </GridItem>
+      </Grid>
       {/*  */}
-      <GridItem xs={12} sm={6} lg={3}>
+      <Grid item xs={12} sm={6} lg={3}>
         <Card>
           <CardHeader color="warning" stats icon>
             <CardIcon color="danger">
@@ -62,9 +61,9 @@ const StatusGauges = () => {
             </div>
           </CardFooter>
         </Card>
-      </GridItem>
+      </Grid>
       {/*  */}
-      <GridItem xs={12} sm={6} lg={3}>
+      <Grid item xs={12} sm={6} lg={3}>
         <Card>
           <CardHeader color="info" stats icon>
             <CardIcon color="info">
@@ -80,9 +79,9 @@ const StatusGauges = () => {
             </div>
           </CardFooter>
         </Card>
-      </GridItem>
+      </Grid>
       {/*  */}
-      <GridItem xs={12} sm={6} lg={3}>
+      <Grid item xs={12} sm={6} lg={3}>
         <Card>
           <CardHeader color="success" stats icon>
             <CardIcon color="success">
@@ -98,8 +97,8 @@ const StatusGauges = () => {
             </div>
           </CardFooter>
         </Card>
-      </GridItem>
-    </GridContainer>
+      </Grid>
+    </Grid>
   );
 };
 

@@ -29,6 +29,7 @@ export default function CustomTabs(props) {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
+          padding: 10,
         }}
       >
         <h4 style={{ margin: 0, fontWeight: 700 }}>{title}</h4>

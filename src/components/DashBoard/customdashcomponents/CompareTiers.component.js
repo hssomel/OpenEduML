@@ -38,16 +38,16 @@ const CompareTiers = () => {
       <CardHeader color="primary">
         <GridContainer>
           <CustomGridItem xs={12} lg={3} style={{ paddingLeft: "10px" }}>
-            <h4 style={{ margin: 5, fontWeight: 700 }}>Compare Tiers</h4>
+            <h4 style={{ margin: 0, fontWeight: 700 }}>Compare Tiers</h4>
           </CustomGridItem>
           <CustomGridItem xs={12} lg={3} style={{ justifyContent: "center" }}>
-            <h4 style={{ margin: 5, fontWeight: 700 }}>Free</h4>
+            <h4 style={{ margin: 0, fontWeight: 700 }}>Free</h4>
           </CustomGridItem>
           <CustomGridItem xs={12} lg={3} style={{ justifyContent: "center" }}>
-            <h4 style={{ margin: 5, fontWeight: 700, marginLeft: 24 }}>Plus</h4>
+            <h4 style={{ margin: 0, fontWeight: 700, marginLeft: 24 }}>Plus</h4>
           </CustomGridItem>
           <CustomGridItem xs={12} lg={3} style={{ justifyContent: "center" }}>
-            <h4 style={{ margin: 5, fontWeight: 700, marginLeft: 48 }}>Pro</h4>
+            <h4 style={{ margin: 0, fontWeight: 700, marginLeft: 48 }}>Pro</h4>
           </CustomGridItem>
         </GridContainer>
       </CardHeader>

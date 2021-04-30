@@ -1,7 +1,7 @@
 import React from "react";
 // core components
+import Grid from "@material-ui/core/Grid";
 import GridItem from "./dashcomponents/Grid/GridItem.js";
-import GridContainer from "./dashcomponents/Grid/GridContainer.js";
 // dashboard modular components
 import StatusGauges from "./customdashcomponents/StatusGauges.component";
 import ClusterAccessFree from "./customdashcomponents/ClusterAccess.component";
@@ -13,22 +13,22 @@ const Dashboard = () => {
   return (
     <div>
       <StatusGauges />
-      <GridContainer>
-        <GridItem xs={12} lg={6}>
+      <Grid container spacing={6}>
+        <Grid item xs={12} lg={6} style={{ paddingTop: 0 }}>
           <ClusterAccessFree />
-        </GridItem>
-        <GridItem xs={12} lg={6}>
+        </Grid>
+        <Grid item xs={12} lg={6} style={{ paddingTop: 0 }}>
           <DetailedSpecs />
-        </GridItem>
-      </GridContainer>
-      <GridContainer>
-        <GridItem xs={12} lg={6}>
+        </Grid>
+      </Grid>
+      <Grid container spacing={6}>
+        <Grid item xs={12} lg={6} style={{ paddingTop: 0 }}>
           <CompareTiers />
-        </GridItem>
-        <GridItem xs={12} lg={6}>
+        </Grid>
+        <Grid item xs={12} lg={6} style={{ paddingTop: 0 }}>
           <BillingChart />
-        </GridItem>
-      </GridContainer>
+        </Grid>
+      </Grid>
     </div>
   );
 };

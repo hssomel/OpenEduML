@@ -19,7 +19,7 @@ const BillingChart = () => {
   return (
     <Card>
       <CardHeader color="success">
-        <h4 style={{ margin: 5, fontWeight: 700 }}>Billing Chart</h4>
+        <h4 style={{ margin: 0, fontWeight: 700 }}>Billing Chart</h4>
       </CardHeader>
       <CardBody>
         <h4 style={{ marginTop: 10 }}>Notebook Ready to Launch </h4>
