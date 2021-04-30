@@ -1,7 +1,6 @@
 import React from "react";
 // core components
 import Grid from "@material-ui/core/Grid";
-import GridItem from "./dashcomponents/Grid/GridItem.js";
 // dashboard modular components
 import StatusGauges from "./customdashcomponents/StatusGauges.component";
 import ClusterAccessFree from "./customdashcomponents/ClusterAccess.component";

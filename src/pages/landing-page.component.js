@@ -30,17 +30,21 @@ const LandingPage = () => {
           <Container>
             <Row>
               <Col className="ml-auto mr-auto text-center" md="10">
-                <h2 className="title">
-                  Build, train, and test machine-learning models
-                </h2>
+                <h3 className="title">
+                  A handy online environment for building, training, and testing
+                  machine-learning models
+                </h3>
                 <h5 className="description" style={{ color: "black" }}>
-                  OpenEduML is an online platform that provides cloud
-                  infrastructure for efficiently running data-science workloads.
-                  KubeML provides clients access to a fully-managed cluster
-                  hosted on cloud infrastructure. The KubeML team provides an
-                  online IDE powered by Jupyter Notebooks connected to a gateway
-                  which leverages kubernetes to efficiently distribute
-                  individual kernels across the cluster
+                  OpenEduML is created by graduate students at the University of Texas,
+                  Austin who are aspiring data scientists and AI researchers. Our mission
+                  is to provide an online environment (utilizing the familiar Jupyter
+                  Notebooks) for students to run machine-learning/data-science workloads
+                  without worrying about software package and GPU management. With
+                  OpenEduML you can run TensorFlow, R, Scala programs on an online Jupyter
+                  Notebooks environment. Even for users who have all the necessary
+                  software installed, OpenEduML allows you to run and access your programs
+                  from anywhere with just an internet connection. We offer limited FREE
+                  access for all users in addition to premium options!
                 </h5>
               </Col>
             </Row>
@@ -49,21 +53,15 @@ const LandingPage = () => {
               <Row>
                 <Col md="6">
                   <div className="image-container">
-                    <Logo
-                      className="image-container"
-                      style={{ width: "100%" }}
-                    />
-                    <h3 style={{ marginTop: 65 }}>
-                      Powered by Jupyter Notebooks
-                    </h3>
+                    <Logo className="image-container" style={{ width: "100%" }} />
+                    <h3 style={{ marginTop: 65 }}>Powered by Jupyter Notebooks</h3>
                     <p>
-                      OpenEduML utilizes Jupyter's open-source platform and
-                      integrates JupyterHub with Jupyter Enterprise Gateway.
-                      Jupyterhub provides clients with a frontend UI to manage
-                      users and takes care of instantiating notebook server
-                      instances for each user. Each individual notebook instance
-                      is then able to launch multiple kernels distributed
-                      efficiently across the cluster when connected to
+                      OpenEduML utilizes Jupyter's open-source platform and integrates
+                      JupyterHub with Jupyter Enterprise Gateway. Jupyterhub provides
+                      clients with a frontend UI to manage users and takes care of
+                      instantiating notebook server instances for each user. Each
+                      individual notebook instance is then able to launch multiple kernels
+                      distributed efficiently across the cluster when connected to
                       Enterprise Gateway
                     </p>
                   </div>
@@ -77,16 +75,15 @@ const LandingPage = () => {
                 </Col>
                 <Col md="6" style={{ paddingLeft: 36 }}>
                   <h3>
-                    OpenEduML is an online platform that provides cloud
-                    infrastructure for efficiently running data-science
-                    workloads.
+                    OpenEduML is an online platform that provides cloud infrastructure for
+                    efficiently running data-science workloads.
                   </h3>
                   <p>
-                    OpenEduML provides clients access to a fully-managed cluster
-                    hosted on cloud infrastructure. The OpenEduML team provides
-                    an online IDE powered by Jupyter Notebooks connected to a
-                    gateway which leverages kubernetes to efficiently distribute
-                    individual kernels across the cluster
+                    OpenEduML provides clients access to a fully-managed cluster hosted on
+                    cloud infrastructure. The OpenEduML team provides an online IDE
+                    powered by Jupyter Notebooks connected to a gateway which leverages
+                    kubernetes to efficiently distribute individual kernels across the
+                    cluster
                   </p>
 
                   <Logo2

@@ -9,8 +9,7 @@ const LandingPageHeader = () => {
     if (window.innerWidth > 991) {
       const updateScroll = () => {
         let windowScrollTop = window.pageYOffset / 3;
-        pageHeader.current.style.transform =
-          "translate3d(0," + windowScrollTop + "px,0)";
+        pageHeader.current.style.transform = "translate3d(0," + windowScrollTop + "px,0)";
       };
       window.addEventListener("scroll", updateScroll);
       return function cleanup() {
@@ -30,7 +29,12 @@ const LandingPageHeader = () => {
         ></div>
         <div className="content-center">
           <Container>
-            <h1 className="title">Welcome to OpenEduML</h1>
+            <h1 className="title" style={{ marginTop: 0 }}>
+              Welcome to OpenEduML
+            </h1>
+            <h3 className="title">
+              Built by data-science students for data-science students
+            </h3>
           </Container>
         </div>
       </div>
