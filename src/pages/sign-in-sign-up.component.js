@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
 import { connect } from "react-redux";
 // core components
-import NavbarMain from "../components/Navbars/navbar.component.js";
-import LoginForm from "../components/login-form.component";
-import RegisterForm from "../components/register-form.component";
-import GenericModal from "../components/generic-modal.component";
+import NavbarMain from "components/Navbars/navbar.component.js";
+import LoginForm from "../components/SignInSignOut/login-form.component";
+import RegisterForm from "../components/SignInSignOut/register-form.component";
+import GenericModal from "../components/SignInSignOut/generic-modal.component";
 // import TransparentFooter from "components/Footers/TransparentFooter.js";
 import Background from "../assets/img/login-background.png";
 import { clearLoginError } from "../redux/alerts/alerts.actions";

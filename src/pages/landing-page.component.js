@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 // reactstrap components
 import { Container, Row, Col } from "reactstrap";
 // core components
-import NavbarMain from "../components/Navbars/navbar.component.js";
+import NavbarMain from "components/Navbars/navbar.component.js";
 import LandingPageHeader from "../components/Headers/landing-header.component";
 import { ReactComponent as Logo } from "../assets/img/diagram-one.svg";
 import { ReactComponent as Logo2 } from "../assets/img/JupyterHub.svg";

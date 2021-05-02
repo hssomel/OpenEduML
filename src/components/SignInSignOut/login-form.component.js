@@ -12,8 +12,8 @@ import {
   InputGroup,
 } from "reactstrap";
 import { connect } from "react-redux";
-import { auth, signInWithGoogle } from "../firebase/firebase.utils";
-import { setLoginError } from "../redux/alerts/alerts.actions";
+import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
+import { setLoginError } from "../../redux/alerts/alerts.actions";
 
 const LoginForm = ({ setLoginError }) => {
   const [firstFocus, setFirstFocus] = useState(false);
@@ -70,9 +70,7 @@ const LoginForm = ({ setLoginError }) => {
           </CardHeader>
           <CardBody>
             <InputGroup
-              className={
-                "no-border input-lg" + (firstFocus ? " input-group-focus" : "")
-              }
+              className={"no-border input-lg" + (firstFocus ? " input-group-focus" : "")}
             >
               <InputGroupAddon addonType="prepend">
                 <InputGroupText>
@@ -90,9 +88,7 @@ const LoginForm = ({ setLoginError }) => {
             </InputGroup>
             {/* */}
             <InputGroup
-              className={
-                "no-border input-lg" + (lastFocus ? " input-group-focus" : "")
-              }
+              className={"no-border input-lg" + (lastFocus ? " input-group-focus" : "")}
             >
               <InputGroupAddon addonType="prepend">
                 <InputGroupText>
@@ -133,11 +129,7 @@ const LoginForm = ({ setLoginError }) => {
             </Button>
             <div className="pull-right">
               <h6>
-                <a
-                  className="link"
-                  href="/"
-                  onClick={(e) => e.preventDefault()}
-                >
+                <a className="link" href="/" onClick={(e) => e.preventDefault()}>
                   Need Help?
                 </a>
               </h6>

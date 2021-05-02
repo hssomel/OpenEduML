@@ -14,8 +14,8 @@ import {
   InputGroup,
 } from "reactstrap";
 import { connect } from "react-redux";
-import { auth, createUserProfileDocument } from "../firebase/firebase.utils";
-import { setLoginError } from "../redux/alerts/alerts.actions";
+import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
+import { setLoginError } from "../../redux/alerts/alerts.actions";
 
 const RegisterForm = ({ setLoginError }) => {
   const [firstFocus, setfirstFocus] = useState(false);
@@ -55,10 +55,7 @@ const RegisterForm = ({ setLoginError }) => {
       return;
     }
     try {
-      const { user } = await auth.createUserWithEmailAndPassword(
-        email,
-        password
-      );
+      const { user } = await auth.createUserWithEmailAndPassword(email, password);
       await createUserProfileDocument(user, { displayName });
     } catch (error) {
       setDisplayName("");
@@ -85,9 +82,7 @@ const RegisterForm = ({ setLoginError }) => {
           </CardHeader>
           <CardBody>
             <InputGroup
-              className={
-                "no-border input-lg" + (firstFocus ? " input-group-focus" : "")
-              }
+              className={"no-border input-lg" + (firstFocus ? " input-group-focus" : "")}
             >
               <InputGroupAddon addonType="prepend">
                 <InputGroupText>
@@ -105,9 +100,7 @@ const RegisterForm = ({ setLoginError }) => {
               ></Input>
             </InputGroup>
             <InputGroup
-              className={
-                "no-border input-lg" + (secondFocus ? " input-group-focus" : "")
-              }
+              className={"no-border input-lg" + (secondFocus ? " input-group-focus" : "")}
             >
               <InputGroupAddon addonType="prepend">
                 <InputGroupText>
@@ -124,9 +117,7 @@ const RegisterForm = ({ setLoginError }) => {
               ></Input>
             </InputGroup>
             <InputGroup
-              className={
-                "no-border input-lg" + (thirdFocus ? " input-group-focus" : "")
-              }
+              className={"no-border input-lg" + (thirdFocus ? " input-group-focus" : "")}
             >
               <InputGroupAddon addonType="prepend">
                 <InputGroupText>
@@ -144,9 +135,7 @@ const RegisterForm = ({ setLoginError }) => {
               ></Input>
             </InputGroup>
             <InputGroup
-              className={
-                "no-border input-lg" + (fourthFocus ? " input-group-focus" : "")
-              }
+              className={"no-border input-lg" + (fourthFocus ? " input-group-focus" : "")}
             >
               <InputGroupAddon addonType="prepend">
                 <InputGroupText>
@@ -177,11 +166,7 @@ const RegisterForm = ({ setLoginError }) => {
 
             <div className="pull-right">
               <h6>
-                <a
-                  className="link"
-                  href="/"
-                  onClick={(e) => e.preventDefault()}
-                >
+                <a className="link" href="/" onClick={(e) => e.preventDefault()}>
                   Need Help?
                 </a>
               </h6>
