@@ -67,7 +67,8 @@ const AdminPage = ({ ...rest }) => {
       <div className={classes.mainPanel} ref={mainPanel}>
         <div className={classes.content}>
           <div className={classes.container}>
-            <Dashboard />
+            {" "}
+            <Dashboard />{" "}
           </div>
         </div>
       </div>

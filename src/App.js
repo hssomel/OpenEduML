@@ -7,6 +7,7 @@ import SignInSignUpPage from "./pages/sign-in-sign-up.component";
 import AdminPage from "./pages/admin.component";
 import PaymentPage from "./pages/payment.component";
 import ProfilePage from "./pages/profile.component";
+import ContactPage from "./pages/contact.component";
 //
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/user/user.actions";
@@ -58,6 +59,7 @@ const App = ({ currentUser, setCurrentUser }) => {
       />
       <Route exact path="/admin/dashboard" render={(props) => <AdminPage {...props} />} />
       <Route exact path="/admin/profile" render={(props) => <ProfilePage {...props} />} />
+      <Route exact path="/admin/contact" render={(props) => <ContactPage {...props} />} />
       <Route exact path="/admin/payment" render={(props) => <PaymentPage {...props} />} />
       <Route
         exact

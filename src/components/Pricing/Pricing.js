@@ -20,12 +20,10 @@ const Pricing = () => {
   const classes = useStyles();
   //
   return (
-    <div className={classNames(classes.main, classes.mainRaised)}>
-      <div className={classes.container}>
-        <SectionPricing />
-        <hr />
-        <SectionFeatures />
-      </div>
+    <div className={classes.containerFluid}>
+      <SectionPricing />
+      <hr />
+      <SectionFeatures />
     </div>
   );
 };

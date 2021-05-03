@@ -40,7 +40,7 @@ export default function SectionPricing() {
         </GridItem>
       </GridContainer>
       <GridContainer>
-        <GridItem md={4} sm={4}>
+        <GridItem xs={12} lg={4}>
           <Card plain pricing>
             <CardBody pricing>
               <h6 className={classNames(classes.cardCategory, classes.textInfo)}>Free</h6>
@@ -67,7 +67,7 @@ export default function SectionPricing() {
             </CardBody>
           </Card>
         </GridItem>
-        <GridItem md={4} sm={4}>
+        <GridItem xs={12} lg={4}>
           <Card raised pricing color="rose">
             <CardBody pricing>
               <h6 className={classes.cardCategory}>Premium</h6>
@@ -94,7 +94,7 @@ export default function SectionPricing() {
             </CardBody>
           </Card>
         </GridItem>
-        <GridItem md={4} sm={4}>
+        <GridItem xs={12} lg={4}>
           <Card plain pricing>
             <CardBody pricing>
               <h6 className={classNames(classes.cardCategory, classes.textInfo)}>

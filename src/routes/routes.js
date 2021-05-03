@@ -19,15 +19,16 @@ const dashboardRoutes = [
     icon: Person,
   },
   {
-    path: "/admin/contactus",
-    name: "Contact us",
-    icon: Unarchive,
-  },
-  {
     path: "/admin/notifications",
     name: "Notifications",
     icon: Unarchive,
   },
+  {
+    path: "/admin/contact",
+    name: "Contact us",
+    icon: Unarchive,
+  },
+
   {
     path: "/admin/upgrade",
     name: "Upgrade To PRO",
