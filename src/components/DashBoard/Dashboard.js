@@ -5,7 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import StatusGauges from "./customdashcomponents/StatusGauges.component";
 import UsageHistory from "./customdashcomponents/UsageHistory.component";
 import ClusterAccessFree from "./customdashcomponents/ClusterAccess.component";
-import DetailedSpecs from "./customdashcomponents/DetailedSpecs.component";
+
 import BillingChart from "./customdashcomponents/BillingChart.component";
 
 const Dashboard = () => {
