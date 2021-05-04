@@ -14,7 +14,7 @@ const getXLabels = () => {
     xLabels.push("" + mo + "/" + day);
     counter--;
     day--;
-    let a = Math.floor(Math.random() * 24);
+    let a = Math.floor(Math.random() * 6) + Math.floor(Math.random() * 4);
     dataPoints.push(a);
   }
   xLabels.reverse();
@@ -48,8 +48,8 @@ let chart_1_2_3_options = {
           zeroLineColor: "transparent",
         },
         ticks: {
-          suggestedMin: 8,
-          suggestedMax: 24,
+          suggestedMin: 0,
+          suggestedMax: 10,
           padding: 20,
           fontColor: "#9a9a9a",
         },

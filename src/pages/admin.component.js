@@ -5,6 +5,7 @@ import "perfect-scrollbar/css/perfect-scrollbar.css";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // core components
+import AdminNavbar from "components/Navbars/admin.navbar.js";
 import Dashboard from "../components/DashBoard/Dashboard.js";
 import Sidebar from "../components/Sidebar/Sidebar.js";
 import routes from "../routes/routes.js";
@@ -65,6 +66,7 @@ const AdminPage = ({ ...rest }) => {
         {...rest}
       />
       <div className={classes.mainPanel} ref={mainPanel}>
+        <AdminNavbar routes={routes} handleDrawerToggle={handleDrawerToggle} {...rest} />
         <div className={classes.content}>
           <div className={classes.container}>
             {" "}

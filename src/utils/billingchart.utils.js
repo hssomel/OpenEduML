@@ -44,7 +44,7 @@ let chartExample3 = {
       labels: xLabels,
       datasets: [
         {
-          label: "Countries",
+          label: "Monthly Bill",
           fill: true,
           backgroundColor: gradientStroke,
           hoverBackgroundColor: gradientStroke,
