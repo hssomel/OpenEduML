@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import classNames from "classnames";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -14,11 +14,11 @@ import styles from "assets/jss/material-dashboard-react/components/headerStyle.j
 
 const useStyles = makeStyles(styles);
 
-export default function AdminNavbar(props) {
+const AdminNavbar = (props) => {
   const classes = useStyles();
 
   const { color } = props;
-  const [navbarColor, setNavbarColor] = useState(color);
+  const [navbarColor] = useState(color);
   const appBarClasses = classNames({
     [" " + classes[color]]: navbarColor,
   });
@@ -42,4 +42,6 @@ export default function AdminNavbar(props) {
       </Toolbar>
     </AppBar>
   );
-}
+};
+
+export default AdminNavbar;
