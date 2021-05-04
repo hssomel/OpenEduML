@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import classNames from "classnames";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -14,15 +14,17 @@ import styles from "assets/jss/material-dashboard-react/components/headerStyle.j
 
 const useStyles = makeStyles(styles);
 
-const AdminNavbar = (props) => {
+export default function AdminNavbar(props) {
   const classes = useStyles();
 
   const { color } = props;
+  const [navbarColor, setNavbarColor] = useState(color);
   const appBarClasses = classNames({
-    [" " + classes[color]]: color,
+    [" " + classes[color]]: navbarColor,
   });
+
   return (
-    <AppBar className={classes.appBar + appBarClasses}>
+    <AppBar position="static" className={classes.appBar + appBarClasses}>
       <Toolbar className={classes.container}>
         <div className={classes.flex}></div>
         <Hidden smDown implementation="css">
@@ -40,6 +42,4 @@ const AdminNavbar = (props) => {
       </Toolbar>
     </AppBar>
   );
-};
-
-export default AdminNavbar;
+}

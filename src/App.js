@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 // Pages
+import TestPage from "./pages/testpage.component";
 import LandingPage from "./pages/landing-page.component";
 import SignInSignUpPage from "./pages/sign-in-sign-up.component";
 import AdminPage from "./pages/admin.component";
@@ -57,19 +58,16 @@ const App = ({ currentUser, setCurrentUser }) => {
           )
         }
       />
-      <Route exact path="/admin/dashboard" render={(props) => <AdminPage {...props} />} />
+      <Route exact path="/admin/dashboard" component={AdminPage} />
       <Route exact path="/admin/profile" render={(props) => <ProfilePage {...props} />} />
+      <Route exact path="/testpage" component={TestPage} />
       <Route exact path="/admin/contact" render={(props) => <ContactPage {...props} />} />
       <Route exact path="/admin/payment" render={(props) => <PaymentPage {...props} />} />
       <Route
         exact
         path="/admin/upgrade"
-        render={(routeProps) =>
-          currentUser ? (
-            <Redirect to="/admin/payment" {...routeProps} />
-          ) : (
-            <Redirect to="/signin" {...routeProps} />
-          )
+        render={() =>
+          currentUser ? <Redirect to="/admin/payment" /> : <Redirect to="/signin" />
         }
       />
     </Switch>

@@ -29,6 +29,8 @@ const UsageHistory = () => {
             marginTop: 10,
             marginBottom: 0,
             fontSize: 22,
+            color: "#b4b4b4",
+            fontWeight: 700,
           }}
         >
           Daily Usage
