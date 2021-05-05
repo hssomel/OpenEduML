@@ -26,9 +26,22 @@ const AdminNavbar = (props) => {
   return (
     <AppBar position="static" className={classes.appBar + appBarClasses}>
       <Toolbar className={classes.container}>
-        <div className={classes.flex}></div>
-        <Hidden smDown implementation="css">
-          {<AdminNavbarLinks />}
+        <Hidden smDown>
+          <div
+            className={classes.flex}
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              paddingLeft: 24,
+            }}
+          >
+            <IconButton color="inherit" aria-label="open drawer" onClick={props.toggleOpen}>
+              <Menu />
+            </IconButton>
+
+            <AdminNavbarLinks />
+          </div>
         </Hidden>
         <Hidden mdUp implementation="css">
           <IconButton

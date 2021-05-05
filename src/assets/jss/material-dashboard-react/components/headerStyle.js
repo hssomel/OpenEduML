@@ -2,7 +2,6 @@ import {
   container,
   defaultFont,
   primaryColor,
-  defaultBoxShadow,
   infoColor,
   successColor,
   warningColor,
@@ -24,15 +23,15 @@ const headerStyle = () => ({
     color: grayColor[7],
     border: "0",
     borderRadius: "3px",
-    padding: "10px 0",
+    padding: "5px 0",
     transition: "all 150ms ease 0s",
-    minHeight: "50px",
+    minHeight: "45px",
     display: "block",
     opacity: "90%",
   },
   container: {
     ...container,
-    minHeight: "50px",
+    minHeight: "45px",
   },
   flex: {
     flex: 1,
@@ -56,27 +55,27 @@ const headerStyle = () => ({
   primary: {
     backgroundColor: primaryColor[0],
     color: whiteColor,
-    ...defaultBoxShadow,
+    // ...defaultBoxShadow,
   },
   info: {
     backgroundColor: infoColor[0],
     color: whiteColor,
-    ...defaultBoxShadow,
+    // ...defaultBoxShadow,
   },
   success: {
     backgroundColor: successColor[0],
     color: whiteColor,
-    ...defaultBoxShadow,
+    // ...defaultBoxShadow,
   },
   warning: {
     backgroundColor: warningColor[0],
     color: whiteColor,
-    ...defaultBoxShadow,
+    // ...defaultBoxShadow,
   },
   danger: {
     backgroundColor: dangerColor[0],
     color: whiteColor,
-    ...defaultBoxShadow,
+    // ...defaultBoxShadow,
   },
 });
 

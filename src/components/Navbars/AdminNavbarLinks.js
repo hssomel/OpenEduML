@@ -101,9 +101,7 @@ export default function AdminNavbarLinks() {
           transition
           disablePortal
           className={
-            classNames({ [classes.popperClose]: !openNotification }) +
-            " " +
-            classes.popperNav
+            classNames({ [classes.popperClose]: !openNotification }) + " " + classes.popperNav
           }
         >
           {({ TransitionProps, placement }) => (
@@ -189,23 +187,14 @@ export default function AdminNavbarLinks() {
               <Paper>
                 <ClickAwayListener onClickAway={handleCloseProfile}>
                   <MenuList role="menu">
-                    <MenuItem
-                      onClick={handleCloseProfile}
-                      className={classes.dropdownItem}
-                    >
+                    <MenuItem onClick={handleCloseProfile} className={classes.dropdownItem}>
                       Profile
                     </MenuItem>
-                    <MenuItem
-                      onClick={handleCloseProfile}
-                      className={classes.dropdownItem}
-                    >
+                    <MenuItem onClick={handleCloseProfile} className={classes.dropdownItem}>
                       Settings
                     </MenuItem>
                     <Divider light />
-                    <MenuItem
-                      onClick={handleCloseProfile}
-                      className={classes.dropdownItem}
-                    >
+                    <MenuItem onClick={handleCloseProfile} className={classes.dropdownItem}>
                       Logout
                     </MenuItem>
                   </MenuList>
