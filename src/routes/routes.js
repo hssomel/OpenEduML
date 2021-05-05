@@ -28,12 +28,6 @@ const dashboardRoutes = [
     name: "Contact us",
     icon: Unarchive,
   },
-
-  {
-    path: "/admin/upgrade",
-    name: "Upgrade To PRO",
-    icon: Unarchive,
-  },
 ];
 
 export default dashboardRoutes;

@@ -6,6 +6,9 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Hidden from "@material-ui/core/Hidden";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import Button from "components/DashBoard/dashcomponents/CustomButtons/Button.js";
 // @material-ui/icons
 import Menu from "@material-ui/icons/Menu";
 // core components
@@ -33,12 +36,22 @@ const AdminNavbar = (props) => {
               display: "flex",
               flexDirection: "row",
               justifyContent: "space-between",
-              paddingLeft: 24,
+              paddingLeft: 25,
             }}
           >
-            <IconButton color="inherit" aria-label="open drawer" onClick={props.toggleOpen}>
-              <Menu />
-            </IconButton>
+            <Button
+              color="white"
+              aria-label="open drawer"
+              justIcon
+              round
+              onClick={props.toggleOpen}
+            >
+              {props.sideOpen ? (
+                <ChevronLeftIcon style={{ backgroundColor: "white" }} />
+              ) : (
+                <ChevronRightIcon />
+              )}
+            </Button>
 
             <AdminNavbarLinks />
           </div>
