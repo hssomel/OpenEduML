@@ -20,10 +20,7 @@ const NavbarMain = ({ currentUser }) => {
   // lifecycle
   useEffect(() => {
     const updateNavbarColor = () => {
-      if (
-        document.documentElement.scrollTop > 399 ||
-        document.body.scrollTop > 399
-      ) {
+      if (document.documentElement.scrollTop > 399 || document.body.scrollTop > 399) {
         setNavbarColor("");
       } else if (
         document.documentElement.scrollTop < 400 ||
@@ -64,10 +61,7 @@ const NavbarMain = ({ currentUser }) => {
         style={{ backgroundColor: "#20232a" }}
       >
         <Container>
-          <UncontrolledDropdown
-            className="button-dropdown"
-            style={{ marginRight: -20 }}
-          >
+          <UncontrolledDropdown className="button-dropdown" style={{ marginRight: -20 }}>
             <Link to="/">
               <Logo style={styles.logo} />
             </Link>
@@ -90,20 +84,12 @@ const NavbarMain = ({ currentUser }) => {
               <span className="navbar-toggler-bar bottom-bar"></span>
             </button>
           </div>
-          <Collapse
-            className="justify-content-end"
-            isOpen={collapseOpen}
-            navbar
-          >
+          <Collapse className="justify-content-end" isOpen={collapseOpen} navbar>
             <Nav navbar>
               <NavItem>
                 {currentUser ? (
                   <div onClick={() => handleSignOut()}>
-                    <NavLink
-                      to="/"
-                      tag={Link}
-                      style={{ fontSize: 15, fontWeight: 700 }}
-                    >
+                    <NavLink to="/" tag={Link} style={{ fontSize: 15, fontWeight: 700 }}>
                       SIGN OUT
                     </NavLink>
                   </div>
@@ -118,11 +104,7 @@ const NavbarMain = ({ currentUser }) => {
                 )}
               </NavItem>
               <NavItem>
-                <NavLink
-                  to="/admin"
-                  tag={Link}
-                  style={{ fontSize: 15, fontWeight: 700 }}
-                >
+                <NavLink to="/admin" tag={Link} style={{ fontSize: 15, fontWeight: 700 }}>
                   CONSOLE
                 </NavLink>
               </NavItem>

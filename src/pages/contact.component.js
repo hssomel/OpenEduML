@@ -1,40 +1,69 @@
-import React, { useState, useEffect } from "react";
-// @material-ui/core components
+import React from "react";
+import classNames from "classnames";
 import { makeStyles } from "@material-ui/core/styles";
-// core components
+import CustomSkinMap from "components/Contact/GoogleMap.component";
 import Contact from "components/Contact/Contact";
-// import Sidebar from "../components/Sidebar/Sidebar.js";
-import MiniSideBar from "components/Sidebar/MiniSideBar";
-import routes from "../routes/routes.js";
-import styles from "../assets/jss/material-dashboard-react/layouts/adminStyle.js";
-import bgImage from "../assets/img/sidebar-2.jpg";
-import logo from "../assets/img/reactlogo.png";
+import Header from "components/proTheme/Headers/ContactHeader.js";
+import HeaderLinks from "components/proTheme/Headers/ContactHeaderLinks.js";
+import Footer from "components/proTheme/Footers/ContactFooter.component";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import { Link } from "react-router-dom";
+import contactUsStyle from "assets/jss/material-kit-pro-react/views/contactUsStyle.js";
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles(contactUsStyle);
 
-const ContactPage = ({ ...rest }) => {
+const ContactPage = () => {
   const classes = useStyles();
-  const mainPanel = React.createRef();
-  // states and functions
-  const [image] = useState(bgImage);
-  const [color] = useState("blue");
-  const [sideOpen, setSideOpen] = useState(false);
 
   return (
-    <div className={classes.wrapper} style={{ backgroundColor: "#eeeeee" }}>
-      {/* <Sidebar
-        routes={routes}
-        logo={logo}
-        image={image}
-        handleDrawerToggle={handleDrawerToggle}
-        open={mobileOpen}
-        color={color}
-        {...rest}
-      /> */}
-      {/* <MiniSideBar sideOpen={sideOpen} /> */}
-      <div className={classes.mainPanel} ref={mainPanel}>
+    <div>
+      <Header
+        brand="OPENEDUML"
+        links={<HeaderLinks dropdownHoverColor="dark" />}
+        fixed
+        color="dark"
+      />
+      <div className={classes.bigMap}>
+        <CustomSkinMap
+          googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_API_KEY}`}
+          loadingElement={<div style={{ height: `100%` }} />}
+          containerElement={
+            <div
+              style={{
+                height: `100%`,
+                borderRadius: "6px",
+                overflow: "hidden",
+              }}
+            />
+          }
+          mapElement={<div style={{ height: `100%` }} />}
+        />
+      </div>
+      <div className={classNames(classes.main, classes.mainRaised)}>
         <Contact />
       </div>
+      <Footer
+        content={
+          <div>
+            <div className={classes.left}>
+              <List className={classes.list}>
+                <ListItem className={classes.inlineBlock}>
+                  <Link to="/" className={classes.block}>
+                    OPENEDUML
+                  </Link>
+                </ListItem>
+                <ListItem className={classes.inlineBlock}>
+                  <Link to="/" className={classes.block}>
+                    About us
+                  </Link>
+                </ListItem>
+              </List>
+            </div>
+            <div className={classes.right}>&copy; {1900 + new Date().getYear()}</div>
+          </div>
+        }
+      />
     </div>
   );
 };

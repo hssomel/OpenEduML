@@ -17,7 +17,7 @@ const AdminPage = () => {
   //  event handlers
   const openSideBar = () => {
     setSideOpen(!sideOpen);
-    let pad = dashPadding === 100 ? 240 : 100;
+    let pad = dashPadding === 100 ? 220 : 100;
     setDashPadding(pad);
   };
 
@@ -49,7 +49,7 @@ const AdminPage = () => {
           className={classes.mainPanel}
           id="myDiv"
           ref={mainPanel}
-          style={{ overflowX: "hidden", paddingLeft: dashPadding }}
+          style={{ overflowX: "hidden", paddingLeft: dashPadding, paddingTop: 10 }}
         >
           <div className={classes.content}>
             <div className={classes.container} style={{ marginTop: 36 }}>

@@ -17,19 +17,14 @@ const Dashboard = () => {
         </Grid>
       </Grid>
       <StatusGauges />
-      <Grid container spacing={6} style={{ marginTop: 10 }}>
-        <Grid item xs={12} lg={6} style={{ paddingTop: 0 }}>
+      <Grid container spacing={4} style={{ marginTop: 10 }}>
+        <Grid item xs={12} lg={4} style={{ paddingTop: 0 }}>
           <ClusterAccessFree />
         </Grid>
-        <Grid item xs={12} lg={6} style={{ paddingTop: 0 }}>
+        <Grid item xs={12} lg={4} style={{ paddingTop: 0 }}>
           <BillingChart />
         </Grid>
-      </Grid>
-      <Grid container spacing={6} style={{ marginTop: 10 }}>
-        <Grid item xs={12} lg={6} style={{ paddingTop: 0 }}>
-          <ClusterAccessFree />
-        </Grid>
-        <Grid item xs={12} lg={6} style={{ paddingTop: 0 }}>
+        <Grid item xs={12} lg={4} style={{ paddingTop: 0 }}>
           <BillingChart />
         </Grid>
       </Grid>

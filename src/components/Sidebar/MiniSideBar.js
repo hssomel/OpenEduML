@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     }),
     overflowY: "hidden",
     overflowX: "hidden",
-    width: 210,
+    width: 190,
     marginLeft: 20,
     background: "linear-gradient(#0772db, #1d8cf8)",
     marginTop: 60,
