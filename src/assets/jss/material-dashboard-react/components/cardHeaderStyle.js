@@ -4,6 +4,11 @@ import {
   dangerCardHeader,
   infoCardHeader,
   primaryCardHeader,
+  primary1CardHeader,
+  primary2CardHeader,
+  primary3CardHeader,
+  primary4CardHeader,
+  primary5CardHeader,
   roseCardHeader,
   whiteColor,
 } from "../../material-dashboard-react.js";
@@ -15,7 +20,7 @@ const cardHeaderStyle = {
     borderBottom: "none",
     background: "transparent",
     zIndex: "3 !important",
-    "&$cardHeaderPlain,&$cardHeaderIcon,&$cardHeaderStats,&$warningCardHeader,&$successCardHeader,&$dangerCardHeader,&$infoCardHeader,&$primaryCardHeader,&$roseCardHeader": {
+    "&$cardHeaderPlain,&$cardHeaderIcon,&$cardHeaderStats,&$warningCardHeader,&$successCardHeader,&$dangerCardHeader,&$infoCardHeader,&$primaryCardHeader,&$primary1CardHeader,&$primary2CardHeader,&$primary3CardHeader,&$primary4CardHeader,&$primary5CardHeader,&$roseCardHeader": {
       margin: "0 15px",
       padding: "0",
       position: "relative",
@@ -24,7 +29,7 @@ const cardHeaderStyle = {
     "&:first-child": {
       borderRadius: "calc(.25rem - 1px) calc(.25rem - 1px) 0 0",
     },
-    "&$warningCardHeader,&$successCardHeader,&$dangerCardHeader,&$infoCardHeader,&$primaryCardHeader,&$roseCardHeader": {
+    "&$warningCardHeader,&$successCardHeader,&$dangerCardHeader,&$infoCardHeader,&$primaryCardHeader,&$primary1CardHeader,&$primary2CardHeader,&$primary3CardHeader,&$primary4CardHeader,&$primary5CardHeader,&$roseCardHeader": {
       "&:not($cardHeaderIcon)": {
         borderRadius: "3px",
         marginTop: "-20px",
@@ -65,7 +70,7 @@ const cardHeaderStyle = {
     },
   },
   cardHeaderIcon: {
-    "&$warningCardHeader,&$successCardHeader,&$dangerCardHeader,&$infoCardHeader,&$primaryCardHeader,&$roseCardHeader": {
+    "&$warningCardHeader,&$successCardHeader,&$dangerCardHeader,&$infoCardHeader,&$primaryCardHeader,&$primary1CardHeader,&$primary2CardHeader,&$primary3CardHeader,&$primary4CardHeader,&$primary5CardHeader,&$roseCardHeader": {
       background: "transparent",
       boxShadow: "none",
     },
@@ -117,6 +122,36 @@ const cardHeaderStyle = {
     color: whiteColor,
     "&:not($cardHeaderIcon)": {
       ...roseCardHeader,
+    },
+  },
+  primary1CardHeader: {
+    color: whiteColor,
+    "&:not($cardHeaderIcon)": {
+      ...primary1CardHeader,
+    },
+  },
+  primary2CardHeader: {
+    color: whiteColor,
+    "&:not($cardHeaderIcon)": {
+      ...primary2CardHeader,
+    },
+  },
+  primary3CardHeader: {
+    color: whiteColor,
+    "&:not($cardHeaderIcon)": {
+      ...primary3CardHeader,
+    },
+  },
+  primary4CardHeader: {
+    color: whiteColor,
+    "&:not($cardHeaderIcon)": {
+      ...primary4CardHeader,
+    },
+  },
+  primary5CardHeader: {
+    color: whiteColor,
+    "&:not($cardHeaderIcon)": {
+      ...primary5CardHeader,
     },
   },
 };

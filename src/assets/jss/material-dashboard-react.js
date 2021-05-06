@@ -38,13 +38,7 @@ const hexToRgb = (input) => {
   let first = input[0] + input[1];
   let second = input[2] + input[3];
   let last = input[4] + input[5];
-  return (
-    parseInt(first, 16) +
-    ", " +
-    parseInt(second, 16) +
-    ", " +
-    parseInt(last, 16)
-  );
+  return parseInt(first, 16) + ", " + parseInt(second, 16) + ", " + parseInt(last, 16);
 };
 
 // ##############################
@@ -154,33 +148,50 @@ const roseBoxShadow = {
 };
 
 const warningCardHeader = {
-  background:
-    "linear-gradient(60deg, " + warningColor[1] + ", " + warningColor[2] + ")",
+  background: "linear-gradient(60deg, " + warningColor[1] + ", " + warningColor[2] + ")",
   ...warningBoxShadow,
 };
 const successCardHeader = {
-  background:
-    "linear-gradient(60deg, " + successColor[1] + ", " + successColor[2] + ")",
+  background: "linear-gradient(60deg, " + successColor[1] + ", " + successColor[2] + ")",
   ...successBoxShadow,
 };
 const dangerCardHeader = {
-  background:
-    "linear-gradient(60deg, " + dangerColor[1] + ", " + dangerColor[2] + ")",
+  background: "linear-gradient(60deg, " + dangerColor[1] + ", " + dangerColor[2] + ")",
   ...dangerBoxShadow,
 };
 const infoCardHeader = {
-  background:
-    "linear-gradient(60deg, " + infoColor[1] + ", " + infoColor[2] + ")",
+  background: "linear-gradient(60deg, " + infoColor[1] + ", " + infoColor[2] + ")",
   ...infoBoxShadow,
 };
 const primaryCardHeader = {
-  background:
-    "linear-gradient(60deg, " + primaryColor[1] + ", " + primaryColor[2] + ")",
+  background: "linear-gradient(60deg, " + primaryColor[1] + ", " + primaryColor[2] + ")",
   ...primaryBoxShadow,
 };
+//
+const primary1CardHeader = {
+  background: "linear-gradient(60deg, " + "#1d8cf8" + ", " + "#3358f4" + ")",
+  ...infoBoxShadow,
+};
+const primary2CardHeader = {
+  background: "linear-gradient(60deg, " + "#00f2c3" + ", " + "#0098f0" + ")",
+  ...infoBoxShadow,
+};
+//
+const primary3CardHeader = {
+  background: "linear-gradient(60deg, " + "#e14eca" + ", " + "#ba54f5" + ")",
+  ...infoBoxShadow,
+};
+const primary4CardHeader = {
+  background: "linear-gradient(60deg, " + "#ff8d72" + ", " + "#ff6491" + ")",
+  ...primaryBoxShadow,
+};
+//
+const primary5CardHeader = {
+  background: "linear-gradient(60deg, " + "#fd5d93" + ", " + "#ec250d" + ")",
+  ...infoBoxShadow,
+};
 const roseCardHeader = {
-  background:
-    "linear-gradient(60deg, " + roseColor[1] + ", " + roseColor[2] + ")",
+  background: "linear-gradient(60deg, " + roseColor[1] + ", " + roseColor[2] + ")",
   ...roseBoxShadow,
 };
 
@@ -291,6 +302,11 @@ export {
   dangerCardHeader,
   infoCardHeader,
   primaryCardHeader,
+  primary1CardHeader,
+  primary2CardHeader,
+  primary3CardHeader,
+  primary4CardHeader,
+  primary5CardHeader,
   roseCardHeader,
   cardActions,
   cardHeader,

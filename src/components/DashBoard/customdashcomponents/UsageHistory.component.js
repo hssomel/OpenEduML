@@ -13,7 +13,7 @@ const UsageHistory = () => {
         paddingTop: 0,
         paddingBottom: 10,
         marginTop: 10,
-        alignItems: "center",
+        alignItems: "flex-start",
         paddingLeft: 0,
       }}
     >
@@ -24,13 +24,26 @@ const UsageHistory = () => {
           paddingBottom: 0,
         }}
       >
+        <h5
+          style={{
+            marginTop: 0,
+            marginBottom: 0,
+            fontSize: 12,
+            color: "#b4b4b4",
+            fontWeight: 400,
+            fontFamily: "Poppins",
+          }}
+        >
+          Jupyter Notebook
+        </h5>
         <h4
           style={{
-            marginTop: 10,
+            marginTop: 0,
             marginBottom: 0,
-            fontSize: 22,
+            fontSize: 24,
             color: "#b4b4b4",
-            fontWeight: 700,
+            fontWeight: 300,
+            fontFamily: "Poppins",
           }}
         >
           Daily Usage

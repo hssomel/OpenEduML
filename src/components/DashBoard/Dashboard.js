@@ -5,7 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import StatusGauges from "./customdashcomponents/StatusGauges.component";
 import UsageHistory from "./customdashcomponents/UsageHistory.component";
 import ClusterAccessFree from "./customdashcomponents/ClusterAccess.component";
-
+import PieChart from "./customdashcomponents/PieChart.component";
 import BillingChart from "./customdashcomponents/BillingChart.component";
 
 const Dashboard = () => {
@@ -25,7 +25,7 @@ const Dashboard = () => {
           <BillingChart />
         </Grid>
         <Grid item xs={12} lg={4} style={{ paddingTop: 0 }}>
-          <BillingChart />
+          <PieChart />
         </Grid>
       </Grid>
     </div>

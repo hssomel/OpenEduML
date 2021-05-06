@@ -15,6 +15,9 @@ const useStyles = makeStyles(contactUsStyle);
 
 const ContactPage = () => {
   const classes = useStyles();
+  React.useEffect(() => {
+    console.log(process.env.REACT_APP_API_KEY);
+  }, []);
 
   return (
     <div>

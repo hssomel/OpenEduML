@@ -18,7 +18,7 @@ const ClusterAccessFree = () => {
   const classes = useStyles();
   return (
     <Card>
-      <CardHeader color="info">
+      <CardHeader color="rose">
         <h4 style={{ margin: 0, fontWeight: 700 }}>
           Access your Free OpenEduML Jupyter Notebook
         </h4>

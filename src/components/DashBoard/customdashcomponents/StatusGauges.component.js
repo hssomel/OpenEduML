@@ -27,8 +27,8 @@ const StatusGauges = () => {
     <Grid container spacing={6} style={{ marginBottom: 15 }}>
       <Grid item xs={12} sm={6} lg={3}>
         <Card>
-          <CardHeader color="warning" stats icon>
-            <CardIcon color="warning">
+          <CardHeader color="primary5" stats icon>
+            <CardIcon color="primary5">
               <BatteryAlertIcon />
             </CardIcon>
             <p className={classes.cardCategory}>Notebook/Cluster State</p>
@@ -48,7 +48,7 @@ const StatusGauges = () => {
       <Grid item xs={12} sm={6} lg={3}>
         <Card>
           <CardHeader color="warning" stats icon>
-            <CardIcon color="danger">
+            <CardIcon color="warning">
               <AccessTime />
             </CardIcon>
             <p className={classes.cardCategory}>Time Remaining</p>
@@ -66,7 +66,7 @@ const StatusGauges = () => {
       <Grid item xs={12} sm={6} lg={3}>
         <Card>
           <CardHeader color="info" stats icon>
-            <CardIcon color="info">
+            <CardIcon color="primary1">
               <ComputerIcon />
             </CardIcon>
             <p className={classes.cardCategory}>Minimum Notebook CPU</p>
