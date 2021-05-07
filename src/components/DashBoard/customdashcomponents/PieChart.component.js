@@ -1,10 +1,11 @@
 import React from "react";
-import { Bar } from "react-chartjs-2";
+import { Bar, Pie } from "react-chartjs-2";
+import Grid from "@material-ui/core/Grid";
 // core components
 import Card from "../dashcomponents/Card/Card.js";
 import CardHeader from "../dashcomponents/Card/CardHeader.js";
 import CardBody from "../dashcomponents/Card/CardBody.js";
-import { chartExample3 } from "utils/billingchart.utils";
+import { chartExample10 } from "utils/billingchart.utils";
 
 const PieChart = () => {
   return (
@@ -14,8 +15,43 @@ const PieChart = () => {
           Billing Breakdown
         </h4>
       </CardHeader>
-      <CardBody style={{ marginTop: 10 }}>
-        <Bar data={chartExample3.data} options={chartExample3.options} />
+      <CardBody style={{ marginTop: 10, paddingBottom: 5 }}>
+        <Grid
+          container
+          style={{
+            minHeight: 280,
+            padding: 0,
+            margin: 0,
+            marginBottom: 0,
+          }}
+        >
+          <Grid
+            item
+            sm={6}
+            style={{
+              justifyContent: "center",
+              alignItems: "center",
+              display: "flex",
+            }}
+          >
+            <Pie
+              data={chartExample10.data}
+              options={chartExample10.options}
+              height={220}
+            />
+          </Grid>
+          <Grid
+            item
+            sm={6}
+            style={{
+              justifyContent: "center",
+              alignItems: "center",
+              display: "flex",
+            }}
+          >
+            <p>Breakdown</p>
+          </Grid>
+        </Grid>
       </CardBody>
     </Card>
   );

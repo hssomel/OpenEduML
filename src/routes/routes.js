@@ -1,6 +1,7 @@
 import Dashboard from "@material-ui/icons/Dashboard";
 import Person from "@material-ui/icons/Person";
-import Unarchive from "@material-ui/icons/Unarchive";
+import PinDropIcon from "@material-ui/icons/PinDrop";
+import CreditCardIcon from "@material-ui/icons/CreditCard";
 
 const dashboardRoutes = [
   {
@@ -16,17 +17,12 @@ const dashboardRoutes = [
   {
     path: "/admin/payment",
     name: "Payments",
-    icon: Person,
-  },
-  {
-    path: "/admin/notifications",
-    name: "Notifications",
-    icon: Unarchive,
+    icon: CreditCardIcon,
   },
   {
     path: "/admin/contact",
     name: "Contact us",
-    icon: Unarchive,
+    icon: PinDropIcon,
   },
 ];
 

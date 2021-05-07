@@ -145,6 +145,15 @@ const sidebarStyle = (theme) => ({
       color: whiteColor,
     },
   },
+  item2: {
+    position: "relative",
+    display: "block",
+    textDecoration: "none",
+    marginTop: 20,
+    "&:hover,&:focus,&:visited,&": {
+      color: whiteColor,
+    },
+  },
   itemLink: {
     width: "auto",
     transition: "all 300ms linear",
@@ -153,7 +162,6 @@ const sidebarStyle = (theme) => ({
     position: "relative",
     display: "block",
     padding: "10px 15px",
-    // backgroundColor: "red",
     ...defaultFont,
   },
   itemLink2: {
@@ -180,14 +188,15 @@ const sidebarStyle = (theme) => ({
     color: "rgba(" + hexToRgb(whiteColor) + ", 0.8)",
   },
   itemIcon2: {
-    width: "24px",
-    height: "30px",
-    fontSize: "24px",
-    lineHeight: "30px",
+    width: "28px",
+    height: "36px",
+    fontSize: "28px",
+    lineHeight: "42px",
     float: "left",
     marginRight: "15px",
     textAlign: "center",
     verticalAlign: "middle",
+    marginTop: 3,
     color: "rgba(" + hexToRgb(whiteColor) + ", 0.8)",
   },
   itemIconRTL: {
@@ -198,8 +207,9 @@ const sidebarStyle = (theme) => ({
   itemText: {
     ...defaultFont,
     margin: "0",
-    lineHeight: "30px",
-    fontSize: "14px",
+    lineHeight: "42px",
+    fontSize: "16px",
+    fontWeight: 400,
     color: whiteColor,
   },
   itemTextRTL: {

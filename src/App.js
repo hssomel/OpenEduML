@@ -2,15 +2,12 @@ import React, { useEffect } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 // Pages
-import TestPage from "./pages/testpage.component";
 import LandingPage from "./pages/landing-page.component";
 import SignInSignUpPage from "./pages/sign-in-sign-up.component";
 import AdminPage from "./pages/admin.component";
 import PaymentPage from "./pages/payment.component";
 import ProfilePage from "./pages/profile.component";
 import ContactPage from "./pages/contact.component";
-import NotificationPage from "./pages/notifications.component";
-//
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/user/user.actions";
 
@@ -63,8 +60,6 @@ const App = ({ currentUser, setCurrentUser }) => {
       <Route exact path="/admin/profile" component={ProfilePage} />
       <Route exact path="/admin/contact" component={ContactPage} />
       <Route exact path="/admin/payment" component={PaymentPage} />
-      <Route exact path="/admin/notifications" component={NotificationPage} />
-      <Route exact path="/testpage" component={TestPage} />
     </Switch>
   );
 };

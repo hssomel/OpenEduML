@@ -33,8 +33,8 @@ const useStyles = makeStyles((theme) => ({
     width: 190,
     marginLeft: 20,
     background: "linear-gradient(#1d8cf8, #0772db)",
-    marginTop: 60,
-    height: "80%",
+    marginTop: 70,
+    height: "70%",
     borderRadius: 6,
     boxShadow: "3px 3px darkgray",
     zIndex: 100000,
@@ -49,8 +49,8 @@ const useStyles = makeStyles((theme) => ({
     width: 80,
     marginLeft: 20,
     background: "linear-gradient(#1d8cf8, #0772db)",
-    marginTop: 60,
-    height: "80%",
+    marginTop: 70,
+    height: "70%",
     borderRadius: 6,
     zIndex: 100000,
     boxShadow: "3px 3px darkgray",
@@ -71,7 +71,7 @@ const MiniSideBar = (props) => {
           [" " + classes2.whiteFont]: false,
         });
         return (
-          <NavLink to={prop.path} className={activePro + classes2.item} key={key}>
+          <NavLink to={prop.path} className={activePro + classes2.item2} key={key}>
             <ListItem button className={classes2.itemLink2}>
               <prop.icon className={classes2.itemIcon2} />
               {props.sideOpen && (
