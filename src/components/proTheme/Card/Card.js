@@ -40,7 +40,7 @@ export default function Card(props) {
     [classes[color]]: color,
     [classes.cardPricing]: pricing,
     [classes.cardProduct]: product,
-    [className]: className !== undefined
+    [className]: className !== undefined,
   });
   return (
     <div className={cardClasses} {...rest}>
@@ -60,12 +60,13 @@ Card.propTypes = {
   testimonial: PropTypes.bool,
   color: PropTypes.oneOf([
     "primary",
+    "primary2",
     "info",
     "success",
     "warning",
     "danger",
-    "rose"
+    "rose",
   ]),
   product: PropTypes.bool,
-  children: PropTypes.node
+  children: PropTypes.node,
 };

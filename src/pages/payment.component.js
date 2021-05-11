@@ -7,7 +7,7 @@ import Pricing from "components/Pricing/Pricing";
 import Parallax from "components/proTheme/Parallax/Parallax";
 import GridContainer from "components/proTheme/Grid/GridContainer.js";
 import GridItem from "components/proTheme/Grid/GridItem.js";
-import bgImage from "assets/img/bg2.jpg";
+import bgImage from "assets/img/infinity.jpg";
 import pricingStyle from "assets/jss/material-kit-pro-react/views/pricingStyle.js";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";

@@ -24,7 +24,7 @@ export default function SectionPricing() {
         >
           <NavPills
             alignCenter
-            color="rose"
+            color="primary"
             tabs={[
               {
                 tabButton: "monthly",
@@ -48,11 +48,11 @@ export default function SectionPricing() {
           totalcpus="2"
           multiplekernels="NO"
           gpukernels="NO"
-          buttoncolor="rose"
+          buttoncolor="primary"
         />
         <PricingCard
           raised={true}
-          color="rose"
+          color="primary"
           tier="Plus"
           price="10"
           hours="30"
@@ -75,7 +75,7 @@ export default function SectionPricing() {
           totalcpus="8"
           multiplekernels="YES"
           gpukernels="YES"
-          buttoncolor="rose"
+          buttoncolor="primary"
         />
       </GridContainer>
     </div>

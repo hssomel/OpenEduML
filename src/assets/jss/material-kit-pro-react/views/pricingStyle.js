@@ -68,6 +68,24 @@ const pricingStyle = {
     top: "3px",
     position: "relative",
   },
+  // stripe stuff
+  stripeDemo: {
+    display: "flex",
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "center",
+    paddingBottom: "40%",
+    backgroundColor: "yellow",
+  },
+  DemoWrapper: {
+    margin: "0 auto",
+    maxWidth: "600px",
+    padding: "0 24px",
+    display: "flex",
+    flexDirection: "column",
+    height: "55vh",
+    backgroundColor: "red",
+  },
 };
 
 export default pricingStyle;
