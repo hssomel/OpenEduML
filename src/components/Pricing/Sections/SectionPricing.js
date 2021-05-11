@@ -5,18 +5,15 @@ import classNames from "classnames";
 import GridContainer from "components/proTheme/Grid/GridContainer.js";
 import GridItem from "components/proTheme/Grid/GridItem.js";
 import NavPills from "components/proTheme/NavPills/NavPills.js";
-import Card from "components/proTheme/Card/Card.js";
-import CardBody from "components/proTheme/Card/CardBody.js";
-import Button from "components/proTheme/CustomButtons/Button.js";
-// @material-ui/core components
+import PricingCard from "./PriceCard";
 import { makeStyles } from "@material-ui/core/styles";
-
 import pricingStyle from "assets/jss/material-kit-pro-react/views/pricingSections/pricingStyle.js";
 
 const useStyles = makeStyles(pricingStyle);
 
 export default function SectionPricing() {
   const classes = useStyles();
+
   return (
     <div className={classes.pricingSection}>
       <GridContainer>
@@ -39,90 +36,47 @@ export default function SectionPricing() {
           />
         </GridItem>
       </GridContainer>
+      {/*  */}
       <GridContainer>
-        <GridItem xs={12} lg={4}>
-          <Card plain pricing>
-            <CardBody pricing>
-              <h6 className={classNames(classes.cardCategory, classes.textInfo)}>Free</h6>
-              <h1 className={classes.cardTitle}>
-                <small>$</small>0 <small>/mo</small>
-              </h1>
-              <ul>
-                <li>
-                  <b>1</b> Project
-                </li>
-                <li>
-                  <b>5</b> Team Members
-                </li>
-                <li>
-                  <b>55</b> Personal Contacts
-                </li>
-                <li>
-                  <b>5.000</b> Messages
-                </li>
-              </ul>
-              <Button href="#pablo" color="rose" round>
-                Get started
-              </Button>
-            </CardBody>
-          </Card>
-        </GridItem>
-        <GridItem xs={12} lg={4}>
-          <Card raised pricing color="rose">
-            <CardBody pricing>
-              <h6 className={classes.cardCategory}>Premium</h6>
-              <h1 className={classes.cardTitleWhite}>
-                <small>$</small>89 <small>/mo</small>
-              </h1>
-              <ul>
-                <li>
-                  <b>500</b> Project
-                </li>
-                <li>
-                  <b>50</b> Team Members
-                </li>
-                <li>
-                  <b>125</b> Personal Contacts
-                </li>
-                <li>
-                  <b>15.000</b> Messages
-                </li>
-              </ul>
-              <Button href="#pablo" color="white" round>
-                Get started
-              </Button>
-            </CardBody>
-          </Card>
-        </GridItem>
-        <GridItem xs={12} lg={4}>
-          <Card plain pricing>
-            <CardBody pricing>
-              <h6 className={classNames(classes.cardCategory, classes.textInfo)}>
-                Platinum
-              </h6>
-              <h1 className={classes.cardTitle}>
-                <small>$</small>199 <small>/mo</small>
-              </h1>
-              <ul>
-                <li>
-                  <b>1000</b> Project
-                </li>
-                <li>
-                  <b>100</b> Team Members
-                </li>
-                <li>
-                  <b>550</b> Personal Contacts
-                </li>
-                <li>
-                  <b>50.000</b> Messages
-                </li>
-              </ul>
-              <Button href="#pablo" color="rose" round>
-                Get started
-              </Button>
-            </CardBody>
-          </Card>
-        </GridItem>
+        <PricingCard
+          plain={true}
+          tier="Free"
+          price="0"
+          hours="15"
+          hourlyrate="$0"
+          totalram="2 GB"
+          totalcpus="2"
+          multiplekernels="NO"
+          gpukernels="NO"
+          buttoncolor="rose"
+        />
+        <PricingCard
+          raised={true}
+          color="rose"
+          tier="Plus"
+          price="10"
+          hours="30"
+          hourlyrate="$0.88"
+          totalram="4 GB"
+          totalcpus="4"
+          multiplekernels="YES"
+          gpukernels="NO"
+          buttoncolor="white"
+          titlecolor="white"
+        />
+
+        <PricingCard
+          plain={true}
+          tier="Pro"
+          price="30"
+          hours="40"
+          hourlyrate="$2.02"
+          totalram="8 GB"
+          totalcpus="8"
+          multiplekernels="YES"
+          gpukernels="YES"
+          buttoncolor="rose"
+        />
       </GridContainer>
     </div>
   );

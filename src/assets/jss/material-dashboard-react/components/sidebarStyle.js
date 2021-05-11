@@ -197,7 +197,8 @@ const sidebarStyle = (theme) => ({
     textAlign: "center",
     verticalAlign: "middle",
     marginTop: 3,
-    color: "rgba(" + hexToRgb(whiteColor) + ", 0.8)",
+    // color: "rgba(" + hexToRgb(whiteColor) + ", 0.8)",
+    color: "white",
   },
   itemIconRTL: {
     marginRight: "3px",
@@ -217,6 +218,9 @@ const sidebarStyle = (theme) => ({
   },
   whiteFont: {
     color: whiteColor,
+  },
+  whiteFont2: {
+    color: "red",
   },
   purple: {
     backgroundColor: primaryColor[0],

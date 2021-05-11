@@ -1,73 +1,72 @@
-import React, { useState, useEffect } from "react";
-
-import PerfectScrollbar from "perfect-scrollbar";
-import "perfect-scrollbar/css/perfect-scrollbar.css";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-// core components
-import Sidebar from "../components/Sidebar/Sidebar.js";
+import classNames from "classnames";
+import Header from "components/proTheme/Headers/ContactHeader.js";
+import HeaderLinks from "components/proTheme/Headers/ContactHeaderLinks.js";
 import Pricing from "components/Pricing/Pricing";
-import routes from "../routes/routes.js";
-import styles from "../assets/jss/material-dashboard-react/layouts/adminStyle.js";
-import bgImage from "../assets/img/sidebar-2.jpg";
-import logo from "../assets/img/reactlogo.png";
+import Parallax from "components/proTheme/Parallax/Parallax";
+import GridContainer from "components/proTheme/Grid/GridContainer.js";
+import GridItem from "components/proTheme/Grid/GridItem.js";
+import bgImage from "assets/img/bg2.jpg";
+import pricingStyle from "assets/jss/material-kit-pro-react/views/pricingStyle.js";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import { Link } from "react-router-dom";
+import Footer from "components/proTheme/Footers/ContactFooter.component.js";
+const useStyles = makeStyles(pricingStyle);
 
-let ps;
-const useStyles = makeStyles(styles);
-
-const PaymentPage = ({ ...rest }) => {
+const PaymentPage = () => {
   const classes = useStyles();
-  const mainPanel = React.createRef();
-  // states and functions
-  const [image] = useState(bgImage);
-  const [color] = useState("blue");
-  const [mobileOpen, setMobileOpen] = useState(false);
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
-
-  const resizeFunction = () => {
-    if (window.innerWidth <= 1360) {
-      setMobileOpen(false);
-    }
-  };
-  // initialize and destroy the PerfectScrollbar plugin
-  useEffect(() => {
-    if (navigator.platform.indexOf("Win") > -1) {
-      ps = new PerfectScrollbar(mainPanel.current, {
-        suppressScrollX: true,
-        suppressScrollY: false,
-      });
-      document.body.style.overflow = "hidden";
-    }
-    window.addEventListener("resize", resizeFunction);
-    // Specify how to clean up after this effect:
-    return function cleanup() {
-      if (navigator.platform.indexOf("Win") > -1) {
-        ps.destroy();
-      }
-      window.removeEventListener("resize", resizeFunction);
-    };
-  }, [mainPanel]);
-  //
   return (
-    <div className={classes.wrapper} style={{ backgroundColor: "#eeeeee" }}>
-      <Sidebar
-        routes={routes}
-        logo={logo}
-        image={image}
-        handleDrawerToggle={handleDrawerToggle}
-        open={mobileOpen}
-        color={color}
-        {...rest}
+    <div>
+      <Header
+        brand="OPENEDUML"
+        links={<HeaderLinks dropdownHoverColor="dark" />}
+        fixed
+        color="dark"
       />
-      <div className={classes.mainPanel} ref={mainPanel}>
-        <div className={classes.content}>
-          <div className={classes.container}>
-            <Pricing />
-          </div>
+      <Parallax image={`url(${bgImage})`} filter="dark" small>
+        <div className={classes.container}>
+          <GridContainer>
+            <GridItem
+              md={8}
+              sm={8}
+              className={classNames(classes.mlAuto, classes.mrAuto, classes.textCenter)}
+            >
+              <h1 className={classes.title}>Let{"'"}s get started</h1>
+              <h4>
+                To get started, you will need to choose a plan for your needs. You can opt in
+                for the monthly of annual options and go with one fo the three listed below.
+              </h4>
+            </GridItem>
+          </GridContainer>
         </div>
+      </Parallax>
+      <div className={classNames(classes.main, classes.mainRaised)}>
+        <Pricing />
       </div>
+      <Footer
+        content={
+          <div>
+            <div className={classes.left}>
+              <List className={classes.list}>
+                <ListItem className={classes.inlineBlock}>
+                  <Link to="/" className={classes.block}>
+                    OPENEDUML
+                  </Link>
+                </ListItem>
+                <ListItem className={classes.inlineBlock}>
+                  <Link to="/" className={classes.block}>
+                    About us
+                  </Link>
+                </ListItem>
+              </List>
+            </div>
+            <div className={classes.right}>&copy; {1900 + new Date().getYear()}</div>
+          </div>
+        }
+      />
     </div>
   );
 };

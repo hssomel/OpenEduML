@@ -68,7 +68,7 @@ const MiniSideBar = (props) => {
         var activePro = " ";
 
         const whiteFontClasses = classNames({
-          [" " + classes2.whiteFont]: false,
+          [" " + classes2.whiteFont2]: false,
         });
         return (
           <NavLink to={prop.path} className={activePro + classes2.item2} key={key}>
