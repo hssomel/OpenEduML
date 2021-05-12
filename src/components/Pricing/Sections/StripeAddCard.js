@@ -1,47 +1,17 @@
 import React, { useState } from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import CardField from "../utils/CardField.component.js";
+import { connect } from "react-redux";
+import {
+  CardField,
+  Field,
+  SubmitButton,
+  ErrorMessage,
+  ResetButton,
+  api,
+} from "../utils/StripeCard.component.js";
 import "../utils/styles.css";
-
-const Field = ({ label, id, type, placeholder, required, autoComplete, value, onChange }) => (
-  <div className="FormRow">
-    <label htmlFor={id} className="FormRowLabel">
-      {label}
-    </label>
-    <input
-      className="FormRowInput"
-      id={id}
-      type={type}
-      placeholder={placeholder}
-      required={required}
-      autoComplete={autoComplete}
-      value={value}
-      onChange={onChange}
-    />
-  </div>
-);
-
-const SubmitButton = ({ processing, error, children, disabled }) => (
-  <button
-    className={`SubmitButton ${error ? "SubmitButton--error" : ""}`}
-    type="submit"
-    disabled={processing || disabled}
-  >
-    {processing ? "Processing..." : children}
-  </button>
-);
-
-const ErrorMessage = ({ children }) => (
-  <div className="ErrorMessage" role="alert">
-    {children}
-  </div>
-);
-
-const ResetButton = ({ onClick }) => (
-  <button type="button" className="ResetButton" onClick={onClick}></button>
-);
-// ----------------------------------------------------------------------->
-const CheckoutForm = () => {
+// ----------------------------------------------------------------------------------->
+const CheckoutForm = (props) => {
   const stripe = useStripe();
   const elements = useElements();
   const [error, setError] = useState(null);
@@ -53,8 +23,8 @@ const CheckoutForm = () => {
     phone: "",
     name: "",
   });
-  //
-  const handleSubmit = async (event) => {
+  // EVENT HANDLERS
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
     if (!stripe || !elements) return;
     if (error) {
@@ -62,20 +32,25 @@ const CheckoutForm = () => {
       return;
     }
     if (cardComplete) setProcessing(true);
+    //
     const payload = await stripe.createPaymentMethod({
       type: "card",
       card: elements.getElement(CardElement),
       billing_details: billingDetails,
     });
     setProcessing(false);
-    if (payload.error) {
-      setError(payload.error);
-    } else {
-      setPaymentMethod(payload.paymentMethod);
-    }
+    // checking for transaction error
+    if (payload.error) setError(payload.error);
+    else setPaymentMethod(payload.paymentMethod);
+
+    const body = {
+      payment: payload.paymentMethod,
+      user: props.user,
+    };
+    await api.post("/makepayment", body);
   };
 
-  const reset = () => {
+  const resetForm = () => {
     setError(null);
     setProcessing(false);
     setPaymentMethod(null);
@@ -95,10 +70,10 @@ const CheckoutForm = () => {
         Thanks for trying Stripe Elements. No money was charged, but we generated a
         PaymentMethod: {paymentMethod.id}
       </div>
-      <ResetButton onClick={reset} />
+      <ResetButton onClick={resetForm} />
     </div>
   ) : (
-    <form className="Form" onSubmit={handleSubmit}>
+    <form className="Form" onSubmit={handleFormSubmit}>
       <fieldset className="FormGroup21">
         <Field
           label="Name"
@@ -152,13 +127,17 @@ const CheckoutForm = () => {
     </form>
   );
 };
-// ------------------------------------------------------------------------>
-const App = () => {
+// -------------------------------------------------------------------------------->
+const App = ({ currentUser }) => {
   return (
     <div className="AppWrapper3">
-      <CheckoutForm />
+      <CheckoutForm user={currentUser} />
     </div>
   );
 };
 
-export default App;
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToProps)(App);

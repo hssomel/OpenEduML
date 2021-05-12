@@ -3,7 +3,7 @@ import {
   whiteColor,
   grayColor,
   roseColor,
-  primaryColor,
+  // primaryColor,
   successColor,
   dangerColor,
   warningColor,
@@ -123,10 +123,11 @@ const cardStyle = {
       top: "-17px",
       fontSize: "26px",
     },
-    "& ul li svg,& ul li .fab,& ul li .fas,& ul li .far,& ul li .fal,& ul li .material-icons": {
-      position: "relative",
-      top: "7px",
-    },
+    "& ul li svg,& ul li .fab,& ul li .fas,& ul li .far,& ul li .fal,& ul li .material-icons":
+      {
+        position: "relative",
+        top: "7px",
+      },
   },
   cardPricingColor: {
     "& ul li": {
