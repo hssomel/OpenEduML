@@ -24,7 +24,7 @@ const useStyles = makeStyles(styles);
 const StatusGauges = () => {
   const classes = useStyles();
   return (
-    <Grid container spacing={6} style={{ marginBottom: 15 }}>
+    <Grid container spacing={4} style={{ marginBottom: 15 }}>
       <Grid item xs={12} sm={6} lg={3}>
         <Card>
           <CardHeader color="primary5" stats icon>
