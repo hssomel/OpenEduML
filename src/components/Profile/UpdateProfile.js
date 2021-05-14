@@ -7,11 +7,20 @@ import CardBody from "components/DashBoard/dashcomponents/Card/CardBody.js";
 import CardIcon from "components/DashBoard/dashcomponents/Card/CardIcon.js";
 import CardFooter from "components/DashBoard/dashcomponents/Card/CardFooter.js";
 import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
-import DateRange from "@material-ui/icons/DateRange";
-import AccessTime from "@material-ui/icons/AccessTime";
+import ContactMailIcon from "@material-ui/icons/ContactMail";
 import Button from "components/proTheme/CustomButtons/Button.js";
 import TextField from "@material-ui/core/TextField";
-// core components
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import DraftsIcon from "@material-ui/icons/Drafts";
+import AccountBoxIcon from "@material-ui/icons/AccountBox";
+import Filter1Icon from "@material-ui/icons/Filter1";
+import Filter2Icon from "@material-ui/icons/Filter2";
+import SchoolIcon from "@material-ui/icons/School";
+import HomeIcon from "@material-ui/icons/Home";
+import PaymentIcon from "@material-ui/icons/Payment";
 import styles from "assets/jss/material-dashboard-react/layouts/adminStyle.js";
 
 const CssTextField = withStyles({
@@ -27,31 +36,27 @@ const CssTextField = withStyles({
 
 const useStyles = makeStyles(styles);
 
-const UpdateProfile = () => {
+const UpdateProfile = (props) => {
   const classes = useStyles();
-  // #f6a4eb
   return (
     <Grid container spacing={4} style={{ marginTop: 10 }}>
-      <Grid item xs={12} lg={9} style={{ paddingTop: 0 }}>
+      <Grid item xs={12} lg={8} style={{ paddingTop: 0 }}>
         <Card>
           <CardHeader color="primary" stats icon style={{ display: "flex" }}>
             <CardIcon color="pink">
               <PersonOutlineIcon />
             </CardIcon>
             <h4 style={{ color: "#606060", paddingTop: 12 }}>
-              Edit Profile - <span style={{ fontSize: 15 }}>Address solely used for billing</span>
+              Edit Profile - <span style={{ fontSize: 15 }}>Postal code solely used for billing</span>
             </h4>
           </CardHeader>
           <CardBody style={{ paddingTop: 30 }}>
             <form className={classes.root} noValidate autoComplete="off">
               <Grid container>
-                <Grid item xs={12} lg={5} style={{ padding: "0 18px 34px 18px" }}>
-                  <CssTextField id="uni" label="College/University" fullWidth />
-                </Grid>
-                <Grid item xs={12} lg={3} style={{ padding: "0 18px 34px 18px" }}>
+                <Grid item xs={12} lg={6} style={{ padding: "0 18px 34px 18px" }}>
                   <CssTextField id="username" label="Username" fullWidth />
                 </Grid>
-                <Grid item xs={12} lg={4} style={{ padding: "0 18px 34px 18px" }}>
+                <Grid item xs={12} lg={6} style={{ padding: "0 18px 34px 18px" }}>
                   <CssTextField id="emailaddress" label="Email Address" fullWidth />
                 </Grid>
               </Grid>
@@ -66,13 +71,10 @@ const UpdateProfile = () => {
               </Grid>
               {/*  */}
               <Grid container>
-                <Grid item xs={12} lg={4} style={{ padding: "0 18px 34px 18px" }}>
-                  <CssTextField id="city" label="City" fullWidth />
+                <Grid item xs={12} lg={6} style={{ padding: "0 18px 34px 18px" }}>
+                  <CssTextField id="college" label="College/University" fullWidth />
                 </Grid>
-                <Grid item xs={12} lg={4} style={{ padding: "0 18px 34px 18px" }}>
-                  <CssTextField id="country" label="Country" fullWidth />
-                </Grid>
-                <Grid item xs={12} lg={4} style={{ padding: "0 18px 34px 18px" }}>
+                <Grid item xs={12} lg={6} style={{ padding: "0 18px 34px 18px" }}>
                   <CssTextField id="postalcode" label="Postal Code" fullWidth />
                 </Grid>
               </Grid>
@@ -88,20 +90,67 @@ const UpdateProfile = () => {
           </CardFooter>
         </Card>
       </Grid>
-      {/*  */}
-      <Grid item xs={12} lg={3} style={{ paddingTop: 0 }}>
+      {/* ----------------------- My Profile Card ----------------------------------------------- */}
+      <Grid item xs={12} lg={4} style={{ paddingTop: 0 }}>
         <Card>
-          <CardHeader color="warning" stats icon>
+          <CardHeader color="warning" stats icon style={{ display: "flex" }}>
             <CardIcon color="warning">
-              <AccessTime />
+              <ContactMailIcon />
             </CardIcon>
-            <p className={classes.cardCategory}>Time Remaining</p>
-            <h5 style={{ color: "black" }}>00:30:00</h5>
+            <h4 style={{ color: "#606060", paddingTop: 12 }}>My Profile</h4>
           </CardHeader>
+          <CardBody>
+            <List component="nav" aria-label="main mailbox folders">
+              <ListItem>
+                <ListItemIcon>
+                  <AccountBoxIcon />
+                </ListItemIcon>
+                <ListItemText primary="Username:" />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <DraftsIcon />
+                </ListItemIcon>
+                <ListItemText primary="Email:" />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <Filter1Icon />
+                </ListItemIcon>
+                <ListItemText primary="First Name:" />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <Filter2Icon />
+                </ListItemIcon>
+                <ListItemText primary="Last Name:" />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <SchoolIcon />
+                </ListItemIcon>
+                <ListItemText primary="College: " />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <HomeIcon />
+                </ListItemIcon>
+                <ListItemText primary="Postal Code:" />
+              </ListItem>
+            </List>
+          </CardBody>
           <CardFooter stats>
-            <div className={classes.stats}>
-              <DateRange />
-              Date Last Accessed: 5/04/21
+            <div
+              className={classes.stats}
+              style={{
+                display: "flex",
+                verticalAlign: "center",
+              }}
+            >
+              <PaymentIcon style={{ marginTop: 0 }} />
+              <p style={{ fontSize: 14, alignSelf: "center", marginBottom: 0 }}>
+                Edit payment methods and subscriptions on the payments page!
+              </p>
             </div>
           </CardFooter>
         </Card>
