@@ -47,7 +47,9 @@ const CheckoutForm = (props) => {
       payment: payload.paymentMethod,
       user: props.user,
     };
-    await api.post("/makepayment", body);
+    console.log(payload.paymentMethod.id);
+    const res = await api.post("/makepayment", body);
+    console.log("res = ", res);
   };
 
   const resetForm = () => {

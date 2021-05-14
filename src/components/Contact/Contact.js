@@ -72,8 +72,8 @@ const Contact = () => {
               title="Send us an email"
               description={
                 <p>
-                  Email is the best way to reach us <br /> Fill out the form to send your
-                  request <br /> info@openeduml.io
+                  Email is the best way to reach us <br /> Fill out the form to send your request <br />{" "}
+                  info@openeduml.io
                 </p>
               }
               icon={PinDrop}
