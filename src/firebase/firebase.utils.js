@@ -18,7 +18,7 @@ firebase.initializeApp(config);
 // Function called by App.js when user signs in
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return;
-  const userRef = firestore.doc(`users/${userAuth.uid}`);
+  const userRef = firestore.doc(`userprofiles/${userAuth.uid}`);
   const snapShot = await userRef.get();
 
   if (!snapShot.exists) {
@@ -26,11 +26,13 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     const createdAt = new Date();
     try {
       await userRef.set({
-        displayName,
+        username: displayName,
         email,
         createdAt,
-        clusterFailed: false, // set to true if Jupyter helm initialization fails
-        clusterURL: null,
+        firstname: null,
+        lastname: null,
+        college: null,
+        postal: null,
         ...additionalData,
       });
     } catch (error) {
@@ -65,3 +67,27 @@ provider.setCustomParameters({ prompt: "select_account" });
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
 
 export default firebase;
+
+// export const createUserProfileDocument = async (userAuth, additionalData) => {
+//   if (!userAuth) return;
+//   const userRef = firestore.doc(`users/${userAuth.uid}`);
+//   const snapShot = await userRef.get();
+
+//   if (!snapShot.exists) {
+//     const { displayName, email } = userAuth;
+//     const createdAt = new Date();
+//     try {
+//       await userRef.set({
+//         displayName,
+//         email,
+//         createdAt,
+//         clusterFailed: false, // set to true if Jupyter helm initialization fails
+//         clusterURL: null,
+//         ...additionalData,
+//       });
+//     } catch (error) {
+//       console.log("error creating user", error.message);
+//     }
+//   }
+//   return userRef;
+// };

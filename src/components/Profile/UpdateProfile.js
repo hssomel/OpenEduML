@@ -105,37 +105,37 @@ const UpdateProfile = (props) => {
                 <ListItemIcon>
                   <AccountBoxIcon />
                 </ListItemIcon>
-                <ListItemText primary="Username:" />
+                <ListItemText primary={`Username: ${props.user.username}`} />
               </ListItem>
               <ListItem>
                 <ListItemIcon>
                   <DraftsIcon />
                 </ListItemIcon>
-                <ListItemText primary="Email:" />
+                <ListItemText primary={`Email: ${props.user.email}`} />
               </ListItem>
               <ListItem>
                 <ListItemIcon>
                   <Filter1Icon />
                 </ListItemIcon>
-                <ListItemText primary="First Name:" />
+                <ListItemText primary={`First Name: ${props.user.firstname}`} />
               </ListItem>
               <ListItem>
                 <ListItemIcon>
                   <Filter2Icon />
                 </ListItemIcon>
-                <ListItemText primary="Last Name:" />
+                <ListItemText primary={`Last Name: ${props.user.lastname}`} />
               </ListItem>
               <ListItem>
                 <ListItemIcon>
                   <SchoolIcon />
                 </ListItemIcon>
-                <ListItemText primary="College: " />
+                <ListItemText primary={`College: ${props.user.college}`} />
               </ListItem>
               <ListItem>
                 <ListItemIcon>
                   <HomeIcon />
                 </ListItemIcon>
-                <ListItemText primary="Postal Code:" />
+                <ListItemText primary={`Postal Code: ${props.user.postal}`} />
               </ListItem>
             </List>
           </CardBody>

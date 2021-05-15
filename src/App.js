@@ -4,10 +4,10 @@ import { connect } from "react-redux";
 // Pages
 import LandingPage from "./pages/landing-page.component";
 import SignInSignUpPage from "./pages/sign-in-sign-up.component";
-import AdminPage from "./pages/admin.component";
 import PaymentPage from "./pages/payment.component";
-import ProfilePage from "./pages/profile.component";
 import ContactPage from "./pages/contact.component";
+import ConsolePage from "./pages/console.component";
+// --------------------------------------------------->
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/user/user.actions";
 
@@ -18,11 +18,15 @@ const App = ({ currentUser, setCurrentUser }) => {
       if (user) {
         const userRef = await createUserProfileDocument(user);
         userRef.onSnapshot((snapShot) => {
-          const { displayName, email } = snapShot.data();
+          const { username, email, firstname, lastname, college, postal } = snapShot.data();
           setCurrentUser({
             id: snapShot.id,
-            displayName: displayName,
-            email: email,
+            username,
+            email,
+            firstname,
+            lastname,
+            college,
+            postal,
           });
         });
       } else {
@@ -56,8 +60,8 @@ const App = ({ currentUser, setCurrentUser }) => {
           )
         }
       />
-      <Route exact path="/admin/dashboard" component={AdminPage} />
-      <Route exact path="/admin/profile" component={ProfilePage} />
+      <Route exact path="/admin/dashboard" component={ConsolePage} />
+      <Route exact path="/admin/profile" component={ConsolePage} />
       <Route exact path="/admin/contact" component={ContactPage} />
       <Route exact path="/admin/payment" component={PaymentPage} />
     </Switch>

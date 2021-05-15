@@ -23,6 +23,10 @@ const CheckoutForm = (props) => {
     phone: "",
     name: "",
   });
+
+  React.useEffect(() => {
+    console.log(props.user);
+  }, []);
   // EVENT HANDLERS
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -69,8 +73,8 @@ const CheckoutForm = (props) => {
         Payment successful
       </div>
       <div className="ResultMessage">
-        Thanks for trying Stripe Elements. No money was charged, but we generated a
-        PaymentMethod: {paymentMethod.id}
+        Thanks for trying Stripe Elements. No money was charged, but we generated a PaymentMethod:{" "}
+        {paymentMethod.id}
       </div>
       <ResetButton onClick={resetForm} />
     </div>
