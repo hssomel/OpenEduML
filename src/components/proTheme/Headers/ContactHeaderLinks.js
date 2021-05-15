@@ -8,7 +8,6 @@ import MenuList from "@material-ui/core/MenuList";
 import Grow from "@material-ui/core/Grow";
 import Paper from "@material-ui/core/Paper";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-import Hidden from "@material-ui/core/Hidden";
 import Poppers from "@material-ui/core/Popper";
 import Divider from "@material-ui/core/Divider";
 // @material-ui/icons
@@ -43,10 +42,7 @@ export default function ContactHeaderLinks() {
         className={classes.buttonLink}
       >
         <Link to="/admin/dashboard" style={{ color: "white" }}>
-          <Dashboard className={classes.icons} />
-          <Hidden mdUp implementation="css">
-            <p className={classes.linkText}>Dashboard</p>
-          </Hidden>
+          <Dashboard className={classes.icons} style={{ height: 22, width: 22 }} />
         </Link>
       </Button>
 
@@ -60,19 +56,15 @@ export default function ContactHeaderLinks() {
           onClick={handleClickProfile}
           className={classes.buttonLink}
         >
-          <Person className={classes.icons} />
-          <Hidden mdUp implementation="css">
-            <p className={classes.linkText}>Profile</p>
-          </Hidden>
+          {/* ----------- Person Icon --------------------------- */}
+          <Person className={classes.icons} style={{ height: 26, width: 26 }} />
         </Button>
         <Poppers
           open={Boolean(openProfile)}
           anchorEl={openProfile}
           transition
           disablePortal
-          className={
-            classNames({ [classes.popperClose]: !openProfile }) + " " + classes.popperNav
-          }
+          className={classNames({ [classes.popperClose]: !openProfile }) + " " + classes.popperNav}
         >
           {({ TransitionProps, placement }) => (
             <Grow

@@ -11,15 +11,14 @@ const PieChart = () => {
   return (
     <Card style={{ minHeight: 370 }}>
       <CardHeader color="primary4">
-        <h4 style={{ margin: 0, fontWeight: 700, fontFamily: "Poppins" }}>
-          Billing Breakdown
-        </h4>
+        <h4 style={{ margin: 0, fontWeight: 700, fontFamily: "Poppins" }}>Billing Breakdown</h4>
       </CardHeader>
       <CardBody style={{ marginTop: 10, paddingBottom: 5 }}>
         <Grid
           container
           style={{
             minHeight: 280,
+            maxHeight: 310,
             padding: 0,
             margin: 0,
             marginBottom: 0,
@@ -34,11 +33,7 @@ const PieChart = () => {
               display: "flex",
             }}
           >
-            <Pie
-              data={chartExample10.data}
-              options={chartExample10.options}
-              height={220}
-            />
+            <Pie data={chartExample10.data} options={chartExample10.options} />
           </Grid>
           <Grid
             item

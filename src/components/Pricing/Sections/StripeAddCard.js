@@ -24,9 +24,6 @@ const CheckoutForm = (props) => {
     name: "",
   });
 
-  React.useEffect(() => {
-    console.log(props.user);
-  }, []);
   // EVENT HANDLERS
   const handleFormSubmit = async (event) => {
     event.preventDefault();
