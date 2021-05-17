@@ -18,15 +18,18 @@ const App = ({ currentUser, setCurrentUser }) => {
       if (user) {
         const userRef = await createUserProfileDocument(user);
         userRef.onSnapshot((snapShot) => {
-          const { username, email, firstname, lastname, college, postal } = snapShot.data();
+          const { username, email, firstname, lastname, college, postal, occupation, country } =
+            snapShot.data();
           setCurrentUser({
             id: snapShot.id,
             username,
             email,
             firstname,
             lastname,
+            country,
             college,
             postal,
+            occupation,
           });
         });
       } else {

@@ -30,6 +30,8 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         email,
         createdAt,
         firstname: null,
+        country: null,
+        occupation: null,
         lastname: null,
         college: null,
         postal: null,

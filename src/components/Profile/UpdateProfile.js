@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import Grid from "@material-ui/core/Grid";
+import ProfileCard from "./ProfileCard";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Card from "components/DashBoard/dashcomponents/Card/Card.js";
 import CardHeader from "components/DashBoard/dashcomponents/Card/CardHeader.js";
@@ -7,22 +9,11 @@ import CardBody from "components/DashBoard/dashcomponents/Card/CardBody.js";
 import CardIcon from "components/DashBoard/dashcomponents/Card/CardIcon.js";
 import CardFooter from "components/DashBoard/dashcomponents/Card/CardFooter.js";
 import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
-import ContactMailIcon from "@material-ui/icons/ContactMail";
 import Button from "components/proTheme/CustomButtons/Button.js";
 import TextField from "@material-ui/core/TextField";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import DraftsIcon from "@material-ui/icons/Drafts";
-import AccountBoxIcon from "@material-ui/icons/AccountBox";
-import Filter1Icon from "@material-ui/icons/Filter1";
-import Filter2Icon from "@material-ui/icons/Filter2";
-import SchoolIcon from "@material-ui/icons/School";
-import HomeIcon from "@material-ui/icons/Home";
-import PaymentIcon from "@material-ui/icons/Payment";
+import MenuItem from "@material-ui/core/MenuItem";
 import styles from "assets/jss/material-dashboard-react/layouts/adminStyle.js";
-
+const useStyles = makeStyles(styles);
 const CssTextField = withStyles({
   root: {
     "& label.Mui-focused": {
@@ -34,10 +25,81 @@ const CssTextField = withStyles({
   },
 })(TextField);
 
-const useStyles = makeStyles(styles);
+const api = axios.create({
+  baseURL: `http://192.168.4.22:5000/api/profile`,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
 
+const inputPropsText = {
+  type: "text",
+  maxLength: 25,
+};
+
+const countries = ["USA", "Canada", "Mexico"];
+const occupations = [
+  "Student - Data Scientist",
+  "Student - General Computer Science Major",
+  "Graduate - Data Scientist",
+  "Graduate - General Computer Science Major",
+  "Professional - Data Scientist",
+  "Professional - Software Engineer",
+];
 const UpdateProfile = (props) => {
   const classes = useStyles();
+  const [formDetails, setFormDetails] = useState({
+    country: "",
+    occupation: "",
+    firstname: "",
+    lastname: "",
+    college: "",
+    postal: null,
+  });
+  // EVENT HANDLERS ------------------------------------------------------------->
+  const handleFormSubmit = async (event) => {
+    try {
+      event.preventDefault();
+      const payload = {
+        id: props.user.id,
+      };
+      for (let keys in formDetails) {
+        if (formDetails[keys]) payload[keys] = formDetails[keys];
+      }
+      const res = await api.post("/", payload);
+      console.log("COMPLETE");
+      console.log(res);
+    } catch (err) {
+      console.log(err);
+      alert(err);
+    }
+  };
+
+  const onInputChange = (event) => {
+    let value = event.target.value;
+    value = value.replace(/[^A-Za-z]/gi, "");
+    setFormDetails({ ...formDetails, [event.target.id]: value });
+  };
+
+  const onCollegeChange = (event) => {
+    let value = event.target.value;
+    value = value.replace(/[^A-Za-z\s]/gi, "");
+    setFormDetails({ ...formDetails, [event.target.id]: value });
+  };
+
+  const onPostalChange = (event) => {
+    let value = event.target.value;
+    if (value.toString().length < 6) setFormDetails({ ...formDetails, [event.target.id]: value });
+  };
+
+  const onCountryChange = (event) => {
+    setFormDetails({ ...formDetails, country: event.target.value });
+  };
+
+  const onJobChange = (event) => {
+    setFormDetails({ ...formDetails, occupation: event.target.value });
+  };
+  // ---------------------------------------------------------------------------->
   return (
     <Grid container spacing={4} style={{ marginTop: 10 }}>
       <Grid item xs={12} lg={8} style={{ paddingTop: 0 }}>
@@ -51,109 +113,110 @@ const UpdateProfile = (props) => {
             </h4>
           </CardHeader>
           <CardBody style={{ paddingTop: 30 }}>
-            <form className={classes.root} noValidate autoComplete="off">
+            <form className={classes.root} autoComplete="off" onSubmit={handleFormSubmit}>
               <Grid container>
                 <Grid item xs={12} lg={6} style={{ padding: "0 18px 34px 18px" }}>
-                  <CssTextField id="username" label="Username" fullWidth />
+                  <CssTextField
+                    id="country"
+                    label="Country"
+                    fullWidth
+                    select
+                    value={formDetails.country}
+                    onChange={(e) => onCountryChange(e)}
+                  >
+                    {countries.map((el) => {
+                      return (
+                        <MenuItem key={el} value={el}>
+                          {el}
+                        </MenuItem>
+                      );
+                    })}
+                  </CssTextField>
                 </Grid>
                 <Grid item xs={12} lg={6} style={{ padding: "0 18px 34px 18px" }}>
-                  <CssTextField id="emailaddress" label="Email Address" fullWidth />
+                  <CssTextField
+                    id="occupation"
+                    label="Occupation"
+                    fullWidth
+                    select
+                    value={formDetails.occupation}
+                    onChange={(e) => onJobChange(e)}
+                  >
+                    {occupations.map((el) => {
+                      return (
+                        <MenuItem key={el} value={el}>
+                          {el}
+                        </MenuItem>
+                      );
+                    })}
+                  </CssTextField>
                 </Grid>
               </Grid>
               {/*  */}
               <Grid container>
                 <Grid item xs={12} lg={6} style={{ padding: "0 18px 34px 18px" }}>
-                  <CssTextField id="firstname" label="First Name" fullWidth />
+                  <CssTextField
+                    id="firstname"
+                    label="First Name"
+                    fullWidth
+                    inputProps={inputPropsText}
+                    value={formDetails.firstname}
+                    onChange={(e) => onInputChange(e)}
+                  />
                 </Grid>
                 <Grid item xs={12} lg={6} style={{ padding: "0 18px 34px 18px" }}>
-                  <CssTextField id="lastname" label="Last Name" fullWidth />
+                  <CssTextField
+                    id="lastname"
+                    label="Last Name"
+                    fullWidth
+                    inputProps={inputPropsText}
+                    value={formDetails.lastname}
+                    onChange={(e) => onInputChange(e)}
+                  />
                 </Grid>
               </Grid>
               {/*  */}
               <Grid container>
                 <Grid item xs={12} lg={6} style={{ padding: "0 18px 34px 18px" }}>
-                  <CssTextField id="college" label="College/University" fullWidth />
+                  <CssTextField
+                    id="college"
+                    label="College/University"
+                    fullWidth
+                    inputProps={inputPropsText}
+                    value={formDetails.college}
+                    onChange={(e) => onCollegeChange(e)}
+                  />
                 </Grid>
                 <Grid item xs={12} lg={6} style={{ padding: "0 18px 34px 18px" }}>
-                  <CssTextField id="postalcode" label="Postal Code" fullWidth />
+                  <CssTextField
+                    id="postal"
+                    label="Postal Code"
+                    fullWidth
+                    type="number"
+                    value={formDetails.postal}
+                    onChange={(e) => onPostalChange(e)}
+                  />
                 </Grid>
               </Grid>
+
+              <CardFooter
+                stats
+                style={{ display: "flex", justifyContent: "flex-end", paddingRight: 30, paddingTop: 16 }}
+              >
+                <Button
+                  style={{ backgroundColor: "#f6a4eb", minHeight: 45, minWidth: 180, fontSize: 14 }}
+                  type="submit"
+                >
+                  Update Profile
+                </Button>
+              </CardFooter>
             </form>
           </CardBody>
-          <CardFooter
-            stats
-            style={{ display: "flex", justifyContent: "flex-end", paddingRight: 30, paddingTop: 16 }}
-          >
-            <Button style={{ backgroundColor: "#f6a4eb", minHeight: 45, minWidth: 180, fontSize: 14 }}>
-              Update Profile
-            </Button>
-          </CardFooter>
         </Card>
       </Grid>
       {/* ----------------------- My Profile Card ----------------------------------------------- */}
       <Grid item xs={12} lg={4} style={{ paddingTop: 0 }}>
-        <Card>
-          <CardHeader color="warning" stats icon style={{ display: "flex" }}>
-            <CardIcon color="warning">
-              <ContactMailIcon />
-            </CardIcon>
-            <h4 style={{ color: "#606060", paddingTop: 12 }}>My Profile</h4>
-          </CardHeader>
-          <CardBody>
-            <List component="nav" aria-label="main mailbox folders">
-              <ListItem>
-                <ListItemIcon>
-                  <AccountBoxIcon />
-                </ListItemIcon>
-                <ListItemText primary={`Username: ${props.user.username}`} />
-              </ListItem>
-              <ListItem>
-                <ListItemIcon>
-                  <DraftsIcon />
-                </ListItemIcon>
-                <ListItemText primary={`Email: ${props.user.email}`} />
-              </ListItem>
-              <ListItem>
-                <ListItemIcon>
-                  <Filter1Icon />
-                </ListItemIcon>
-                <ListItemText primary={`First Name: ${props.user.firstname}`} />
-              </ListItem>
-              <ListItem>
-                <ListItemIcon>
-                  <Filter2Icon />
-                </ListItemIcon>
-                <ListItemText primary={`Last Name: ${props.user.lastname}`} />
-              </ListItem>
-              <ListItem>
-                <ListItemIcon>
-                  <SchoolIcon />
-                </ListItemIcon>
-                <ListItemText primary={`College: ${props.user.college}`} />
-              </ListItem>
-              <ListItem>
-                <ListItemIcon>
-                  <HomeIcon />
-                </ListItemIcon>
-                <ListItemText primary={`Postal Code: ${props.user.postal}`} />
-              </ListItem>
-            </List>
-          </CardBody>
-          <CardFooter stats>
-            <div
-              className={classes.stats}
-              style={{
-                display: "flex",
-                verticalAlign: "center",
-              }}
-            >
-              <PaymentIcon style={{ marginTop: 0 }} />
-              <p style={{ fontSize: 14, alignSelf: "center", marginBottom: 0 }}>
-                Edit payment methods and subscriptions on the payments page!
-              </p>
-            </div>
-          </CardFooter>
-        </Card>
+        <ProfileCard user={props.user} />
       </Grid>
     </Grid>
   );
