@@ -12,6 +12,7 @@ import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
 import Button from "components/proTheme/CustomButtons/Button.js";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import styles from "assets/jss/material-dashboard-react/layouts/adminStyle.js";
 const useStyles = makeStyles(styles);
 const CssTextField = withStyles({
@@ -48,6 +49,7 @@ const occupations = [
 ];
 const UpdateProfile = (props) => {
   const classes = useStyles();
+  const [loading, setLoading] = useState(false);
   const [formDetails, setFormDetails] = useState({
     country: "",
     occupation: "",
@@ -60,15 +62,26 @@ const UpdateProfile = (props) => {
   const handleFormSubmit = async (event) => {
     try {
       event.preventDefault();
+      setLoading(true);
       const payload = {
         id: props.user.id,
       };
+      let empty = true;
       for (let keys in formDetails) {
-        if (formDetails[keys]) payload[keys] = formDetails[keys];
+        if (formDetails[keys]) {
+          empty = false;
+          payload[keys] = formDetails[keys];
+        }
+      }
+      if (empty) {
+        alert("please fill out field");
+        setLoading(false);
+        return;
       }
       const res = await api.post("/", payload);
-      console.log("COMPLETE");
       console.log(res);
+      alert(res.data);
+      setLoading(false);
     } catch (err) {
       console.log(err);
       alert(err);
@@ -199,17 +212,20 @@ const UpdateProfile = (props) => {
                 </Grid>
               </Grid>
 
-              <CardFooter
-                stats
-                style={{ display: "flex", justifyContent: "flex-end", paddingRight: 30, paddingTop: 16 }}
-              >
-                <Button
-                  style={{ backgroundColor: "#f6a4eb", minHeight: 45, minWidth: 180, fontSize: 14 }}
-                  type="submit"
+              {!loading && (
+                <CardFooter
+                  stats
+                  style={{ display: "flex", justifyContent: "flex-end", paddingRight: 30, paddingTop: 16 }}
                 >
-                  Update Profile
-                </Button>
-              </CardFooter>
+                  <Button
+                    style={{ backgroundColor: "#f6a4eb", minHeight: 45, minWidth: 180, fontSize: 14 }}
+                    type="submit"
+                  >
+                    Update Profile
+                  </Button>
+                </CardFooter>
+              )}
+              {loading && <CircularProgress style={{ color: "#1d8cf8" }} />}
             </form>
           </CardBody>
         </Card>
