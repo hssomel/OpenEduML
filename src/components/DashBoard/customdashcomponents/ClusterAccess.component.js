@@ -17,9 +17,9 @@ const useStyles = makeStyles(styles);
 const ClusterAccessFree = () => {
   const classes = useStyles();
   return (
-    <Card>
+    <Card style={{ minHeight: 370 }}>
       <CardHeader color="rose">
-        <h4 style={{ margin: 0, fontWeight: 700 }}>Access your Free OpenEduML Jupyter Notebook</h4>
+        <h4 style={{ margin: 0, fontWeight: 700 }}>Access your FreeJupyter Notebook</h4>
       </CardHeader>
       <CardBody>
         <h4 style={{ marginTop: 10 }}>Notebook Ready to Launch </h4>
@@ -32,9 +32,9 @@ const ClusterAccessFree = () => {
             fontSize: 15,
           }}
         >
-          With your free tier membership of OpenEduML you get 30 minutes access every 24 hours to your
-          Jupyter Notebook hosted on OpenEduML's cluster. Where you can build, train, and test
-          Machine-learning models in parallel
+          With your free tier membership of OpenEduML you get 30 minutes access every 24 hours to your Jupyter
+          Notebook hosted on OpenEduML's cluster. Where you can build, train, and test Machine-learning models
+          in parallel
         </p>
 
         <Button
@@ -43,7 +43,7 @@ const ClusterAccessFree = () => {
           className={classes.button}
           startIcon={<PowerSettingsNewIcon />}
           style={{
-            marginBottom: 35,
+            marginBottom: 5,
             marginTop: 18,
             minWidth: 140,
             fontWeight: 700,

@@ -6,7 +6,6 @@ import MenuList from "@material-ui/core/MenuList";
 import Grow from "@material-ui/core/Grow";
 import Paper from "@material-ui/core/Paper";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-import Hidden from "@material-ui/core/Hidden";
 import Poppers from "@material-ui/core/Popper";
 import Divider from "@material-ui/core/Divider";
 import { Link } from "react-router-dom";
@@ -44,7 +43,7 @@ export default function AdminNavbarLinks() {
   };
   return (
     <div>
-      <div className={classes.searchWrapper}>
+      <div className={classes.searchWrapper} style={{ paddingRight: 6 }}>
         <CustomInput
           formControlProps={{
             className: classes.margin + " " + classes.search,
@@ -70,9 +69,6 @@ export default function AdminNavbarLinks() {
         <Link to="/admin/dashboard" style={{ color: "#606060" }}>
           <Dashboard className={classes.icons} />
         </Link>
-        <Hidden mdUp implementation="css">
-          <p className={classes.linkText}>Dashboard</p>
-        </Hidden>
       </Button>
 
       <div className={classes.manager}>
@@ -85,7 +81,8 @@ export default function AdminNavbarLinks() {
           onClick={handleClickProfile}
           className={classes.buttonLink}
         >
-          <Person className={classes.icons} />
+          {/* ----------- Person Icon --------------------------- */}
+          <Person className={classes.icons} style={{ height: 21, width: 21, marginTop: 4, marginLeft: -8 }} />
         </Button>
         <Poppers
           open={Boolean(openProfile)}

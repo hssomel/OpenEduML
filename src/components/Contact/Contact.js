@@ -1,19 +1,83 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React, { useState } from "react";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 import PinDrop from "@material-ui/icons/PinDrop";
 import Phone from "@material-ui/icons/Phone";
-// core components
+import axios from "axios";
 import GridContainer from "components/proTheme/Grid/GridContainer.js";
 import GridItem from "components/proTheme/Grid/GridItem.js";
 import InfoArea from "components/proTheme/InfoArea/InfoArea.js";
-import CustomInput from "components/proTheme/CustomInput/CustomInput.js";
 import Button from "components/proTheme/CustomButtons/Button.js";
+import TextField from "@material-ui/core/TextField";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import contactUsStyle from "assets/jss/material-kit-pro-react/views/contactUsStyle.js";
 
 const useStyles = makeStyles(contactUsStyle);
 
+const CssTextField = withStyles({
+  root: {
+    "& label.Mui-focused": {
+      color: "#1d8cf8",
+    },
+    "& .MuiInput-underline:after": {
+      borderBottomColor: "#1d8cf8",
+    },
+  },
+})(TextField);
+
+const inputPropsText = {
+  type: "text",
+  maxLength: 30,
+};
+
+const api = axios.create({
+  baseURL: `http://192.168.4.22:5000/api/profile`,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
 const Contact = () => {
   const classes = useStyles();
+  const [loading, setLoading] = useState(false);
+  const [formDetails, setFormDetails] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  // Event Handlers ------------------------------------------------------->
+  const handleFormSubmit = async (event) => {
+    try {
+      event.preventDefault();
+      setLoading(true);
+      const payload = {
+        formDetails,
+      };
+      const res = await api.post("/contact", payload);
+      alert(res.data);
+      setLoading(false);
+    } catch (err) {
+      console.log(err);
+      alert(err);
+    }
+  };
+
+  const onNameChange = (event) => {
+    let value = event.target.value;
+    value = value.replace(/[^A-Za-z]/gi, "");
+    setFormDetails({ ...formDetails, [event.target.id]: value });
+  };
+
+  const onPhoneChange = (event) => {
+    let value = event.target.value;
+    if (value.toString().length < 12) setFormDetails({ ...formDetails, [event.target.id]: value });
+  };
+
+  const onInputChange = (event) => {
+    let value = event.target.value;
+    if (value.length < 140) setFormDetails({ ...formDetails, [event.target.id]: value });
+  };
+  // ------------------------------------------------------------------------->
   return (
     <div className={classes.contactContent}>
       <div className={classes.container}>
@@ -26,43 +90,59 @@ const Contact = () => {
               <br />
               <br />
             </p>
-            <form>
-              <CustomInput
-                labelText="Your Name"
-                id="float"
-                formControlProps={{
-                  fullWidth: true,
-                }}
+            <form style={{ backgroundColor: "" }} autoComplete="off" onSubmit={handleFormSubmit}>
+              <CssTextField
+                id="name"
+                label="Your Name"
+                fullWidth
+                required
+                inputProps={inputPropsText}
+                value={formDetails.name}
+                style={{ marginBottom: 16 }}
+                onChange={(e) => onNameChange(e)}
               />
-              <CustomInput
-                labelText="Email address"
-                id="float"
-                formControlProps={{
-                  fullWidth: true,
-                }}
+              <CssTextField
+                id="email"
+                label="email address"
+                fullWidth
+                required
+                type="email"
+                inputProps={inputPropsText}
+                value={formDetails.email}
+                style={{ marginBottom: 16, marginTop: 16 }}
+                onChange={(e) => onInputChange(e)}
               />
-              <CustomInput
-                labelText="Phone"
-                id="float"
-                formControlProps={{
-                  fullWidth: true,
-                }}
+              <CssTextField
+                id="phone"
+                label="Phone"
+                fullWidth
+                required
+                value={formDetails.phone}
+                style={{ marginBottom: 16, marginTop: 16 }}
+                onChange={(e) => onPhoneChange(e)}
               />
-              <CustomInput
-                labelText="Your message"
-                id="float"
-                formControlProps={{
-                  fullWidth: true,
-                }}
+              <CssTextField
+                id="message"
+                label="message"
+                fullWidth
+                multiline
+                required
+                value={formDetails.message}
+                style={{ marginBottom: 16, marginTop: 16 }}
+                onChange={(e) => onInputChange(e)}
                 inputProps={{
                   multiline: true,
                   rows: 6,
                 }}
               />
+
               <div className={classes.textCenter}>
-                <Button style={{ backgroundColor: "#1d8cf8" }} round>
-                  Contact us
-                </Button>
+                {!loading && (
+                  <Button style={{ backgroundColor: "#1d8cf8" }} round type="submit">
+                    Contact us
+                  </Button>
+                )}
+                {loading && <CircularProgress style={{ color: "#1d8cf8" }} />}
               </div>
             </form>
           </GridItem>

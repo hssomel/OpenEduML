@@ -26,7 +26,7 @@ const ConsolePage = ({ currentUser, match }) => {
 
   const updateNavColor = () => {
     const inner = document.getElementById("myDiv");
-    if (inner.scrollTop > 5) setNavbarColor("info");
+    if (inner.scrollTop > 5) setNavbarColor("transparent");
     else setNavbarColor("transparent");
   };
 
@@ -41,7 +41,13 @@ const ConsolePage = ({ currentUser, match }) => {
   return (
     <>
       <div className={classes.wrapper} style={{ backgroundColor: "#eeeeee" }}>
-        <AdminNavbar routes={routes} color={navbarColor} toggleOpen={openSideBar} sideOpen={sideOpen} />
+        <AdminNavbar
+          routes={routes}
+          color={navbarColor}
+          toggleOpen={openSideBar}
+          sideOpen={sideOpen}
+          user={currentUser}
+        />
         <MiniSideBar sideOpen={sideOpen} />
         <div
           className={classes.mainPanel}
@@ -51,6 +57,7 @@ const ConsolePage = ({ currentUser, match }) => {
         >
           <div className={classes.content}>
             <div className={classes.container} style={{ marginTop: 36 }}>
+              {/* <h1>hi</h1> */}
               {match.path === "/admin/profile" ? <UpdateProfile user={currentUser} /> : <Dashboard />}
             </div>
           </div>
