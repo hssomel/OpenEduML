@@ -9,6 +9,7 @@ import Grow from "@material-ui/core/Grow";
 import Paper from "@material-ui/core/Paper";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import Poppers from "@material-ui/core/Popper";
+import { auth } from "firebase/firebase.utils";
 import Divider from "@material-ui/core/Divider";
 // @material-ui/icons
 import Person from "@material-ui/icons/Person";
@@ -31,6 +32,14 @@ export default function ContactHeaderLinks() {
   };
   const handleCloseProfile = () => {
     setOpenProfile(null);
+  };
+
+  const handleSignOut = async () => {
+    try {
+      await auth.signOut();
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <div>
@@ -84,9 +93,11 @@ export default function ContactHeaderLinks() {
                     </Link>
 
                     <Divider light />
-                    <MenuItem onClick={handleCloseProfile} className={classes.dropdownItem}>
-                      Logout
-                    </MenuItem>
+                    <Link to="/" style={{ color: "white" }}>
+                      <MenuItem onClick={handleSignOut} className={classes.dropdownItem}>
+                        Logout
+                      </MenuItem>
+                    </Link>
                   </MenuList>
                 </ClickAwayListener>
               </Paper>

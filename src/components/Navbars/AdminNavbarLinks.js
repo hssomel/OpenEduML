@@ -1,6 +1,5 @@
 import React from "react";
 import classNames from "classnames";
-// @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
@@ -10,13 +9,13 @@ import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import Hidden from "@material-ui/core/Hidden";
 import Poppers from "@material-ui/core/Popper";
 import Divider from "@material-ui/core/Divider";
-// @material-ui/icons
+import { Link } from "react-router-dom";
 import Person from "@material-ui/icons/Person";
 import Dashboard from "@material-ui/icons/Dashboard";
 import Search from "@material-ui/icons/Search";
-// core components
 import CustomInput from "components/DashBoard/dashcomponents/CustomInput/CustomInput.js";
 import Button from "components/DashBoard/dashcomponents/CustomButtons/Button.js";
+import { auth } from "firebase/firebase.utils";
 import styles from "assets/jss/material-dashboard-react/components/headerLinksStyle.js";
 const useStyles = makeStyles(styles);
 
@@ -31,6 +30,15 @@ export default function AdminNavbarLinks() {
       setOpenProfile(event.currentTarget);
     }
   };
+
+  const handleSignOut = async () => {
+    try {
+      await auth.signOut();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const handleCloseProfile = () => {
     setOpenProfile(null);
   };
@@ -59,7 +67,9 @@ export default function AdminNavbarLinks() {
         aria-label="Dashboard"
         className={classes.buttonLink}
       >
-        <Dashboard className={classes.icons} />
+        <Link to="/admin/dashboard" style={{ color: "#606060" }}>
+          <Dashboard className={classes.icons} />
+        </Link>
         <Hidden mdUp implementation="css">
           <p className={classes.linkText}>Dashboard</p>
         </Hidden>
@@ -76,18 +86,13 @@ export default function AdminNavbarLinks() {
           className={classes.buttonLink}
         >
           <Person className={classes.icons} />
-          <Hidden mdUp implementation="css">
-            <p className={classes.linkText}>Profile</p>
-          </Hidden>
         </Button>
         <Poppers
           open={Boolean(openProfile)}
           anchorEl={openProfile}
           transition
           disablePortal
-          className={
-            classNames({ [classes.popperClose]: !openProfile }) + " " + classes.popperNav
-          }
+          className={classNames({ [classes.popperClose]: !openProfile }) + " " + classes.popperNav}
         >
           {({ TransitionProps, placement }) => (
             <Grow
@@ -101,14 +106,11 @@ export default function AdminNavbarLinks() {
                 <ClickAwayListener onClickAway={handleCloseProfile}>
                   <MenuList role="menu">
                     <MenuItem onClick={handleCloseProfile} className={classes.dropdownItem}>
-                      Profile
-                    </MenuItem>
-                    <MenuItem onClick={handleCloseProfile} className={classes.dropdownItem}>
-                      Settings
+                      <Link to="/admin/profile">Profile</Link>
                     </MenuItem>
                     <Divider light />
-                    <MenuItem onClick={handleCloseProfile} className={classes.dropdownItem}>
-                      Logout
+                    <MenuItem onClick={handleSignOut} className={classes.dropdownItem}>
+                      <Link to="/">Logout</Link>
                     </MenuItem>
                   </MenuList>
                 </ClickAwayListener>
