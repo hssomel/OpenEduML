@@ -8,7 +8,7 @@ import CardHeader from "../dashcomponents/Card/CardHeader.js";
 import CardIcon from "../dashcomponents/Card/CardIcon.js";
 import CardFooter from "../dashcomponents/Card/CardFooter.js";
 import Grid from "@material-ui/core/Grid";
-// @material-ui/icons
+import InfoIcon from "@material-ui/icons/Info";
 import Warning from "@material-ui/icons/Warning";
 import BatteryAlertIcon from "@material-ui/icons/BatteryAlert";
 import DateRange from "@material-ui/icons/DateRange";
@@ -41,6 +41,8 @@ const StatusGauges = () => {
               </Danger>
               <a href="#pablo">Ready to Launch</a>
             </div>
+
+            <InfoIcon style={{ color: "#999" }} />
           </CardFooter>
         </Card>
       </Grid>
@@ -59,6 +61,7 @@ const StatusGauges = () => {
               <DateRange />
               Date Last Accessed: 5/04/21
             </div>
+            <InfoIcon style={{ color: "#999" }} />
           </CardFooter>
         </Card>
       </Grid>
@@ -77,6 +80,7 @@ const StatusGauges = () => {
               <CloudIcon />
               Intel Skylake P-8175
             </div>
+            <InfoIcon style={{ color: "#999" }} />
           </CardFooter>
         </Card>
       </Grid>
@@ -95,6 +99,7 @@ const StatusGauges = () => {
               <CloudIcon />
               Nvidia V100
             </div>
+            <InfoIcon style={{ color: "#999" }} />
           </CardFooter>
         </Card>
       </Grid>

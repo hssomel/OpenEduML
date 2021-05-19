@@ -35,6 +35,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         lastname: null,
         college: null,
         postal: null,
+        tier: "free",
         ...additionalData,
       });
     } catch (error) {

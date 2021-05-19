@@ -43,8 +43,7 @@ const ClusterAccessFree = () => {
           className={classes.button}
           startIcon={<PowerSettingsNewIcon />}
           style={{
-            marginBottom: 5,
-            marginTop: 18,
+            marginTop: 8,
             minWidth: 140,
             fontWeight: 700,
           }}
@@ -53,7 +52,7 @@ const ClusterAccessFree = () => {
         </Button>
       </CardBody>
       <CardFooter chart>
-        <div className={classes.stats} style={{ paddingTop: 8, paddingBottom: 6 }}>
+        <div className={classes.stats}>
           <AccessTime /> last launched: 4 minutes ago
         </div>
       </CardFooter>

@@ -1,20 +1,7 @@
 let xLabels = [];
 let dataPoints = [100, 85, 110];
 
-const monthNames = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "June",
-  "July",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
-];
+const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 const getXLabels = () => {
   let x = new Date();
@@ -26,7 +13,7 @@ const getXLabels = () => {
   }
 
   xLabels.push(monthNames[mo]);
-  xLabels.push(monthNames[mo + 1]);
+  xLabels.push(monthNames[mo + 1] + "  (Forecast)");
 };
 getXLabels();
 

@@ -12,7 +12,21 @@ const BillingChart = () => {
       <CardHeader color="primary3">
         <h4 style={{ margin: 0, fontWeight: 700 }}>Monthly Billing History</h4>
       </CardHeader>
-      <CardBody style={{ marginTop: 10 }}>
+      <h5
+        style={{
+          // marginTop: 0,
+          marginTop: 10,
+          marginLeft: 16,
+          marginBottom: -10,
+          fontSize: 16,
+          color: "#b4b4b4",
+          fontWeight: 300,
+          fontFamily: "Poppins",
+        }}
+      >
+        $USD
+      </h5>
+      <CardBody style={{ marginTop: 0 }}>
         <Bar data={chartExample3.data} options={chartExample3.options} />
       </CardBody>
     </Card>

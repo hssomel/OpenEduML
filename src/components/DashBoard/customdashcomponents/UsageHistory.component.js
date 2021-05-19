@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
 import Card from "../dashcomponents/Card/Card.js";
 import CardHeader from "../dashcomponents/Card/CardHeader.js";
 import CardBody from "../dashcomponents/Card/CardBody.js";
 import { Line } from "react-chartjs-2";
 import { chartExample1 } from "utils/usagehistory.utils";
 
-const UsageHistory = () => {
+const UsageHistory = ({ currentUser }) => {
+  useEffect(() => {
+    console.log("daily usage: ", currentUser);
+  }, []);
   return (
     <Card
       style={{
@@ -46,7 +50,7 @@ const UsageHistory = () => {
             fontFamily: "Poppins",
           }}
         >
-          Daily Usage
+          Daily Usage <span style={{ fontSize: 12 }}>(hrs)</span>
         </h4>
       </CardHeader>
       <CardBody style={{ width: "100%", paddingLeft: 5 }}>
@@ -56,4 +60,8 @@ const UsageHistory = () => {
   );
 };
 
-export default UsageHistory;
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToProps)(UsageHistory);

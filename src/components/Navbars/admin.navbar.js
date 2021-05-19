@@ -31,7 +31,6 @@ const AdminNavbar = (props) => {
               display: "flex",
               flexDirection: "row",
               justifyContent: "space-between",
-
               paddingLeft: 25,
             }}
           >
