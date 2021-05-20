@@ -1,7 +1,5 @@
 import React from "react";
-// @material-ui/core
 import { makeStyles } from "@material-ui/core/styles";
-// core components
 import Danger from "../dashcomponents/Typography/Danger.js";
 import Card from "../dashcomponents/Card/Card.js";
 import CardHeader from "../dashcomponents/Card/CardHeader.js";
@@ -16,6 +14,8 @@ import AccessTime from "@material-ui/icons/AccessTime";
 import ComputerIcon from "@material-ui/icons/Computer";
 import CloudIcon from "@material-ui/icons/Cloud";
 import GrainIcon from "@material-ui/icons/Grain";
+import Popover from "@material-ui/core/Popover";
+import Typography from "@material-ui/core/Typography";
 
 import styles from "../../../assets/jss/material-dashboard-react/views/dashboardStyle.js";
 

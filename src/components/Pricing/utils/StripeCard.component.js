@@ -12,16 +12,7 @@ export const CardField = ({ onChange }) => {
   );
 };
 
-export const Field = ({
-  label,
-  id,
-  type,
-  placeholder,
-  required,
-  autoComplete,
-  value,
-  onChange,
-}) => (
+export const Field = ({ label, id, type, placeholder, required, autoComplete, value, onChange }) => (
   <div className="FormRow">
     <label htmlFor={id} className="FormRowLabel">
       {label}
@@ -42,6 +33,16 @@ export const Field = ({
 export const SubmitButton = ({ processing, error, children, disabled }) => (
   <button
     className={`SubmitButton ${error ? "SubmitButton--error" : ""}`}
+    type="submit"
+    disabled={processing || disabled}
+  >
+    {processing ? "Processing..." : children}
+  </button>
+);
+
+export const SuccessButton = ({ processing, error, children, disabled }) => (
+  <button
+    className={`SuccessButton ${error ? "SuccessButton--error" : ""}`}
     type="submit"
     disabled={processing || disabled}
   >

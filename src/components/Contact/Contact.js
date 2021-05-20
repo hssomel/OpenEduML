@@ -131,7 +131,6 @@ const Contact = () => {
                 style={{ marginBottom: 16, marginTop: 16 }}
                 onChange={(e) => onInputChange(e)}
                 inputProps={{
-                  multiline: true,
                   rows: 6,
                 }}
               />

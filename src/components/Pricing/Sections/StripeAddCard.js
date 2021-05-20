@@ -1,23 +1,26 @@
 import React, { useState } from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { connect } from "react-redux";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import {
   CardField,
   Field,
   SubmitButton,
   ErrorMessage,
-  ResetButton,
+  SuccessButton,
   api,
 } from "../utils/StripeCard.component.js";
+import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 import "../utils/styles.css";
 // ----------------------------------------------------------------------------------->
 const CheckoutForm = (props) => {
   const stripe = useStripe();
   const elements = useElements();
   const [error, setError] = useState(null);
+  const [cardAdded, setCardAdded] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [cardComplete, setCardComplete] = useState(false);
   const [processing, setProcessing] = useState(false);
-  const [paymentMethod, setPaymentMethod] = useState(null);
   const [billingDetails, setBillingDetails] = useState({
     email: "",
     phone: "",
@@ -26,63 +29,45 @@ const CheckoutForm = (props) => {
 
   // EVENT HANDLERS
   const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    if (!stripe || !elements) return;
-    if (error) {
-      elements.getElement("card").focus();
-      return;
+    try {
+      event.preventDefault();
+      if (!stripe || !elements) return;
+      if (error) {
+        elements.getElement("card").focus();
+        return;
+      }
+      if (cardComplete) setProcessing(true);
+      const payload = await stripe.createPaymentMethod({
+        type: "card",
+        card: elements.getElement(CardElement),
+        billing_details: billingDetails,
+      });
+      setProcessing(false);
+      if (payload.error) setError(payload.error);
+      setLoading(true);
+      const body = {
+        payment: payload.paymentMethod,
+        user: props.user,
+      };
+      const res = await api.post("/attachpayment", body);
+      if (res.data.type === "StripeCardError")
+        alert("There was an error with attaching your card! Please try again or contact support!");
+      else setCardAdded(true);
+      setLoading(false);
+    } catch (err) {
+      alert(err.message);
+      setLoading(false);
     }
-    if (cardComplete) setProcessing(true);
-    //
-    const payload = await stripe.createPaymentMethod({
-      type: "card",
-      card: elements.getElement(CardElement),
-      billing_details: billingDetails,
-    });
-    setProcessing(false);
-    // checking for transaction error
-    if (payload.error) setError(payload.error);
-    else setPaymentMethod(payload.paymentMethod);
-
-    const body = {
-      payment: payload.paymentMethod,
-      user: props.user,
-    };
-    console.log(payload.paymentMethod.id);
-    const res = await api.post("/makepayment", body);
-    console.log("res = ", res);
   };
 
-  const resetForm = () => {
-    setError(null);
-    setProcessing(false);
-    setPaymentMethod(null);
-    setBillingDetails({
-      email: "",
-      phone: "",
-      name: "",
-    });
-  };
-
-  return paymentMethod ? (
-    <div className="Result">
-      <div className="ResultTitle" role="alert">
-        Payment successful
-      </div>
-      <div className="ResultMessage">
-        Thanks for trying Stripe Elements. No money was charged, but we generated a PaymentMethod:{" "}
-        {paymentMethod.id}
-      </div>
-      <ResetButton onClick={resetForm} />
-    </div>
-  ) : (
+  return (
     <form className="Form" onSubmit={handleFormSubmit}>
       <fieldset className="FormGroup21">
         <Field
           label="Name"
           id="name"
           type="text"
-          placeholder="Jane Doe"
+          placeholder="Your name"
           required
           autoComplete="name"
           value={billingDetails.name}
@@ -94,7 +79,7 @@ const CheckoutForm = (props) => {
           label="Email"
           id="email"
           type="email"
-          placeholder="janedoe@gmail.com"
+          placeholder="Your email"
           required
           autoComplete="email"
           value={billingDetails.email}
@@ -106,7 +91,7 @@ const CheckoutForm = (props) => {
           label="Phone"
           id="phone"
           type="tel"
-          placeholder="(941) 555-0123"
+          placeholder="Phone number"
           required
           autoComplete="tel"
           value={billingDetails.phone}
@@ -124,9 +109,23 @@ const CheckoutForm = (props) => {
         />
       </fieldset>
       {error && <ErrorMessage>{error.message}</ErrorMessage>}
-      <SubmitButton processing={processing} error={error} disabled={!stripe}>
-        Pay $25
-      </SubmitButton>
+      {!loading && !cardAdded && (
+        <SubmitButton processing={processing} error={error} disabled={!stripe}>
+          ADD PAYMENT METHOD
+        </SubmitButton>
+      )}
+
+      {loading && (
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <CircularProgress style={{ color: "#f6a4eb" }} />
+        </div>
+      )}
+
+      {cardAdded && (
+        <SuccessButton processing={processing} error={error} disabled={!stripe}>
+          CARD SUCCESSFULLY ADDED <CheckCircleOutlineIcon />
+        </SuccessButton>
+      )}
     </form>
   );
 };

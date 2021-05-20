@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import Card from "../dashcomponents/Card/Card.js";
 import CardHeader from "../dashcomponents/Card/CardHeader.js";
@@ -7,9 +7,9 @@ import { Line } from "react-chartjs-2";
 import { chartExample1 } from "utils/usagehistory.utils";
 
 const UsageHistory = ({ currentUser }) => {
-  useEffect(() => {
-    console.log("daily usage: ", currentUser);
-  }, []);
+  // useEffect(() => {
+  //   console.log("daily usage: ", currentUser);
+  // }, []);
   return (
     <Card
       style={{
