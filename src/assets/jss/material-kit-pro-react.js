@@ -48,56 +48,12 @@ const hexToRgb = (input) => {
 
 const drawerWidth = 260;
 
-const primaryColor = [
-  "#9c27b0",
-  "#ab47bc",
-  "#8e24aa",
-  "#af2cc5",
-  "#e1bee7",
-  "#ba68c8",
-  "#1d8cf8",
-];
+const primaryColor = ["#9c27b0", "#ab47bc", "#8e24aa", "#af2cc5", "#e1bee7", "#ba68c8", "#1d8cf8"];
 const secondaryColor = ["#fafafa"];
-const warningColor = [
-  "#ff9800",
-  "#ffa726",
-  "#fb8c00",
-  "#ffa21a",
-  "#fcf8e3",
-  "#faf2cc",
-  "#ffe0b2",
-  "#ffb74d",
-];
-const dangerColor = [
-  "#f44336",
-  "#ef5350",
-  "#e53935",
-  "#f55a4e",
-  "#f2dede",
-  "#ebcccc",
-  "ef9a9a",
-  "#ef5350",
-];
-const successColor = [
-  "#4caf50",
-  "#66bb6a",
-  "#43a047",
-  "#5cb860",
-  "#dff0d8",
-  "#d0e9c6",
-  "#a5d6a7",
-  "#66bb6a",
-];
-const infoColor = [
-  "#00acc1",
-  "#26c6da",
-  "#00acc1",
-  "#00d3ee",
-  "#d9edf7",
-  "#c4e3f3",
-  "#b2ebf2",
-  "#4dd0e1",
-];
+const warningColor = ["#ff9800", "#ffa726", "#fb8c00", "#ffa21a", "#fcf8e3", "#faf2cc", "#ffe0b2", "#ffb74d"];
+const dangerColor = ["#f44336", "#ef5350", "#e53935", "#f55a4e", "#f2dede", "#ebcccc", "ef9a9a", "#ef5350"];
+const successColor = ["#4caf50", "#66bb6a", "#43a047", "#5cb860", "#dff0d8", "#d0e9c6", "#a5d6a7", "#66bb6a"];
+const infoColor = ["#00acc1", "#26c6da", "#00acc1", "#00d3ee", "#d9edf7", "#c4e3f3", "#b2ebf2", "#4dd0e1"];
 const roseColor = ["#e91e63", "#ec407a", "#d81b60", "#f8bbd0", "#f06292"];
 const grayColor = [
   "#999",
@@ -365,7 +321,7 @@ const mainRaised = {
     marginLeft: "10px",
     marginRight: "10px",
   },
-  margin: "-60px 30px 0px",
+  margin: "-70px 30px 0px",
   borderRadius: "6px",
   boxShadow:
     "0 16px 24px 2px rgba(" +
@@ -384,8 +340,7 @@ const section = {
 
 const sectionDark = {
   backgroundColor: grayColor[3],
-  background:
-    "radial-gradient(ellipse at center," + grayColor[4] + " 0," + grayColor[5] + " 100%)",
+  background: "radial-gradient(ellipse at center," + grayColor[4] + " 0," + grayColor[5] + " 100%)",
 };
 
 const sectionDescription = {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // core components
@@ -13,15 +13,11 @@ const useStyles = makeStyles(pricingStyle);
 
 export default function SectionPricing() {
   const classes = useStyles();
-
+  const [time, setTime] = useState("MO.");
   return (
     <div className={classes.pricingSection}>
       <GridContainer>
-        <GridItem
-          md={6}
-          sm={6}
-          className={classNames(classes.mrAuto, classes.mlAuto, classes.textCenter)}
-        >
+        <GridItem md={6} sm={6} className={classNames(classes.mrAuto, classes.mlAuto, classes.textCenter)}>
           <NavPills
             alignCenter
             color="primary"

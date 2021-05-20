@@ -13,7 +13,7 @@ const infoStyle = {
   infoArea: {
     maxWidth: "360px",
     margin: "0 auto",
-    padding: "70px 0 30px",
+    padding: "10px 0 10px",
   },
   iconWrapper: {
     float: "left",
