@@ -1,32 +1,18 @@
 import React from "react";
-// nodejs library that concatenates classes
 import classNames from "classnames";
-// nodejs library to set properties for components
-import PropTypes from "prop-types";
-import SwipeableViews from "react-swipeable-views";
-
-// @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
-
-// core components
-import GridContainer from "components/proTheme/Grid/GridContainer.js";
-import GridItem from "components/proTheme/Grid/GridItem.js";
-
 import styles from "assets/jss/material-kit-pro-react/components/navPillsStyle.js";
 
 const useStyles = makeStyles(styles);
-
 export default function NavPills(props) {
   const [active, setActive] = React.useState(props.active);
   const handleChange = (event, active) => {
     setActive(active);
   };
-  const handleChangeIndex = (index) => {
-    setActive(index);
-  };
-  const { tabs, direction, color, horizontal, alignCenter } = props;
+
+  const { tabs, color, horizontal, alignCenter, onClick } = props;
   const classes = useStyles();
   const flexContainerClasses = classNames({
     [classes.flexContainer]: true,
@@ -58,6 +44,7 @@ export default function NavPills(props) {
           <Tab
             label={prop.tabButton}
             key={key}
+            onClick={onClick}
             {...icon}
             classes={{
               root: pillsClasses,
@@ -69,56 +56,12 @@ export default function NavPills(props) {
       })}
     </Tabs>
   );
-  const tabContent = (
-    <div className={classes.contentWrapper}>
-      <SwipeableViews
-        axis={direction === "rtl" ? "x-reverse" : "x"}
-        index={active}
-        onChangeIndex={handleChangeIndex}
-      >
-        {tabs.map((prop, key) => {
-          return (
-            <div className={classes.tabContent} key={key}>
-              {prop.tabContent}
-            </div>
-          );
-        })}
-      </SwipeableViews>
-    </div>
-  );
-  return horizontal !== undefined ? (
-    <GridContainer>
-      {/* <GridItem {...horizontal.tabsGrid}>{tabButtons}</GridItem>
-      <GridItem {...horizontal.contentGrid}>{tabContent}</GridItem> */}
-    </GridContainer>
-  ) : (
-    <div>
-      {tabButtons}
-      {tabContent}
-    </div>
-  );
+
+  // ----------------------------------------------------->
+  return <div>{tabButtons}</div>;
 }
 
 NavPills.defaultProps = {
   active: 0,
   color: "primary",
-};
-
-NavPills.propTypes = {
-  // index of the default active pill
-  active: PropTypes.number,
-  tabs: PropTypes.arrayOf(
-    PropTypes.shape({
-      tabButton: PropTypes.string,
-      tabIcon: PropTypes.object,
-      tabContent: PropTypes.node,
-    })
-  ).isRequired,
-  color: PropTypes.oneOf(["primary", "warning", "danger", "success", "info", "rose"]),
-  direction: PropTypes.string,
-  horizontal: PropTypes.shape({
-    tabsGrid: PropTypes.object,
-    contentGrid: PropTypes.object,
-  }),
-  alignCenter: PropTypes.bool,
 };

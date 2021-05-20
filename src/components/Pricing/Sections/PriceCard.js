@@ -12,22 +12,20 @@ const useStyles = makeStyles(pricingStyle);
 
 const PricingCard = (props) => {
   const classes = useStyles();
-
+  const { price, time, priceyr } = props;
   return (
     <GridItem xs={12} lg={4}>
       <Card plain={props.plain} pricing raised={props.raised} color={props.color}>
         <CardBody pricing>
           {/*  */}
           {!props.titlecolor && (
-            <h6 className={classNames(classes.cardCategory, classes.textInfo)}>
-              {props.tier}
-            </h6>
+            <h6 className={classNames(classes.cardCategory, classes.textInfo)}>{props.tier}</h6>
           )}
           {props.titlecolor && <h6 className={classes.cardCategory}>{props.tier}</h6>}
 
           <h1 className={classes.cardTitle} style={{ color: props.titlecolor }}>
             <small>$</small>
-            {props.price} <small>/mo</small>
+            {time === "MO." ? price : priceyr} <small>/{time}</small>
           </h1>
           <ul style={{ maxWidth: 300 }}>
             <li>
@@ -49,7 +47,7 @@ const PricingCard = (props) => {
               Ability to Launch GPU Kernels: <b>{props.gpukernels}</b>
             </li>
           </ul>
-          <Button href="#pablo" color={props.buttoncolor} round>
+          <Button onClick={props.buttonClick} color={props.buttoncolor} round>
             Get started
           </Button>
         </CardBody>

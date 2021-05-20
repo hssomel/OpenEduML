@@ -20,12 +20,7 @@ const PaymentPage = () => {
 
   return (
     <div>
-      <Header
-        brand="OPENEDUML"
-        links={<HeaderLinks dropdownHoverColor="dark" />}
-        fixed
-        color="dark"
-      />
+      <Header brand="OPENEDUML" links={<HeaderLinks dropdownHoverColor="dark" />} fixed color="dark" />
       <Parallax image={`url(${bgImage})`} filter="dark" small>
         <div className={classes.container}>
           <GridContainer>
@@ -36,8 +31,8 @@ const PaymentPage = () => {
             >
               <h1 className={classes.title}>Let{"'"}s get started</h1>
               <h4>
-                To get started, you will need to choose a plan for your needs. You can opt in
-                for the monthly of annual options and go with one fo the three listed below.
+                To get started, you will need to choose a plan for your needs. You can opt in for the monthly
+                of annual options and go with one of the three listed below.
               </h4>
             </GridItem>
           </GridContainer>

@@ -26,7 +26,7 @@ export default function SectionFeatures() {
         <GridItem md={4} sm={4} className={classes.mlAuto}>
           <InfoArea
             title="Can I cancel my subscription?"
-            description="Yes, you can cancel and perform other actions on your subscriptions via the My Account page."
+            description="Yes, you can cancel and perform other actions on your subscriptions down below."
             icon={CardMembership}
             iconColor="info"
           />
@@ -34,7 +34,7 @@ export default function SectionFeatures() {
         <GridItem md={4} sm={4} className={classes.mrAuto}>
           <InfoArea
             title="Is there any discount for an annual subscription?"
-            description="Yes, we offer a 40% discount if you choose annual subscription for any plan."
+            description="Yes, we offer a 20% discount if you choose annual subscription for any plan."
             icon={CardGiftCard}
             iconColor="success"
           />
@@ -44,7 +44,7 @@ export default function SectionFeatures() {
         <GridItem md={4} sm={4} className={classes.mlAuto}>
           <InfoArea
             title="Which payment methods do you take?"
-            description="WooCommerce comes bundled with PayPal (for accepting credit card and PayPal account payments), BACS, and cash on delivery for accepting payments."
+            description="Currently OpenEduML only accepts US based credit cards."
             icon={AttachMoney}
             iconColor="success"
           />
