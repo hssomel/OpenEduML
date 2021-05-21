@@ -29,6 +29,11 @@ const inputPropsText = {
   maxLength: 30,
 };
 
+const inputPropsEmail = {
+  type: "email",
+  maxLength: 30,
+};
+
 const api = axios.create({
   baseURL: `http://192.168.4.22:5000/api/profile`,
   headers: {
@@ -107,7 +112,7 @@ const Contact = () => {
                 fullWidth
                 required
                 type="email"
-                inputProps={inputPropsText}
+                inputProps={inputPropsEmail}
                 value={formDetails.email}
                 style={{ marginBottom: 16, marginTop: 16 }}
                 onChange={(e) => onInputChange(e)}
@@ -116,6 +121,7 @@ const Contact = () => {
                 id="phone"
                 label="Phone"
                 fullWidth
+                type="number"
                 required
                 value={formDetails.phone}
                 style={{ marginBottom: 16, marginTop: 16 }}
