@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 // Pages
-import LandingPage from "./pages/landing-page.component";
-import SignInSignUpPage from "./pages/sign-in-sign-up.component";
-import PaymentPage from "./pages/payment.component";
-import ContactPage from "./pages/contact.component";
-import ConsolePage from "./pages/console.component";
+import LandingPage from "./pages/landing.page";
+import SignInSignUpPage from "./pages/sign-in-sign-up.page";
+import PaymentPage from "./pages/payment.page";
+import ContactPage from "./pages/contact.page";
+import ConsolePage from "./pages/console.page";
 // --------------------------------------------------->
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/user/user.actions";
