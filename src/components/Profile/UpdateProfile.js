@@ -56,7 +56,7 @@ const UpdateProfile = (props) => {
     firstname: "",
     lastname: "",
     college: "",
-    postal: null,
+    postal: "",
   });
   // EVENT HANDLERS ------------------------------------------------------------->
   const handleFormSubmit = async (event) => {
