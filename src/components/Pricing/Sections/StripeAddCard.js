@@ -61,7 +61,7 @@ const CheckoutForm = (props) => {
   };
 
   return (
-    <form className="Form" onSubmit={handleFormSubmit} style={{ backgroundColor: "yellow" }}>
+    <form className="Form" onSubmit={handleFormSubmit} style={{ backgroundColor: "" }}>
       <fieldset className="FormGroup21">
         <Field
           label="Name"

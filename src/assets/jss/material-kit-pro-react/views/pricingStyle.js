@@ -68,6 +68,22 @@ const pricingStyle = {
     top: "3px",
     position: "relative",
   },
+  tabGrid: {
+    padding: "20px 0px 100px 0px",
+    textAlign: "center",
+    display: "flex",
+    flexDirection: "column",
+  },
+  processingGrid: {
+    textAlign: "center",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  tabButtons: {
+    minHeight: 45,
+    margin: "10px 12px 10px 12px",
+  },
   // stripe stuff
   stripeDemo: {
     display: "flex",

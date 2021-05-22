@@ -2,7 +2,7 @@ import { title, mlAuto, mrAuto } from "assets/jss/material-kit-pro-react.js";
 
 const featuresStyle = {
   featuresSection: {
-    padding: "10px 0px",
+    padding: "40px 0px",
   },
   textCenter: {
     textAlign: "center",
