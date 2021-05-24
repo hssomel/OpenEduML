@@ -15,6 +15,11 @@ const infoStyle = {
     margin: "0 auto",
     padding: "10px 0 10px",
   },
+  infoArea2: {
+    maxWidth: "440px",
+    margin: "0 auto",
+    padding: "10px 10px 10px 10px",
+  },
   iconWrapper: {
     float: "left",
     marginTop: "24px",

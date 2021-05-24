@@ -5,6 +5,7 @@ import Button from "@material-ui/core/Button";
 import SectionPricing from "components/Pricing/Sections/SectionPricing.js";
 import SectionFeatures from "components/Pricing/Sections/SectionFeatures.js";
 import AddPayment from "components/Pricing/addlComponents/AddPayment";
+import SwitchTier from "components/Pricing/addlComponents/SwitchTier";
 import StripeModal from "components/Pricing/addlComponents/StripeModal";
 import pricingStyle from "assets/jss/material-kit-pro-react/views/pricingStyle.js";
 import featuresStyle from "assets/jss/material-kit-pro-react/views/pricingSections/featuresStyle.js";
@@ -14,6 +15,7 @@ const useStyles2 = makeStyles(featuresStyle);
 const Pricing = () => {
   const classes = useStyles();
   const classes2 = useStyles2();
+  //
   const endRef = useRef(null);
   const [active, setActive] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
@@ -61,10 +63,15 @@ const Pricing = () => {
             </Button>
           </Grid>
           <Grid item xs={8} className={classes.processingGrid}>
-            <h3 className={classes2.title} style={{ paddingTop: 0, marginTop: -10, marginBottom: 65 }}>
+            <h3
+              className={classes2.title}
+              style={{ paddingTop: 0, marginTop: -10, marginBottom: `${active ? "65px" : "10px"}` }}
+            >
               {active ? "Payment Methods" : "Subscriptions"}
             </h3>
-            <AddPayment onClick={openModal} />
+
+            {active && <AddPayment onClick={openModal} />}
+            {!active && <SwitchTier />}
             <StripeModal modalOpen={modalOpen} onClick={openModal} />
           </Grid>
         </Grid>

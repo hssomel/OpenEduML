@@ -12,7 +12,7 @@ import styles from "assets/jss/material-kit-pro-react/components/infoStyle.js";
 const useStyles = makeStyles(styles);
 
 export default function InfoArea(props) {
-  const { title, description, iconColor, vertical, className } = props;
+  const { title, description, iconColor, vertical, className, second } = props;
   const classes = useStyles();
   const iconWrapper = classNames({
     [classes.iconWrapper]: true,
@@ -27,6 +27,10 @@ export default function InfoArea(props) {
     [classes.infoArea]: true,
     [className]: className !== undefined,
   });
+  const infoAreaClasses2 = classNames({
+    [classes.infoArea2]: true,
+    [className]: className !== undefined,
+  });
   let icon = null;
   switch (typeof props.icon) {
     case "string":
@@ -37,7 +41,7 @@ export default function InfoArea(props) {
       break;
   }
   return (
-    <div className={infoAreaClasses}>
+    <div className={second ? infoAreaClasses2 : infoAreaClasses}>
       <div className={iconWrapper}>{icon}</div>
       <div className={classes.descriptionWrapper}>
         <h4 className={classes.title}>{title}</h4>
@@ -54,7 +58,7 @@ InfoArea.defaultProps = {
 InfoArea.propTypes = {
   icon: PropTypes.oneOfType([PropTypes.object, PropTypes.string]).isRequired,
   title: PropTypes.string.isRequired,
-  description: PropTypes.node.isRequired,
+  // description: PropTypes.node.isRequired,
   iconColor: PropTypes.oneOf([
     "primary",
     "warning",
