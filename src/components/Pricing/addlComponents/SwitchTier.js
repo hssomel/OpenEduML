@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import TrackChangesIcon from "@material-ui/icons/TrackChanges";
+import ProcessModal from "components/Pricing/addlComponents/ProcessModal";
 import InfoArea from "components/proTheme/InfoArea/InfoArea.js";
 import pricingStyle from "assets/jss/material-kit-pro-react/views/pricingStyle.js";
 import pricingStyle2 from "assets/jss/material-kit-pro-react/views/pricingSections/pricingStyle.js";
@@ -16,10 +17,16 @@ const useStyles3 = makeStyles(pricingStyle2);
 const SwitchTier = ({ currentUser }) => {
   const classes = useStyles();
   const classes3 = useStyles3();
+  // STATE
+  const [modalOpen, setModalOpen] = useState(false);
   const [value, setValue] = useState(currentUser.tier);
   const [price, setPrice] = useState("0");
   const [buttonColor, setButtonColor] = useState("lightgray");
   // EVENT HANDLERS ------------------------------------------->
+  const openModal = () => {
+    if (buttonColor !== "lightgray") setModalOpen(!modalOpen);
+  };
+
   const handleButtonChange = (event) => {
     const { value } = event.target;
     setValue(value);
@@ -37,6 +44,7 @@ const SwitchTier = ({ currentUser }) => {
         {price}
         <small>/{"MO."}</small>
       </h1>
+      {modalOpen && <ProcessModal modalOpen={modalOpen} onClick={openModal} />}
       <FormControl
         component="div"
         style={{
@@ -70,8 +78,7 @@ const SwitchTier = ({ currentUser }) => {
         <Button
           variant="contained"
           className={classes.tabButtons}
-          //   onClick={() => buttonClick(true)}
-          //   className={classes.tabButtons}
+          onClick={openModal}
           style={{
             backgroundColor: buttonColor,
             color: "white",
