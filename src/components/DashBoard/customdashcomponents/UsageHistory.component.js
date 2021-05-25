@@ -1,15 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
+import axios from "axios";
 import Card from "../dashcomponents/Card/Card.js";
 import CardHeader from "../dashcomponents/Card/CardHeader.js";
 import CardBody from "../dashcomponents/Card/CardBody.js";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import { Line } from "react-chartjs-2";
 import { chartExample1 } from "utils/usagehistory.utils";
 
+const api = axios.create({
+  baseURL: `${process.env.REACT_APP_ADDR}/api/stats`,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
 const UsageHistory = ({ currentUser }) => {
-  // useEffect(() => {
-  //   console.log("daily usage: ", currentUser);
-  // }, []);
+  const [loading, setLoading] = useState(true);
+  // EVENT HANDLERS
+  useEffect(() => {
+    const fetchData = async () => {
+      const monthlyData = await api.get(`/monthlyusage/${currentUser.id}`);
+      setLoading(false);
+    };
+    fetchData();
+  }, []);
+
   return (
     <Card
       style={{
@@ -54,7 +70,13 @@ const UsageHistory = ({ currentUser }) => {
         </h4>
       </CardHeader>
       <CardBody style={{ width: "100%", paddingLeft: 5 }}>
-        <Line data={chartExample1["data1"]} options={chartExample1.options} />
+        {loading ? (
+          <div style={{ justifyContent: "center", display: "flex" }}>
+            <CircularProgress />
+          </div>
+        ) : (
+          <Line data={chartExample1["data1"]} options={chartExample1.options} />
+        )}
       </CardBody>
     </Card>
   );
