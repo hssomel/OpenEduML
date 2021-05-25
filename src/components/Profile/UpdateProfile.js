@@ -43,6 +43,7 @@ const UpdateProfile = ({ currentUser }) => {
     college: "",
     postal: "",
   });
+
   // EVENT HANDLERS ------------------------------------------------------------->
   const handleFormSubmit = async (event) => {
     try {
