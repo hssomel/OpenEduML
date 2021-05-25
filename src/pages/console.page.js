@@ -58,7 +58,7 @@ const ConsolePage = ({ currentUser, match }) => {
           <div className={classes.content}>
             <div className={classes.container} style={{ marginTop: 36 }}>
               {/* <h1>hi</h1> */}
-              {match.path === "/admin/profile" ? <UpdateProfile user={currentUser} /> : <Dashboard />}
+              {match.path === "/admin/profile" ? <UpdateProfile /> : <Dashboard />}
             </div>
           </div>
         </div>

@@ -7,6 +7,7 @@ import CardIcon from "components/DashBoard/dashcomponents/Card/CardIcon.js";
 import CardFooter from "components/DashBoard/dashcomponents/Card/CardFooter.js";
 import ContactMailIcon from "@material-ui/icons/ContactMail";
 import List from "@material-ui/core/List";
+import { connect } from "react-redux";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -23,7 +24,7 @@ import styles from "assets/jss/material-dashboard-react/layouts/adminStyle.js";
 
 const useStyles = makeStyles(styles);
 
-const UpdateProfile = (props) => {
+const UpdateProfile = ({ currentUser }) => {
   const classes = useStyles();
 
   return (
@@ -40,49 +41,49 @@ const UpdateProfile = (props) => {
             <ListItemIcon>
               <AccountBoxIcon />
             </ListItemIcon>
-            <ListItemText primary={`Username: ${props.user.username}`} />
+            <ListItemText primary={`Username: ${currentUser.username}`} />
           </ListItem>
           <ListItem>
             <ListItemIcon>
               <DraftsIcon />
             </ListItemIcon>
-            <ListItemText primary={`Email: ${props.user.email}`} />
+            <ListItemText primary={`Email: ${currentUser.email}`} />
           </ListItem>
           <ListItem>
             <ListItemIcon>
               <Filter1Icon />
             </ListItemIcon>
-            <ListItemText primary={`First Name: ${props.user.firstname}`} />
+            <ListItemText primary={`First Name: ${currentUser.firstname}`} />
           </ListItem>
           <ListItem>
             <ListItemIcon>
               <Filter2Icon />
             </ListItemIcon>
-            <ListItemText primary={`Last Name: ${props.user.lastname}`} />
+            <ListItemText primary={`Last Name: ${currentUser.lastname}`} />
           </ListItem>
           <ListItem>
             <ListItemIcon>
               <SchoolIcon />
             </ListItemIcon>
-            <ListItemText primary={`College: ${props.user.college}`} />
+            <ListItemText primary={`College: ${currentUser.college}`} />
           </ListItem>
           <ListItem>
             <ListItemIcon>
               <HomeIcon />
             </ListItemIcon>
-            <ListItemText primary={`Postal Code: ${props.user.postal}`} />
+            <ListItemText primary={`Postal Code: ${currentUser.postal}`} />
           </ListItem>
           <ListItem>
             <ListItemIcon>
               <PublicIcon />
             </ListItemIcon>
-            <ListItemText primary={`Country: ${props.user.country}`} />
+            <ListItemText primary={`Country: ${currentUser.country}`} />
           </ListItem>
           <ListItem>
             <ListItemIcon>
               <WorkIcon />
             </ListItemIcon>
-            <ListItemText primary={`Occupation: ${props.user.occupation}`} />
+            <ListItemText primary={`Occupation: ${currentUser.occupation}`} />
           </ListItem>
         </List>
       </CardBody>
@@ -104,4 +105,8 @@ const UpdateProfile = (props) => {
   );
 };
 
-export default UpdateProfile;
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToProps)(UpdateProfile);

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import axios from "axios";
 import Grid from "@material-ui/core/Grid";
 import ProfileCard from "./ProfileCard";
+import { connect } from "react-redux";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
+import { countries, occupations, api } from "./general.js";
 import Card from "components/DashBoard/dashcomponents/Card/Card.js";
 import CardHeader from "components/DashBoard/dashcomponents/Card/CardHeader.js";
 import CardBody from "components/DashBoard/dashcomponents/Card/CardBody.js";
@@ -26,28 +27,12 @@ const CssTextField = withStyles({
   },
 })(TextField);
 
-const api = axios.create({
-  baseURL: `http://192.168.4.22:5000/api/profile`,
-  headers: {
-    "Content-Type": "application/json",
-  },
-});
-
 const inputPropsText = {
   type: "text",
   maxLength: 25,
 };
 
-const countries = ["USA", "Canada", "Mexico"];
-const occupations = [
-  "Student - Data Scientist",
-  "Student - General Computer Science Major",
-  "Graduate - Data Scientist",
-  "Graduate - General Computer Science Major",
-  "Professional - Data Scientist",
-  "Professional - Software Engineer",
-];
-const UpdateProfile = (props) => {
+const UpdateProfile = ({ currentUser }) => {
   const classes = useStyles();
   const [loading, setLoading] = useState(false);
   const [formDetails, setFormDetails] = useState({
@@ -64,7 +49,7 @@ const UpdateProfile = (props) => {
       event.preventDefault();
       setLoading(true);
       const payload = {
-        id: props.user.id,
+        id: currentUser.id,
       };
       let empty = true;
       for (let keys in formDetails) {
@@ -78,7 +63,7 @@ const UpdateProfile = (props) => {
         setLoading(false);
         return;
       }
-      const res = await api.post("/", payload);
+      const res = await api.post("/updateprofile", payload);
       console.log(res);
       alert(res.data);
       setLoading(false);
@@ -232,10 +217,14 @@ const UpdateProfile = (props) => {
       </Grid>
       {/* ----------------------- My Profile Card ----------------------------------------------- */}
       <Grid item xs={12} lg={4} style={{ paddingTop: 0 }}>
-        <ProfileCard user={props.user} />
+        <ProfileCard user={currentUser} />
       </Grid>
     </Grid>
   );
 };
 
-export default UpdateProfile;
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToProps)(UpdateProfile);

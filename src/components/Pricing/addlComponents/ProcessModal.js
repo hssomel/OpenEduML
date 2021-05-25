@@ -40,7 +40,7 @@ const ProcessModal = (props) => {
         aria-describedby="simple-modal-description"
       >
         <div style={modalStyle} className={classes.paper}>
-          <h3 className={classes2.title}>Please add a payment method</h3>
+          <h4 className={classes2.title}>Please add a payment method</h4>
         </div>
       </Modal>
     </div>
