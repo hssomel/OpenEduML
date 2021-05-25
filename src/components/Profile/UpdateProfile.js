@@ -217,7 +217,7 @@ const UpdateProfile = ({ currentUser }) => {
       </Grid>
       {/* ----------------------- My Profile Card ----------------------------------------------- */}
       <Grid item xs={12} lg={4} style={{ paddingTop: 0 }}>
-        <ProfileCard user={currentUser} />
+        <ProfileCard />
       </Grid>
     </Grid>
   );
