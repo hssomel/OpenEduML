@@ -35,10 +35,13 @@ const PricingCard = (props) => {
               Hourly rate after included hours depleted: <b>{props.hourlyrate}</b>
             </li>
             <li>
-              Total Notebook Alloted RAM: <b>{props.totalram}</b>
+              Total Jupyter Notebook Alloted RAM: <b>{props.totalram}</b>
             </li>
             <li>
-              Total Notebook vCPUs: <b>{props.totalcpus}</b>
+              Total Jupyter Notebook vCPUs: <b>{props.totalcpus}</b>
+            </li>
+            <li>
+              Workloads able to be saved?: <b>{props.multiplekernels}</b>
             </li>
             <li>
               Ability to Launch Multiple Kernels: <b>{props.multiplekernels}</b>
