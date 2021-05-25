@@ -22,14 +22,15 @@ const RegisterForm = ({ setLoginError }) => {
   const [secondFocus, setsecondFocus] = useState(false);
   const [thirdFocus, setthirdFocus] = useState(false);
   const [fourthFocus, setfourthFocus] = useState(false);
-  //
+  // FORM STATE
   const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  //
+  // EVENT HANDLERS -------------------------------------------------------->
   const handleNameChange = (event) => {
-    const { value } = event.target;
+    let { value } = event.target;
+    value = value.replace(/[^A-Za-z]/gi, "");
     setDisplayName(value);
   };
 
@@ -48,10 +49,14 @@ const RegisterForm = ({ setLoginError }) => {
     setConfirmPassword(value);
   };
   //
-  const handleSubmit = async (event) => {
+  const handleRegisterSubmit = async (event) => {
     event.preventDefault();
     if (password !== confirmPassword) {
       alert("passwords don't match");
+      return;
+    }
+    if (displayName.length < 8) {
+      alert("username must be atleast 8 characters. Only letters allowed for username.");
       return;
     }
     try {
@@ -65,7 +70,7 @@ const RegisterForm = ({ setLoginError }) => {
       setLoginError(error.message);
     }
   };
-
+  // -------------------------------------------------------------------------------->
   return (
     <>
       <Card
@@ -81,9 +86,7 @@ const RegisterForm = ({ setLoginError }) => {
             <h4 style={{ fontWeight: 700 }}>CREATE A NEW ACCOUNT</h4>
           </CardHeader>
           <CardBody>
-            <InputGroup
-              className={"no-border input-lg" + (firstFocus ? " input-group-focus" : "")}
-            >
+            <InputGroup className={"no-border input-lg" + (firstFocus ? " input-group-focus" : "")}>
               <InputGroupAddon addonType="prepend">
                 <InputGroupText>
                   <i className="now-ui-icons users_circle-08"></i>
@@ -99,9 +102,7 @@ const RegisterForm = ({ setLoginError }) => {
                 minLength="8"
               ></Input>
             </InputGroup>
-            <InputGroup
-              className={"no-border input-lg" + (secondFocus ? " input-group-focus" : "")}
-            >
+            <InputGroup className={"no-border input-lg" + (secondFocus ? " input-group-focus" : "")}>
               <InputGroupAddon addonType="prepend">
                 <InputGroupText>
                   <i className="now-ui-icons business_briefcase-24"></i>
@@ -116,9 +117,7 @@ const RegisterForm = ({ setLoginError }) => {
                 value={email}
               ></Input>
             </InputGroup>
-            <InputGroup
-              className={"no-border input-lg" + (thirdFocus ? " input-group-focus" : "")}
-            >
+            <InputGroup className={"no-border input-lg" + (thirdFocus ? " input-group-focus" : "")}>
               <InputGroupAddon addonType="prepend">
                 <InputGroupText>
                   <i className="now-ui-icons text_caps-small"></i>
@@ -134,9 +133,7 @@ const RegisterForm = ({ setLoginError }) => {
                 minLength="8"
               ></Input>
             </InputGroup>
-            <InputGroup
-              className={"no-border input-lg" + (fourthFocus ? " input-group-focus" : "")}
-            >
+            <InputGroup className={"no-border input-lg" + (fourthFocus ? " input-group-focus" : "")}>
               <InputGroupAddon addonType="prepend">
                 <InputGroupText>
                   <i className="now-ui-icons text_caps-small"></i>
@@ -158,7 +155,7 @@ const RegisterForm = ({ setLoginError }) => {
               block
               className="btn-round"
               style={{ backgroundColor: "#9c27b0" }}
-              onClick={(e) => handleSubmit(e)}
+              onClick={(e) => handleRegisterSubmit(e)}
               size="lg"
             >
               REGISTER
