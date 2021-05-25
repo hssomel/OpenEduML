@@ -47,6 +47,7 @@ const LoginForm = ({ setLoginError }) => {
 
   const handleGoogleSignIn = async () => {
     try {
+      console.log("handle google sign in hit");
       await signInWithGoogle();
       console.log("SUCCESS WITH GOOGLE");
     } catch (err) {
@@ -69,9 +70,7 @@ const LoginForm = ({ setLoginError }) => {
             <h4 style={{ fontWeight: 700 }}>LOG BACK IN</h4>
           </CardHeader>
           <CardBody>
-            <InputGroup
-              className={"no-border input-lg" + (firstFocus ? " input-group-focus" : "")}
-            >
+            <InputGroup className={"no-border input-lg" + (firstFocus ? " input-group-focus" : "")}>
               <InputGroupAddon addonType="prepend">
                 <InputGroupText>
                   <i className="now-ui-icons users_circle-08"></i>
@@ -87,9 +86,7 @@ const LoginForm = ({ setLoginError }) => {
               ></Input>
             </InputGroup>
             {/* */}
-            <InputGroup
-              className={"no-border input-lg" + (lastFocus ? " input-group-focus" : "")}
-            >
+            <InputGroup className={"no-border input-lg" + (lastFocus ? " input-group-focus" : "")}>
               <InputGroupAddon addonType="prepend">
                 <InputGroupText>
                   <i className="now-ui-icons text_caps-small"></i>

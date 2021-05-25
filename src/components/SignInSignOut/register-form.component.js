@@ -55,10 +55,10 @@ const RegisterForm = ({ setLoginError }) => {
       alert("passwords don't match");
       return;
     }
-    if (displayName.length < 8) {
-      alert("username must be atleast 8 characters. Only letters allowed for username.");
-      return;
-    }
+    // if (displayName.length < 8) {
+    //   alert("username must be atleast 8 characters. Only letters allowed for username.");
+    //   return;
+    // }
     try {
       const { user } = await auth.createUserWithEmailAndPassword(email, password);
       await createUserProfileDocument(user, { displayName });
