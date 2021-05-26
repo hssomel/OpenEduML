@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import firebase from "firebase/app";
+import "firebase/firestore";
 // Pages
 import LandingPage from "./pages/landing.page";
 import SignInSignUpPage from "./pages/sign-in-sign-up.page";
@@ -18,21 +20,16 @@ const App = ({ currentUser, setCurrentUser }) => {
       if (user) {
         const userRef = await createUserProfileDocument(user);
         userRef.onSnapshot((snapShot) => {
-          const { username, email, firstname, lastname, college, postal, occupation, country, tier } =
-            snapShot.data();
-          setCurrentUser({
-            id: snapShot.id,
-            username,
-            email,
-            firstname,
-            lastname,
-            country,
-            college,
-            postal,
-            occupation,
-            tier,
-          });
+          const obj = Object.assign(snapShot.data(), { id: snapShot.id });
+          setCurrentUser(obj);
         });
+        if (currentUser) {
+          const usageRef = firebase.firestore().doc(`usage/${currentUser.id}`);
+          const usageData = await usageRef.get();
+          // console.log(usageData.data());
+        } else {
+          console.log("no current user");
+        }
       } else {
         setCurrentUser(user);
       }
