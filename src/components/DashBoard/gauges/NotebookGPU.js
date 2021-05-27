@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React from "react";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Card from "../dashcomponents/Card/Card.js";
 import CardHeader from "../dashcomponents/Card/CardHeader.js";
 import CardIcon from "../dashcomponents/Card/CardIcon.js";
@@ -7,8 +7,8 @@ import CardFooter from "../dashcomponents/Card/CardFooter.js";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import CloudIcon from "@material-ui/icons/Cloud";
 import GrainIcon from "@material-ui/icons/Grain";
-import Popover from "@material-ui/core/Popover";
 import Typography from "@material-ui/core/Typography";
+import Tooltip from "@material-ui/core/Tooltip";
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
 // STYLES
 const useStyles = makeStyles(styles);
@@ -19,15 +19,16 @@ const useStyles2 = makeStyles((theme) => ({
   },
 }));
 //
+const HtmlTooltip = withStyles(() => ({
+  tooltip: {
+    maxWidth: 450,
+    border: "1px solid #dadde9",
+  },
+}))(Tooltip);
 
 const NotebookGPU = () => {
   const classes = useStyles();
   const classes2 = useStyles2();
-  // STATE --------------------------------------------------->
-  const [anchorElem, setAnchorElem] = useState(null);
-  // EVENT HANDLERS ------------------------------------------>
-  const handlePopperClose = () => setAnchorElem(null);
-  const handleClick = (event) => setAnchorElem(event.currentTarget);
   // ---------------------------------------------------------
   return (
     <Card>
@@ -43,26 +44,19 @@ const NotebookGPU = () => {
           <CloudIcon />
           Nvidia V100
         </div>
-        <HelpOutlineIcon style={{ color: "#999" }} onClick={handleClick} />
-        <Popover
-          id={"simple-popover4"}
-          open={anchorElem ? true : false}
-          anchorEl={anchorElem}
-          onClose={handlePopperClose}
-          anchorOrigin={{
-            vertical: "bottom",
-            horizontal: "center",
-          }}
-          transformOrigin={{
-            vertical: "top",
-            horizontal: "center",
-          }}
+        <HtmlTooltip
+          title={
+            <React.Fragment>
+              <Typography className={classes2.typography}>
+                Access to GPU resources for running workloads (i.e. TensorFlow w/GPU) is only available on our
+                Pro tier! Please visit our payments page to upgrade your subscription!
+              </Typography>
+            </React.Fragment>
+          }
+          arrow
         >
-          <Typography className={classes2.typography}>
-            Access to GPU resources for running workloads (i.e. TensorFlow w/GPU) is only available on our Pro
-            tier! Please visit our payments page to upgrade your subscription!
-          </Typography>
-        </Popover>
+          <HelpOutlineIcon style={{ color: "#999" }} />
+        </HtmlTooltip>
       </CardFooter>
     </Card>
   );
