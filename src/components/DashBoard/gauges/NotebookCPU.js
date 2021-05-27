@@ -22,10 +22,12 @@ const useStyles2 = makeStyles((theme) => ({
 const HtmlTooltip = withStyles(() => ({
   tooltip: {
     maxWidth: 450,
+    // backgroundColor: "red",
+    // background: "rgba(0, 0, 0, 0.9)",
+    opacity: 1,
     border: "1px solid #dadde9",
   },
 }))(Tooltip);
-
 const NotebookCPU = () => {
   const classes = useStyles();
   const classes2 = useStyles2();
