@@ -15,6 +15,7 @@ const useStyles = makeStyles(styles);
 const useStyles2 = makeStyles((theme) => ({
   typography: {
     padding: theme.spacing(2),
+    width: 450,
   },
 }));
 //
@@ -35,7 +36,7 @@ const NotebookGPU = () => {
           <GrainIcon />
         </CardIcon>
         <p className={classes.cardCategory}>Minimum Notebook GPU</p>
-        <h5 style={{ color: "black" }}>8 vGPUs / 32GB RAM</h5>
+        <h5 style={{ color: "black" }}>Not Available</h5>
       </CardHeader>
       <CardFooter stats>
         <div className={classes.stats}>
@@ -57,7 +58,10 @@ const NotebookGPU = () => {
             horizontal: "center",
           }}
         >
-          <Typography className={classes2.typography}>The content of the Fourth Popover.</Typography>
+          <Typography className={classes2.typography}>
+            Access to GPU resources for running workloads (i.e. TensorFlow w/GPU) is only available on our Pro
+            tier! Please visit our payments page to upgrade your subscription!
+          </Typography>
         </Popover>
       </CardFooter>
     </Card>

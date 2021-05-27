@@ -15,6 +15,7 @@ const useStyles = makeStyles(styles);
 const useStyles2 = makeStyles((theme) => ({
   typography: {
     padding: theme.spacing(2),
+    width: 450,
   },
 }));
 //
@@ -35,7 +36,7 @@ const NotebookCPU = () => {
           <ComputerIcon />
         </CardIcon>
         <p className={classes.cardCategory}>Minimum Notebook CPU</p>
-        <h5 style={{ color: "black" }}>4 vCPUs / 8GB RAM</h5>
+        <h5 style={{ color: "black" }}>2 vCPUs / 4GB RAM</h5>
       </CardHeader>
       <CardFooter stats>
         <div className={classes.stats}>
@@ -57,7 +58,12 @@ const NotebookCPU = () => {
             horizontal: "center",
           }}
         >
-          <Typography className={classes2.typography}>The content of the Third Popover.</Typography>
+          <Typography className={classes2.typography}>
+            See the minimum guaranteed resources for your Jupyter Notebook! Please note that if you are on the
+            free tier you may only run a single workload at a time! To increase your Jupyter Notebook
+            resources please visit your payments page where you can upgrade to the Plus or Pro tiers! Allowing
+            you to run multiple workloads and have access to GPU resources.
+          </Typography>
         </Popover>
       </CardFooter>
     </Card>
