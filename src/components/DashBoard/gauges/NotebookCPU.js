@@ -28,6 +28,7 @@ const HtmlTooltip = withStyles(() => ({
     border: "1px solid #dadde9",
   },
 }))(Tooltip);
+
 const NotebookCPU = () => {
   const classes = useStyles();
   const classes2 = useStyles2();

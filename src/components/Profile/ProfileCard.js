@@ -24,7 +24,7 @@ import styles from "assets/jss/material-dashboard-react/layouts/adminStyle.js";
 
 const useStyles = makeStyles(styles);
 
-const UpdateProfile = ({ currentUser }) => {
+const UpdateProfile = ({ currentUser, currentProfile }) => {
   const classes = useStyles();
 
   return (
@@ -53,37 +53,37 @@ const UpdateProfile = ({ currentUser }) => {
             <ListItemIcon>
               <Filter1Icon />
             </ListItemIcon>
-            <ListItemText primary={`First Name: ${currentUser.firstname}`} />
+            <ListItemText primary={`First Name: ${currentProfile.firstname}`} />
           </ListItem>
           <ListItem>
             <ListItemIcon>
               <Filter2Icon />
             </ListItemIcon>
-            <ListItemText primary={`Last Name: ${currentUser.lastname}`} />
+            <ListItemText primary={`Last Name: ${currentProfile.lastname}`} />
           </ListItem>
           <ListItem>
             <ListItemIcon>
               <SchoolIcon />
             </ListItemIcon>
-            <ListItemText primary={`College: ${currentUser.college}`} />
+            <ListItemText primary={`College: ${currentProfile.college}`} />
           </ListItem>
           <ListItem>
             <ListItemIcon>
               <HomeIcon />
             </ListItemIcon>
-            <ListItemText primary={`Postal Code: ${currentUser.postal}`} />
+            <ListItemText primary={`Postal Code: ${currentProfile.postal}`} />
           </ListItem>
           <ListItem>
             <ListItemIcon>
               <PublicIcon />
             </ListItemIcon>
-            <ListItemText primary={`Country: ${currentUser.country}`} />
+            <ListItemText primary={`Country: ${currentProfile.country}`} />
           </ListItem>
           <ListItem>
             <ListItemIcon>
               <WorkIcon />
             </ListItemIcon>
-            <ListItemText primary={`Occupation: ${currentUser.occupation}`} />
+            <ListItemText primary={`Occupation: ${currentProfile.occupation}`} />
           </ListItem>
         </List>
       </CardBody>
@@ -107,6 +107,7 @@ const UpdateProfile = ({ currentUser }) => {
 
 const mapStateToProps = (state) => ({
   currentUser: state.user.currentUser,
+  currentProfile: state.user.currentProfile,
 });
 
 export default connect(mapStateToProps)(UpdateProfile);

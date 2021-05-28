@@ -1,42 +1,43 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
-import axios from "axios";
 // -------------------------> FIREBASE <----------------------------------
 const config = {
-  apiKey: "AIzaSyBD87B8drIK2NNLr-5e4PMYMEDQmKDP8pw",
-  authDomain: "kube-ml.firebaseapp.com",
-  databaseURL: "https://kube-ml.firebaseio.com",
-  projectId: "kube-ml",
-  storageBucket: "kube-ml.appspot.com",
-  messagingSenderId: "550937035835",
-  appId: "1:550937035835:web:7f023a1d494c948592481e",
-  measurementId: "G-MVRXP6G97S",
+  apiKey: "AIzaSyAa68yAJ4QNHIOPeeXdDfu3tljVKphw-Xo",
+  authDomain: "ecommerce-app-57873.firebaseapp.com",
+  databaseURL: "https://ecommerce-app-57873.firebaseio.com",
+  projectId: "ecommerce-app-57873",
+  storageBucket: "ecommerce-app-57873.appspot.com",
+  messagingSenderId: "793059014618",
+  appId: "1:793059014618:web:81c9159b05e685b07072e3",
+  measurementId: "G-6P17PWXG2Q",
 };
 firebase.initializeApp(config);
 // ----------------------------------------------------------------------
-const api = axios.create({
-  baseURL: `${process.env.REACT_APP_ADDR}/api/profile`,
-  headers: {
-    "Content-Type": "application/json",
-  },
-});
 // Function called by App.js when user signs in
 export const createUserProfileDocument = async (userAuth) => {
   if (!userAuth) return;
-  const userRef = firestore.doc(`userprofiles/${userAuth.uid}`);
+  const userRef = firestore.doc(`users/${userAuth.uid}`);
+  const profileRef = firestore.doc(`profiles/${userAuth.uid}`);
   const snapShot = await userRef.get();
 
   if (!snapShot.exists) {
-    // First time user has logged in -- so must create profile
     const { displayName, email } = userAuth;
     const createdAt = new Date();
     try {
-      await api.post("/createprofile", {
+      await userRef.set({
         username: displayName,
         email,
-        id: userAuth.uid,
         createdAt,
+      });
+      await profileRef.set({
+        firstname: null,
+        country: null,
+        occupation: null,
+        lastname: null,
+        college: null,
+        postal: null,
+        tier: "free",
       });
     } catch (error) {
       console.log("error creating user", error.message);

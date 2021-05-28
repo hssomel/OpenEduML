@@ -4,6 +4,7 @@ import ProfileCard from "./ProfileCard";
 import { connect } from "react-redux";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { countries, occupations, api } from "./general.js";
+import { setCurrentProfile } from "../../redux/user/user.actions";
 import Card from "components/DashBoard/dashcomponents/Card/Card.js";
 import CardHeader from "components/DashBoard/dashcomponents/Card/CardHeader.js";
 import CardBody from "components/DashBoard/dashcomponents/Card/CardBody.js";
@@ -32,7 +33,7 @@ const inputPropsText = {
   maxLength: 25,
 };
 
-const UpdateProfile = ({ currentUser }) => {
+const UpdateProfile = ({ currentUser, setCurrentProfile }) => {
   const classes = useStyles();
   const [loading, setLoading] = useState(false);
   const [formDetails, setFormDetails] = useState({
@@ -65,8 +66,7 @@ const UpdateProfile = ({ currentUser }) => {
         return;
       }
       const res = await api.post("/updateprofile", payload);
-      console.log(res);
-      alert(res.data);
+      setCurrentProfile(res.data);
       setLoading(false);
     } catch (err) {
       console.log(err);
@@ -228,4 +228,4 @@ const mapStateToProps = (state) => ({
   currentUser: state.user.currentUser,
 });
 
-export default connect(mapStateToProps)(UpdateProfile);
+export default connect(mapStateToProps, { setCurrentProfile })(UpdateProfile);

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React from "react";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import AccessTime from "@material-ui/icons/AccessTime";
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
@@ -8,7 +8,7 @@ import CardHeader from "../dashcomponents/Card/CardHeader.js";
 import CardBody from "../dashcomponents/Card/CardBody.js";
 import CardFooter from "../dashcomponents/Card/CardFooter.js";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
-import Popover from "@material-ui/core/Popover";
+import Tooltip from "@material-ui/core/Tooltip";
 import Typography from "@material-ui/core/Typography";
 import styles from "../../../assets/jss/material-dashboard-react/views/dashboardStyle.js";
 
@@ -19,13 +19,19 @@ const useStyles2 = makeStyles((theme) => ({
   },
 }));
 
+const HtmlTooltip = withStyles(() => ({
+  tooltip: {
+    maxWidth: 450,
+    // backgroundColor: "red",
+    // background: "rgba(0, 0, 0, 0.9)",
+    opacity: 1,
+    border: "1px solid #dadde9",
+  },
+}))(Tooltip);
+
 const ClusterAccessFree = () => {
   const classes = useStyles();
   const classes2 = useStyles2();
-  const [anchorElem, setAnchorElem] = useState(null);
-
-  const handlePopperClose = () => setAnchorElem(null);
-  const handlePopperOpen = (event) => setAnchorElem(event.currentTarget);
 
   return (
     <Card style={{ minHeight: 370 }}>
@@ -43,9 +49,8 @@ const ClusterAccessFree = () => {
             fontSize: 15,
           }}
         >
-          With your free tier membership of OpenEduML you get 30 minutes access every 24 hours to your Jupyter
-          Notebook hosted on OpenEduML's cluster. Where you can build, train, and test Machine-learning models
-          in parallel
+          With your free tier membership of OpenEduML you get 30 hours per month total to access your free
+          online Jupyter Notebook! Click on the button below to be redirected to your notebook!
         </p>
 
         <Button
@@ -66,23 +71,20 @@ const ClusterAccessFree = () => {
         <div className={classes.stats}>
           <AccessTime /> last launched: 4 minutes ago
         </div>
-        <HelpOutlineIcon style={{ color: "#999", height: 18 }} onClick={handlePopperOpen} />
-        <Popover
-          id={"simple-popover"}
-          open={anchorElem ? true : false}
-          anchorEl={anchorElem}
-          onClose={handlePopperClose}
-          anchorOrigin={{
-            vertical: "bottom",
-            horizontal: "center",
-          }}
-          transformOrigin={{
-            vertical: "top",
-            horizontal: "center",
-          }}
+        <HtmlTooltip
+          title={
+            <React.Fragment>
+              <Typography className={classes2.typography}>
+                The launch button will redirect your browser to OpenEduML's Jupyterhub which will grant you
+                access to your own personal Jupyter Notebook. Please be sure to save your login credentials
+                the first time you access your Jupyter Notebook
+              </Typography>
+            </React.Fragment>
+          }
+          arrow
         >
-          <Typography className={classes2.typography}>The content of the First Popover.</Typography>
-        </Popover>
+          <HelpOutlineIcon style={{ color: "#999", height: 18 }} />
+        </HtmlTooltip>
       </CardFooter>
     </Card>
   );
