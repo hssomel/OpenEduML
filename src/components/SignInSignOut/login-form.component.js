@@ -47,9 +47,7 @@ const LoginForm = ({ setLoginError }) => {
 
   const handleGoogleSignIn = async () => {
     try {
-      console.log("handle google sign in hit");
       await signInWithGoogle();
-      console.log("SUCCESS WITH GOOGLE");
     } catch (err) {
       setLoginError(err.message);
     }

@@ -15,10 +15,12 @@ import Search from "@material-ui/icons/Search";
 import CustomInput from "components/DashBoard/dashcomponents/CustomInput/CustomInput.js";
 import Button from "components/DashBoard/dashcomponents/CustomButtons/Button.js";
 import { auth } from "firebase/firebase.utils";
+import { connect } from "react-redux";
+import { clearProfile } from "../../redux/user/user.actions";
 import styles from "assets/jss/material-dashboard-react/components/headerLinksStyle.js";
 const useStyles = makeStyles(styles);
 
-export default function AdminNavbarLinks() {
+const AdminNavbarLinks = ({ clearProfile }) => {
   const classes = useStyles();
   const [openProfile, setOpenProfile] = React.useState(null);
 
@@ -32,6 +34,7 @@ export default function AdminNavbarLinks() {
 
   const handleSignOut = async () => {
     try {
+      clearProfile();
       await auth.signOut();
     } catch (err) {
       console.log(err);
@@ -82,7 +85,10 @@ export default function AdminNavbarLinks() {
           className={classes.buttonLink}
         >
           {/* ----------- Person Icon --------------------------- */}
-          <Person className={classes.icons} style={{ height: 21, width: 21, marginTop: 4, marginLeft: -8 }} />
+          <Person
+            className={classes.icons}
+            style={{ height: 21, width: 21, marginTop: 4, marginLeft: -8 }}
+          />
         </Button>
         <Poppers
           open={Boolean(openProfile)}
@@ -118,4 +124,11 @@ export default function AdminNavbarLinks() {
       </div>
     </div>
   );
-}
+};
+
+const mapStateToProps = (state) => ({
+  // currentUser: state.user.currentUser,
+  // currentProfile: state.user.currentProfile,
+});
+
+export default connect(mapStateToProps, { clearProfile })(AdminNavbarLinks);

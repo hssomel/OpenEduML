@@ -1,5 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
+import axios from "axios";
 import "firebase/auth";
 // -------------------------> FIREBASE <----------------------------------
 const config = {
@@ -14,11 +15,18 @@ const config = {
 };
 firebase.initializeApp(config);
 // ----------------------------------------------------------------------
+export const api = axios.create({
+  baseURL: `${process.env.REACT_APP_ADDR}/api/profile`,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
+//
 // Function called by App.js when user signs in
 export const createUserProfileDocument = async (userAuth) => {
   if (!userAuth) return;
   const userRef = firestore.doc(`users/${userAuth.uid}`);
-  const profileRef = firestore.doc(`profiles/${userAuth.uid}`);
   const snapShot = await userRef.get();
 
   if (!snapShot.exists) {
@@ -30,14 +38,11 @@ export const createUserProfileDocument = async (userAuth) => {
         email,
         createdAt,
       });
-      await profileRef.set({
-        firstname: null,
-        country: null,
-        occupation: null,
-        lastname: null,
-        college: null,
-        postal: null,
-        tier: "free",
+      await api.post("/createprofile", {
+        id: userAuth.uid,
+      });
+      await api.post("/createstats", {
+        id: userAuth.uid,
       });
     } catch (error) {
       console.log("error creating user", error.message);

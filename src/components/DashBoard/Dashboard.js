@@ -1,11 +1,8 @@
 import React, { useEffect } from "react";
 import Grid from "@material-ui/core/Grid";
-// import axios from "axios";
+import axios from "axios";
 import { connect } from "react-redux";
-import firebase from "firebase/app";
-import "firebase/firestore";
 import { setCurrentProfile } from "../../redux/user/user.actions";
-// dashboard modular components
 import UsageHistory from "./customdashcomponents/UsageHistory.component";
 import ClusterAccessFree from "./customdashcomponents/ClusterAccess.component";
 import PieChart from "./customdashcomponents/PieChart.component";
@@ -16,37 +13,23 @@ import TimeRemaining from "components/DashBoard/gauges/TimeRemaining";
 import NotebookCPU from "components/DashBoard/gauges/NotebookCPU";
 import NotebookGPU from "components/DashBoard/gauges/NotebookGPU";
 
-// const api = axios.create({
-//   baseURL: `${process.env.REACT_APP_ADDR}/api/stats`,
-//   headers: {
-//     "Content-Type": "application/json",
-//   },
-// });
+const api = axios.create({
+  baseURL: `${process.env.REACT_APP_ADDR}/api/profile`,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
 
 const Dashboard = ({ currentUser, currentProfile, setCurrentProfile }) => {
   // EVENT HANDLERS ------------------------------>
-  const fetchData = async (ref) => {
-    const snapShot = await ref.get();
-    if (snapShot.exists) {
-      console.log(snapShot.data());
-      const { tier, country, lastname, firstname, occupation, postal, college } = snapShot.data();
-      setCurrentProfile({
-        tier,
-        country,
-        lastname,
-        firstname,
-        occupation,
-        postal,
-        college,
-      });
-    }
+  const fetchData = async () => {
+    const res = await api.get(`/getprofile/${currentUser.id}`);
+    setCurrentProfile(res.data);
   };
 
   useEffect(() => {
     if (!currentProfile) {
-      const dbRef = firebase.firestore();
-      const profileRef = dbRef.doc(`profiles/${currentUser.id}`);
-      fetchData(profileRef);
+      fetchData();
     }
   }, []);
   // ----------------------------------------------->

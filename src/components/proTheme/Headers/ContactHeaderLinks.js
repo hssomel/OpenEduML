@@ -10,7 +10,9 @@ import Paper from "@material-ui/core/Paper";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import Poppers from "@material-ui/core/Popper";
 import { auth } from "firebase/firebase.utils";
+import { connect } from "react-redux";
 import Divider from "@material-ui/core/Divider";
+import { clearProfile } from "../../../redux/user/user.actions";
 // @material-ui/icons
 import Person from "@material-ui/icons/Person";
 import Dashboard from "@material-ui/icons/Dashboard";
@@ -19,7 +21,7 @@ import styles from "assets/jss/material-dashboard-react/components/headerLinksSt
 
 const useStyles = makeStyles(styles);
 
-export default function ContactHeaderLinks() {
+const ContactHeaderLinks = ({ clearProfile }) => {
   const classes = useStyles();
   const [openProfile, setOpenProfile] = React.useState(null);
 
@@ -36,6 +38,7 @@ export default function ContactHeaderLinks() {
 
   const handleSignOut = async () => {
     try {
+      clearProfile();
       await auth.signOut();
     } catch (err) {
       console.log(err);
@@ -107,4 +110,11 @@ export default function ContactHeaderLinks() {
       </div>
     </div>
   );
-}
+};
+
+const mapStateToProps = (state) => ({
+  // currentUser: state.user.currentUser,
+  // currentProfile: state.user.currentProfile,
+});
+
+export default connect(mapStateToProps, { clearProfile })(ContactHeaderLinks);

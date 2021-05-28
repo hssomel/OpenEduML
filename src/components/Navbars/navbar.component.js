@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/img/3d.svg";
 import { connect } from "react-redux";
+import { clearProfile } from "../../redux/user/user.actions";
 import { auth } from "../../firebase/firebase.utils";
 // reactstrap components
 import {
@@ -14,7 +15,7 @@ import {
   Container,
 } from "reactstrap";
 //
-const NavbarMain = ({ currentUser }) => {
+const NavbarMain = ({ currentUser, clearProfile }) => {
   const [navbarColor, setNavbarColor] = useState("navbar-transparent");
   const [collapseOpen, setCollapseOpen] = useState(false);
   // lifecycle
@@ -22,10 +23,7 @@ const NavbarMain = ({ currentUser }) => {
     const updateNavbarColor = () => {
       if (document.documentElement.scrollTop > 399 || document.body.scrollTop > 399) {
         setNavbarColor("");
-      } else if (
-        document.documentElement.scrollTop < 400 ||
-        document.body.scrollTop < 400
-      ) {
+      } else if (document.documentElement.scrollTop < 400 || document.body.scrollTop < 400) {
         setNavbarColor("navbar-transparent");
       }
     };
@@ -37,6 +35,7 @@ const NavbarMain = ({ currentUser }) => {
   //
   const handleSignOut = async () => {
     try {
+      clearProfile();
       await auth.signOut();
     } catch (err) {
       console.log(err);
@@ -94,11 +93,7 @@ const NavbarMain = ({ currentUser }) => {
                     </NavLink>
                   </div>
                 ) : (
-                  <NavLink
-                    to="/signin"
-                    tag={Link}
-                    style={{ fontSize: 15, fontWeight: 700 }}
-                  >
+                  <NavLink to="/signin" tag={Link} style={{ fontSize: 15, fontWeight: 700 }}>
                     LOGIN
                   </NavLink>
                 )}
@@ -120,7 +115,7 @@ const mapStateToProps = (state) => ({
   currentUser: state.user.currentUser,
 });
 
-export default connect(mapStateToProps)(NavbarMain);
+export default connect(mapStateToProps, { clearProfile })(NavbarMain);
 
 const styles = {
   logo: {
