@@ -8,7 +8,7 @@ import { chartExample3 } from "utils/billingchart.utils";
 
 const BillingChart = () => {
   return (
-    <Card style={{ minHeight: 370 }}>
+    <Card style={{ minHeight: 355 }}>
       <CardHeader color="primary3">
         <h4 style={{ margin: 0, fontWeight: 700 }}>Monthly Billing History</h4>
       </CardHeader>

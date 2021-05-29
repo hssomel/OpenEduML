@@ -22,8 +22,6 @@ const useStyles2 = makeStyles((theme) => ({
 const HtmlTooltip = withStyles(() => ({
   tooltip: {
     maxWidth: 450,
-    // backgroundColor: "red",
-    // background: "rgba(0, 0, 0, 0.9)",
     opacity: 1,
     border: "1px solid #dadde9",
   },
@@ -34,7 +32,7 @@ const ClusterAccessFree = () => {
   const classes2 = useStyles2();
 
   return (
-    <Card style={{ minHeight: 370 }}>
+    <Card style={{ minHeight: 350 }}>
       <CardHeader color="rose">
         <h4 style={{ margin: 0, fontWeight: 700 }}>Access your FreeJupyter Notebook</h4>
       </CardHeader>
@@ -49,8 +47,9 @@ const ClusterAccessFree = () => {
             fontSize: 15,
           }}
         >
-          With your free tier membership of OpenEduML you get 30 hours per month total to access your free
-          online Jupyter Notebook! Click on the button below to be redirected to your notebook!
+          With your free tier membership of OpenEduML you get 30 hours per month total to access
+          your free online Jupyter Notebook! Click on the button below to be redirected to your
+          notebook!
         </p>
 
         <Button
@@ -75,9 +74,9 @@ const ClusterAccessFree = () => {
           title={
             <React.Fragment>
               <Typography className={classes2.typography}>
-                The launch button will redirect your browser to OpenEduML's Jupyterhub which will grant you
-                access to your own personal Jupyter Notebook. Please be sure to save your login credentials
-                the first time you access your Jupyter Notebook
+                The launch button will redirect your browser to OpenEduML's Jupyterhub which will
+                grant you access to your own personal Jupyter Notebook. Please be sure to save your
+                login credentials the first time you access your Jupyter Notebook
               </Typography>
             </React.Fragment>
           }

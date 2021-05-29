@@ -1,46 +1,42 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-// import axios from "axios";
 import Card from "../dashcomponents/Card/Card.js";
 import CardHeader from "../dashcomponents/Card/CardHeader.js";
 import CardBody from "../dashcomponents/Card/CardBody.js";
-import CircularProgress from "@material-ui/core/CircularProgress";
+// import CircularProgress from "@material-ui/core/CircularProgress";
 import { Line } from "react-chartjs-2";
 import { chartExample1 } from "utils/usagehistory.utils";
 
-// const api = axios.create({
-//   baseURL: `${process.env.REACT_APP_ADDR}/api/stats`,
-//   headers: {
-//     "Content-Type": "application/json",
-//   },
-// });
-
-const UsageHistory = ({ currentUser }) => {
-  const [loading, setLoading] = useState(true);
+const UsageHistory = ({ userUsage }) => {
+  const [data, setData] = useState(null);
   // EVENT HANDLERS
   useEffect(() => {
-    // const fetchData = async () => {
-    //   const monthlyData = await api.get(`/monthlyusage/${currentUser.id}`);
-    //   setLoading(false);
-    // };
-    // fetchData();
+    if (userUsage.length !== 0) setData(userUsage);
+    else {
+      let arr = [];
+      arr.push(10);
+      // setData(arr);
+    }
+
+    console.log(userUsage);
   }, []);
 
   return (
     <Card
       style={{
-        height: 360,
+        height: 370,
         paddingTop: 0,
-        paddingBottom: 10,
+        paddingBottom: 0,
         marginTop: 10,
+        paddingLeft: 5,
         alignItems: "flex-start",
-        paddingLeft: 0,
       }}
     >
       <CardHeader
         style={{
           paddingTop: 5,
           marginTop: 0,
+          marginBottom: 0,
           paddingBottom: 0,
         }}
       >
@@ -69,21 +65,22 @@ const UsageHistory = ({ currentUser }) => {
           Daily Usage <span style={{ fontSize: 12 }}>(hrs)</span>
         </h4>
       </CardHeader>
-      <CardBody style={{ width: "100%", paddingLeft: 5 }}>
-        {loading ? (
-          <div style={{ justifyContent: "center", display: "flex" }}>
-            <CircularProgress />
-          </div>
-        ) : (
-          <Line data={chartExample1["data1"]} options={chartExample1.options} />
-        )}
+      <CardBody
+        style={{
+          width: "100%",
+          paddingLeft: 5,
+          paddingTop: 0,
+          paddingBottom: 0,
+        }}
+      >
+        <Line data={chartExample1["data1"]} options={chartExample1.options} />
       </CardBody>
     </Card>
   );
 };
 
 const mapStateToProps = (state) => ({
-  currentUser: state.user.currentUser,
+  userUsage: state.user.userUsage,
 });
 
 export default connect(mapStateToProps)(UsageHistory);

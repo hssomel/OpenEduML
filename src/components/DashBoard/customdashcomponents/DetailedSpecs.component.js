@@ -11,40 +11,28 @@ import { categories, free, plus, pro } from "../general.js";
 const DetailedSpecs = () => {
   return (
     <CustomTabs
-      title="Jupyter Notebook Specs: "
+      title="Compare Jupyter Notebook Specs: "
       headerColor="warning"
       tabs={[
         {
           tabName: "Free",
           tabIcon: MoneyOffIcon,
           tabContent: (
-            <Tasks
-              tasksIndexes={[0, 1, 2, 3, 4, 5, 6, 7]}
-              tasks={free}
-              categories={categories}
-            />
+            <Tasks tasksIndexes={[0, 1, 2, 3, 4, 5, 6, 7]} tasks={free} categories={categories} />
           ),
         },
         {
           tabName: "Plus",
           tabIcon: AddBoxIcon,
           tabContent: (
-            <Tasks
-              tasksIndexes={[0, 1, 2, 3, 4, 5, 6, 7]}
-              tasks={plus}
-              categories={categories}
-            />
+            <Tasks tasksIndexes={[0, 1, 2, 3, 4, 5, 6, 7]} tasks={plus} categories={categories} />
           ),
         },
         {
           tabName: "Pro",
           tabIcon: AllInclusiveIcon,
           tabContent: (
-            <Tasks
-              tasksIndexes={[0, 1, 2, 3, 4, 5, 6, 7]}
-              tasks={pro}
-              categories={categories}
-            />
+            <Tasks tasksIndexes={[0, 1, 2, 3, 4, 5, 6, 7]} tasks={pro} categories={categories} />
           ),
         },
       ]}

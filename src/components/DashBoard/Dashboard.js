@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import Grid from "@material-ui/core/Grid";
 import axios from "axios";
 import { connect } from "react-redux";
-import { setCurrentProfile } from "../../redux/user/user.actions";
+import { setCurrentProfile, setUserUsage } from "../../redux/user/user.actions";
 import UsageHistory from "./customdashcomponents/UsageHistory.component";
 import ClusterAccessFree from "./customdashcomponents/ClusterAccess.component";
-import PieChart from "./customdashcomponents/PieChart.component";
 import BillingChart from "./customdashcomponents/BillingChart.component";
+import DetailedSpecs from "./customdashcomponents/DetailedSpecs.component";
 // GAUGES
 import NotebookState from "components/DashBoard/gauges/NotebookState";
 import TimeRemaining from "components/DashBoard/gauges/TimeRemaining";
@@ -20,24 +20,29 @@ const api = axios.create({
   },
 });
 
-const Dashboard = ({ currentUser, currentProfile, setCurrentProfile }) => {
+const Dashboard = ({ currentUser, setUserUsage, currentProfile, setCurrentProfile }) => {
   // EVENT HANDLERS ------------------------------>
   const fetchData = async () => {
     const res = await api.get(`/getprofile/${currentUser.id}`);
+    const usage = await api.get(`/getstats/${currentUser.id}`);
     setCurrentProfile(res.data);
+    setUserUsage(usage.data);
   };
 
   useEffect(() => {
     if (!currentProfile) {
       fetchData();
     }
-  }, []);
+  }, [currentUser]);
   // ----------------------------------------------->
   return (
     <div>
-      <Grid container style={{ marginBottom: 10 }}>
-        <Grid item xs={12}>
+      <Grid container spacing={4} style={{ marginBottom: 10 }}>
+        <Grid item xs={8}>
           <UsageHistory />
+        </Grid>
+        <Grid item xs={4}>
+          <BillingChart />
         </Grid>
       </Grid>
       <Grid container spacing={4} style={{ marginBottom: 15 }}>
@@ -55,14 +60,12 @@ const Dashboard = ({ currentUser, currentProfile, setCurrentProfile }) => {
         </Grid>
       </Grid>
       <Grid container spacing={4} style={{ marginTop: 10 }}>
-        <Grid item xs={12} lg={4} style={{ paddingTop: 0 }}>
+        <Grid item xs={12} lg={6} style={{ paddingTop: 0 }}>
           <ClusterAccessFree />
         </Grid>
-        <Grid item xs={12} lg={4} style={{ paddingTop: 0 }}>
-          <BillingChart />
-        </Grid>
-        <Grid item xs={12} lg={4} style={{ paddingTop: 0 }}>
-          <PieChart />
+
+        <Grid item xs={12} lg={6} style={{ paddingTop: 0 }}>
+          <DetailedSpecs />
         </Grid>
       </Grid>
     </div>
@@ -72,6 +75,7 @@ const Dashboard = ({ currentUser, currentProfile, setCurrentProfile }) => {
 const mapStateToProps = (state) => ({
   currentUser: state.user.currentUser,
   currentProfile: state.user.currentProfile,
+  userUsage: state.user.userUsage,
 });
 
-export default connect(mapStateToProps, { setCurrentProfile })(Dashboard);
+export default connect(mapStateToProps, { setCurrentProfile, setUserUsage })(Dashboard);

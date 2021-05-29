@@ -1,7 +1,20 @@
 let xLabels = [];
 let dataPoints = [100, 85, 110];
 
-const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const monthNames = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "June",
+  "July",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
 
 const getXLabels = () => {
   let x = new Date();
@@ -93,68 +106,6 @@ let chartExample3 = {
   },
 };
 
-const chartExample10 = {
-  data: {
-    labels: [1, 2, 3],
-    datasets: [
-      {
-        label: "Emails",
-        pointRadius: 0,
-        pointHoverRadius: 0,
-        backgroundColor: ["#ff8779", "#2a84e9", "#e2e2e2"],
-        borderWidth: 0,
-        data: [60, 40, 20],
-      },
-    ],
-  },
-  options: {
-    cutoutPercentage: 70,
-    legend: {
-      display: false,
-    },
-    tooltips: {
-      backgroundColor: "#f5f5f5",
-      titleFontColor: "#333",
-      bodyFontColor: "#666",
-      bodySpacing: 4,
-      xPadding: 12,
-      mode: "nearest",
-      intersect: 0,
-      position: "nearest",
-    },
-    scales: {
-      yAxes: [
-        {
-          display: 0,
-          ticks: {
-            display: false,
-          },
-          gridLines: {
-            drawBorder: false,
-            zeroLineColor: "transparent",
-            color: "rgba(255,255,255,0.05)",
-          },
-        },
-      ],
-      xAxes: [
-        {
-          display: 0,
-          barPercentage: 1.6,
-          gridLines: {
-            drawBorder: false,
-            color: "rgba(255,255,255,0.1)",
-            zeroLineColor: "transparent",
-          },
-          ticks: {
-            display: false,
-          },
-        },
-      ],
-    },
-  },
-};
-
 module.exports = {
   chartExample3,
-  chartExample10,
 };

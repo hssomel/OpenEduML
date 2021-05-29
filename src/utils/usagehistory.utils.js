@@ -5,7 +5,7 @@ const getXLabels = () => {
   let x = new Date();
   let mo = x.getMonth() + 1;
   let day = x.getDate();
-  let counter = 31;
+  let counter = 28;
   while (counter > 0) {
     if (day === 0) {
       day = 30;
@@ -32,7 +32,7 @@ let chart_1_2_3_options = {
     titleFontColor: "#333",
     bodyFontColor: "#666",
     bodySpacing: 4,
-    xPadding: 12,
+    xPadding: 2,
     mode: "nearest",
     intersect: 0,
     position: "nearest",
@@ -50,7 +50,7 @@ let chart_1_2_3_options = {
         ticks: {
           suggestedMin: 0,
           suggestedMax: 10,
-          padding: 20,
+          padding: 5,
           fontColor: "#9a9a9a",
         },
       },
@@ -64,7 +64,7 @@ let chart_1_2_3_options = {
           zeroLineColor: "transparent",
         },
         ticks: {
-          padding: 20,
+          padding: 5,
           fontColor: "#9a9a9a",
         },
       },
@@ -78,9 +78,10 @@ let chartExample1 = {
 
     let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
 
-    gradientStroke.addColorStop(1, "rgba(29,140,248,0.2)");
-    gradientStroke.addColorStop(0.1, "rgba(29,140,248,0.0)");
-    gradientStroke.addColorStop(0, "rgba(29,140,248,0)"); //blue colors
+    gradientStroke.addColorStop(1, "rgba(29,140,248,0.9)");
+    gradientStroke.addColorStop(0.5, "rgba(29,140,248,0.7)");
+    gradientStroke.addColorStop(0.1, "rgba(29,140,248,0.4)");
+    // gradientStroke.addColorStop(0.0, "rgba(29,140,248,0.1)"); //blue colors
 
     return {
       labels: xLabels,

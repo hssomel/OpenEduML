@@ -1,10 +1,11 @@
 import { UserActionTypes } from "./user.action-types";
 
-const { SET_CURRENT_USER, SET_CURRENT_PROFILE, CLEAR_USER } = UserActionTypes;
+const { SET_CURRENT_USER, SET_CURRENT_PROFILE, CLEAR_USER, SET_USER_USAGE } = UserActionTypes;
 
 const INITIAL_STATE = {
   currentUser: null,
   currentProfile: null,
+  userUsage: null,
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -20,6 +21,11 @@ const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         currentProfile: payload,
+      };
+    case SET_USER_USAGE:
+      return {
+        ...state,
+        userUsage: payload,
       };
     case CLEAR_USER:
       return {
