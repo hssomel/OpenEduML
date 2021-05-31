@@ -16,7 +16,6 @@ export default function FooterHome() {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        marginTop: 40,
       }}
     >
       <Link to="/contact" className={classes.left2}>

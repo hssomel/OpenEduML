@@ -3,6 +3,8 @@ import { Container, Row, Col } from "reactstrap";
 import NavbarMain from "components/Navbars/navbar.component.js";
 import LandingPageHeader from "../components/Headers/landing-header.component";
 import Image1 from "../assets/img/jupyter1a.jpeg";
+import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 import { ReactComponent as Logo2 } from "../assets/img/JupyterHub.svg";
 import { ReactComponent as Logo3 } from "../assets/img/Jupyter-Notebook.svg";
 import FooterHome from "components/Footer/FooterHome.js";
@@ -43,11 +45,6 @@ const LandingPage = () => {
                   to complete a machine-learning assignment, or an experienced data scientist
                   looking to train your machine-learning models for several hours per week! We offer
                   a complimentary free trial plan as well as more premium options!
-                  {/* With OpenEduML you can run
-                  TensorFlow, R, Scala programs on an online Jupyter Notebooks environment. Even for
-                  users who have all the necessary software installed, OpenEduML allows you to run
-                  and access your programs from anywhere with just an internet connection. We offer
-                  limited FREE access for all users in addition to premium options! */}
                 </h5>
               </Col>
             </Row>
@@ -129,6 +126,37 @@ const LandingPage = () => {
                       <li style={{ fontSize: 16, paddingTop: 8 }}>spark_scala</li>
                     </ul>
                   </div>
+                </Col>
+              </Row>
+              <Row style={{ paddingTop: 80 }}>
+                <Col className="ml-auto mr-auto text-center" md="10">
+                  <h3 className="title" style={{ fontFamily: "Roboto Slab" }}>
+                    Ready to start your free trial?
+                  </h3>
+                  <h5 className="description" style={{ color: "black" }}>
+                    OpenEduML is proud to offer all new members a 30 day complimentary free trial
+                    for our free tier subscription! This will allow you to launch multiple different
+                    machine learning kernels as well as allow you to save your work online for 30
+                    days! OpenEduML strives to offer extremely affordable rates for all backgrounds!
+                    Sign up for an account today to get started!
+                  </h5>
+                  <Link to="/signin" style={{ color: "white" }}>
+                    <Button
+                      variant="contained"
+                      style={{
+                        backgroundColor: "#f6a4eb",
+                        color: "white",
+                        width: "50%",
+                        minHeight: "50px",
+                        alignSelf: "center",
+                        marginTop: 32,
+                        fontSize: 16,
+                        fontWeight: 700,
+                      }}
+                    >
+                      SIGN UP FOR AN ACCOUNT
+                    </Button>
+                  </Link>
                 </Col>
               </Row>
             </div>
