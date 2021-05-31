@@ -20,7 +20,7 @@ const dashboardRoutes = [
     icon: CreditCardIcon,
   },
   {
-    path: "/admin/contact",
+    path: "/contact",
     name: "Contact us",
     icon: PinDropIcon,
   },

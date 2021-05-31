@@ -2,7 +2,7 @@ import {
   defaultFont,
   container,
   primaryColor,
-  grayColor
+  grayColor,
 } from "assets/jss/material-dashboard-react.js";
 
 const footerStyle = {
@@ -16,39 +16,66 @@ const footerStyle = {
     display: "block",
     ...defaultFont,
     fontWeight: "500",
-    fontSize: "12px"
+    fontSize: "12px",
   },
   left: {
     float: "left!important",
-    display: "block"
+    display: "block",
   },
   right: {
     padding: "15px 0",
     margin: "0",
     fontSize: "14px",
-    float: "right!important"
+    float: "right!important",
+  },
+  right2: {
+    padding: "15px 90px 15px 0px",
+    margin: "0",
+    fontSize: "14px",
+    float: "right!important",
+    color: "white",
+    fontWeight: 400,
+  },
+  left2: {
+    padding: "15px 0px 15px 130px",
+    margin: "0",
+    fontSize: "14px",
+    float: "right!important",
+    color: "white",
+    fontWeight: 500,
   },
   footer: {
     bottom: "0",
     borderTop: "1px solid " + grayColor[11],
     padding: "15px 0",
-    ...defaultFont
+    ...defaultFont,
   },
   container,
   a: {
     color: primaryColor,
     textDecoration: "none",
-    backgroundColor: "transparent"
+    backgroundColor: "transparent",
+  },
+  container2: {
+    // color: "lawngreen",
+    // textDecoration: "none",
+    backgroundColor: "#20232a",
   },
   list: {
     marginBottom: "0",
     padding: "0",
-    marginTop: "0"
+    marginTop: "0",
+  },
+  list2: {
+    marginBottom: "0",
+    padding: "0",
+    paddingLeft: 60,
+    marginTop: "0",
   },
   inlineBlock: {
     display: "inline-block",
     padding: "0px",
-    width: "auto"
-  }
+    width: "auto",
+  },
 };
 export default footerStyle;

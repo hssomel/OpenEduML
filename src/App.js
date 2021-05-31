@@ -56,10 +56,28 @@ const App = ({ currentUser, setCurrentUser }) => {
           )
         }
       />
-      <Route exact path="/admin/dashboard" component={ConsolePage} />
-      <Route exact path="/admin/profile" component={ConsolePage} />
-      <Route exact path="/admin/contact" component={ContactPage} />
-      <Route exact path="/admin/payment" component={PaymentPage} />
+      <Route
+        exact
+        path="/admin/dashboard"
+        render={(routeProps) =>
+          currentUser ? <ConsolePage {...routeProps} /> : <Redirect to="/signin" {...routeProps} />
+        }
+      />
+      <Route
+        exact
+        path="/admin/profile"
+        render={(routeProps) =>
+          currentUser ? <ConsolePage {...routeProps} /> : <Redirect to="/signin" {...routeProps} />
+        }
+      />
+      <Route exact path="/contact" component={ContactPage} />
+      <Route
+        exact
+        path="/admin/payment"
+        render={(routeProps) =>
+          currentUser ? <PaymentPage {...routeProps} /> : <Redirect to="/signin" {...routeProps} />
+        }
+      />
     </Switch>
   );
 };

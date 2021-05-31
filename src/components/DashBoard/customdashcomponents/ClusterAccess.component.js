@@ -34,7 +34,9 @@ const ClusterAccessFree = () => {
   return (
     <Card style={{ minHeight: 350 }}>
       <CardHeader color="rose">
-        <h4 style={{ margin: 0, fontWeight: 700 }}>Access your FreeJupyter Notebook</h4>
+        <h4 style={{ margin: 0, fontWeight: 700, fontFamily: "Roboto" }}>
+          Access your Free Jupyter Notebook
+        </h4>
       </CardHeader>
       <CardBody>
         <h4 style={{ marginTop: 10 }}>Notebook Ready to Launch </h4>

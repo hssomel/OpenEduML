@@ -1,13 +1,11 @@
 import React, { useEffect } from "react";
-// reactstrap components
 import { Container, Row, Col } from "reactstrap";
-// core components
 import NavbarMain from "components/Navbars/navbar.component.js";
 import LandingPageHeader from "../components/Headers/landing-header.component";
-import { ReactComponent as Logo } from "../assets/img/diagram-one.svg";
 import Image1 from "../assets/img/jupyter1a.jpeg";
 import { ReactComponent as Logo2 } from "../assets/img/JupyterHub.svg";
 import { ReactComponent as Logo3 } from "../assets/img/Jupyter-Notebook.svg";
+import FooterHome from "components/Footer/FooterHome.js";
 
 const LandingPage = () => {
   //   lifecycle methods
@@ -31,7 +29,7 @@ const LandingPage = () => {
           <Container>
             <Row style={{ paddingBottom: 20 }}>
               <Col className="ml-auto mr-auto text-center" md="9">
-                <h3 className="title">
+                <h3 className="title" style={{ fontFamily: "Roboto Slab" }}>
                   A handy online environment for building, training, and testing machine-learning
                   models
                 </h3>
@@ -61,7 +59,9 @@ const LandingPage = () => {
                     className="image-container"
                     style={{ backgroundImage: `url(${Image1})`, height: 380 }}
                   ></div>
-                  <h3 style={{ marginTop: 65 }}>OpenEduML leverages JupyterHub</h3>
+                  <h3 style={{ marginTop: 65, fontFamily: "Roboto Slab" }}>
+                    OpenEduML leverages JupyterHub
+                  </h3>
                   <p>
                     You may have previously already accessed Jupyter Notebooks online or found that
                     when you installed Jupyter Notebooks locally, you were only limited to launch
@@ -86,8 +86,8 @@ const LandingPage = () => {
                   </div>
                 </Col>
                 <Col md="6" style={{ paddingLeft: 36, paddingTop: 20 }}>
-                  <h3>
-                    Unlock the full power of Jupyter Notebooks simply via an Internet Connection
+                  <h3 style={{ fontFamily: "Roboto Slab" }}>
+                    Unlock the full power of Jupyter Notebooks simply via Internet
                   </h3>
                   <p>
                     As data scientists, we all at somepoint have come across Jupyter Notebooks and
@@ -111,7 +111,7 @@ const LandingPage = () => {
                   />
 
                   <div style={{ paddingLeft: 100 }}>
-                    <h3 style={{ marginTop: 100 }}>
+                    <h3 style={{ fontFamily: "Roboto Slab", marginTop: 100 }}>
                       A familiar IDE environment with the following kernels:
                     </h3>
                     <p>
@@ -135,6 +135,7 @@ const LandingPage = () => {
           </Container>
         </div>
       </div>
+      <FooterHome />
     </>
   );
 };
