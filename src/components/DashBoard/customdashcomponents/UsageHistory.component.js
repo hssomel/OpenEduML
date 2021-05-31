@@ -11,13 +11,12 @@ const UsageHistory = ({ userUsage }) => {
   const [data, setData] = useState(null);
   // EVENT HANDLERS
   useEffect(() => {
-    if (userUsage.length !== 0) setData(userUsage);
+    if (userUsage !== null && userUsage.length !== 0) setData(userUsage);
     else {
       let arr = [];
       arr.push(10);
       // setData(arr);
     }
-
     console.log(userUsage);
   }, []);
 

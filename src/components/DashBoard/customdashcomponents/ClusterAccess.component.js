@@ -49,7 +49,9 @@ const ClusterAccessFree = () => {
         >
           With your free tier membership of OpenEduML you get 30 hours per month total to access
           your free online Jupyter Notebook! Click on the button below to be redirected to your
-          notebook!
+          notebook! Putting together a page has never been easier than matching together sections.
+          From team presentation to pricing options, you can easily customise and built your pages.
+          If
         </p>
 
         <Button
