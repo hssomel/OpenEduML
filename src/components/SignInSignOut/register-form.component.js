@@ -79,6 +79,7 @@ const RegisterForm = ({ setLoginError }) => {
           borderColor: "#9c27b0",
           borderWidth: 2,
           borderStyle: "solid",
+          minHeight: 480,
         }}
       >
         <Form action="" className="form" method="">
@@ -102,7 +103,9 @@ const RegisterForm = ({ setLoginError }) => {
                 minLength="8"
               ></Input>
             </InputGroup>
-            <InputGroup className={"no-border input-lg" + (secondFocus ? " input-group-focus" : "")}>
+            <InputGroup
+              className={"no-border input-lg" + (secondFocus ? " input-group-focus" : "")}
+            >
               <InputGroupAddon addonType="prepend">
                 <InputGroupText>
                   <i className="now-ui-icons business_briefcase-24"></i>
@@ -133,7 +136,9 @@ const RegisterForm = ({ setLoginError }) => {
                 minLength="8"
               ></Input>
             </InputGroup>
-            <InputGroup className={"no-border input-lg" + (fourthFocus ? " input-group-focus" : "")}>
+            <InputGroup
+              className={"no-border input-lg" + (fourthFocus ? " input-group-focus" : "")}
+            >
               <InputGroupAddon addonType="prepend">
                 <InputGroupText>
                   <i className="now-ui-icons text_caps-small"></i>
@@ -161,9 +166,9 @@ const RegisterForm = ({ setLoginError }) => {
               REGISTER
             </Button>
 
-            <div className="pull-right">
+            <div className="pull-right" style={{ paddingRight: 10 }}>
               <h6>
-                <a className="link" href="/" onClick={(e) => e.preventDefault()}>
+                <a className="link" href="/contact">
                   Need Help?
                 </a>
               </h6>

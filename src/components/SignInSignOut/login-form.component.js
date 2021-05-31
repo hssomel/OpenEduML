@@ -61,6 +61,7 @@ const LoginForm = ({ setLoginError }) => {
           borderColor: "#9c27b0",
           borderWidth: 2,
           borderStyle: "solid",
+          minHeight: 480,
         }}
       >
         <Form action="" className="form" method="">
@@ -104,7 +105,7 @@ const LoginForm = ({ setLoginError }) => {
             <Button
               block
               className="btn-round"
-              style={{ color: "#9c27b0" }}
+              style={{ color: "#9c27b0", borderWidth: 2 }}
               outline
               type="button"
               onClick={(e) => handleSubmit(e)}
@@ -122,9 +123,9 @@ const LoginForm = ({ setLoginError }) => {
             >
               SIGN IN WITH GOOGLE
             </Button>
-            <div className="pull-right">
+            <div className="pull-right" style={{ paddingRight: 10 }}>
               <h6>
-                <a className="link" href="/" onClick={(e) => e.preventDefault()}>
+                <a className="link" href="/contact">
                   Need Help?
                 </a>
               </h6>

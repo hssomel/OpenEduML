@@ -90,7 +90,8 @@ const Contact = () => {
         <GridContainer>
           <GridItem md={6} sm={6}>
             <p>
-              You can contact us with anything related to our Products. We
+              You can contact us with anything related to our Products or if you have any issues
+              regarding your account (forgotten passwords or any issues with payment methods). We
               {"'"}ll get in touch with you as soon as possible.
               <br />
               <br />
@@ -157,8 +158,8 @@ const Contact = () => {
               title="Send us an email"
               description={
                 <p>
-                  Email is the best way to reach us <br /> Fill out the form to send your request <br />{" "}
-                  info@openeduml.io
+                  Email is the best way to reach us <br /> Fill out the form to send your request{" "}
+                  <br /> info@openeduml.io
                 </p>
               }
               icon={PinDrop}
