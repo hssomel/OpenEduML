@@ -64,17 +64,17 @@ const RegisterForm = ({ setLoginError }) => {
       return;
     }
 
-    if (password.search(/[a-z]/) < 1) {
+    if (password.search(/[a-z]/) === -1) {
       setLoginError("Your password must contain at least one lowercase letter.");
       return;
     }
 
-    if (password.search(/[A-Z]/) < 1) {
+    if (password.search(/[A-Z]/) === -1) {
       setLoginError("Your password must contain at least one uppercase letters.");
       return;
     }
 
-    if (password.search(/[!@#$%^&*]/) < 1) {
+    if (password.search(/[!@#$%^&*]/) === -1) {
       setLoginError("Your password must contain at least one special character.");
       return;
     }
