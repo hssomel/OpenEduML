@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-
-// reactstrap components
 import {
   Button,
   Card,
@@ -52,13 +50,35 @@ const RegisterForm = ({ setLoginError }) => {
   const handleRegisterSubmit = async (event) => {
     event.preventDefault();
     if (password !== confirmPassword) {
-      alert("passwords don't match");
+      setLoginError("Passwords don't match");
       return;
     }
-    // if (displayName.length < 8) {
-    //   alert("username must be atleast 8 characters. Only letters allowed for username.");
-    //   return;
-    // }
+
+    if (displayName.length < 8) {
+      setLoginError("Please set Username to atleast 8 characters with only letters.");
+      return;
+    }
+
+    if (password.length < 8) {
+      setLoginError("Please set password to atleast 8 characters.");
+      return;
+    }
+
+    if (password.search(/[a-z]/) < 1) {
+      setLoginError("Your password must contain at least one lowercase letter.");
+      return;
+    }
+
+    if (password.search(/[A-Z]/) < 1) {
+      setLoginError("Your password must contain at least one uppercase letters.");
+      return;
+    }
+
+    if (password.search(/[!@#$%^&*]/) < 1) {
+      setLoginError("Your password must contain at least one special character.");
+      return;
+    }
+
     try {
       const { user } = await auth.createUserWithEmailAndPassword(email, password);
       await createUserProfileDocument(user, { displayName });
@@ -67,6 +87,7 @@ const RegisterForm = ({ setLoginError }) => {
       setEmail("");
       setPassword("");
       setConfirmPassword("");
+      console.log(error);
       setLoginError(error.message);
     }
   };
@@ -87,7 +108,10 @@ const RegisterForm = ({ setLoginError }) => {
             <h4 style={{ fontWeight: 700 }}>CREATE A NEW ACCOUNT</h4>
           </CardHeader>
           <CardBody>
-            <InputGroup className={"no-border input-lg" + (firstFocus ? " input-group-focus" : "")}>
+            <InputGroup
+              className={"no-border input-lg" + (firstFocus ? " input-group-focus" : "")}
+              autoComplete="off"
+            >
               <InputGroupAddon addonType="prepend">
                 <InputGroupText>
                   <i className="now-ui-icons users_circle-08"></i>
@@ -105,6 +129,7 @@ const RegisterForm = ({ setLoginError }) => {
             </InputGroup>
             <InputGroup
               className={"no-border input-lg" + (secondFocus ? " input-group-focus" : "")}
+              autoComplete="off"
             >
               <InputGroupAddon addonType="prepend">
                 <InputGroupText>
@@ -114,6 +139,7 @@ const RegisterForm = ({ setLoginError }) => {
               <Input
                 placeholder="Email..."
                 type="text"
+                autoComplete="off"
                 onFocus={() => setsecondFocus(true)}
                 onBlur={() => setsecondFocus(false)}
                 onChange={(e) => handleEmailChange(e)}

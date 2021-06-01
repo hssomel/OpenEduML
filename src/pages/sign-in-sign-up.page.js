@@ -1,12 +1,10 @@
 import React, { useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
 import { connect } from "react-redux";
-// core components
+import AlertDialog from "components/SignInSignOut/AlertDialog";
 import NavbarMain from "components/Navbars/navbar.component.js";
 import LoginForm from "../components/SignInSignOut/login-form.component";
 import RegisterForm from "../components/SignInSignOut/register-form.component";
-import GenericModal from "../components/SignInSignOut/generic-modal.component";
-// import TransparentFooter from "components/Footers/TransparentFooter.js";
 import Background from "../assets/img/login-background.png";
 import { clearLoginError } from "../redux/alerts/alerts.actions";
 
@@ -37,13 +35,12 @@ const SignInSignUpPage = ({ loginError, clearLoginError }) => {
 
         <div className="content">
           <Container>
-            {loginError && (
-              <GenericModal
-                messageBody={loginError}
-                onCloseFunction={clearLoginError}
-                bVariant="danger"
-              />
-            )}
+            <AlertDialog
+              onCloseFunction={clearLoginError}
+              open={loginError}
+              message={loginError}
+              header={"Oops like there was an error signing in!"}
+            />
             <Row style={{ paddingTop: 25 }}>
               <Col className="ml-auto mr-auto" md="5">
                 <LoginForm />
@@ -54,7 +51,6 @@ const SignInSignUpPage = ({ loginError, clearLoginError }) => {
             </Row>
           </Container>
         </div>
-        {/* <TransparentFooter /> */}
       </div>
     </>
   );
