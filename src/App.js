@@ -3,7 +3,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 // Pages
 import LandingPage from "./pages/landing.page";
-import SignInSignUpPage from "./pages/sign-in-sign-up.page";
+import SignUpPage from "./pages/signup.page";
 import PaymentPage from "./pages/payment.page";
 import ContactPage from "./pages/contact.page";
 import ConsolePage from "./pages/console.page";
@@ -40,11 +40,7 @@ const App = ({ currentUser, setCurrentUser }) => {
       <Route
         path="/signin"
         render={(routeProps) =>
-          currentUser ? (
-            <Redirect to="/admin" {...routeProps} />
-          ) : (
-            <SignInSignUpPage {...routeProps} />
-          )
+          currentUser ? <Redirect to="/admin" {...routeProps} /> : <SignUpPage {...routeProps} />
         }
       />
       <Route
