@@ -52,7 +52,10 @@ const SignUpPage = ({
     try {
       await signInWithGoogle();
     } catch (err) {
-      setLoginMessage(err.message);
+      setLoginMessage({
+        type: "error",
+        message: err.message,
+      });
     }
   };
 
@@ -66,11 +69,19 @@ const SignUpPage = ({
     try {
       await auth.sendSignInLinkToEmail(email, actionCodeSettings);
       window.localStorage.setItem("emailForSignIn", email);
-      setLoginMessage("Successfully sent link to email");
+      setLoginMessage({
+        type: "success",
+        message: "Please check your email!",
+      });
+      // setLoginMessage("Successfully sent link to email");
+      setLoginHeader("Please check your email");
       setEmail("");
     } catch (err) {
       setEmail("");
-      setLoginMessage(err.message);
+      setLoginMessage({
+        type: "error",
+        message: err.message,
+      });
     }
   };
 
@@ -85,8 +96,6 @@ const SignUpPage = ({
         var email = window.localStorage.getItem("emailForSignIn");
         if (!email) {
           email = window.prompt("Please provide your email for confirmation");
-          //   setLoginMessage("Oops no email");
-          //   email = "";
         }
         await auth.signInWithEmailLink(email, window.location.href);
         window.localStorage.removeItem("emailForSignIn");
@@ -172,7 +181,7 @@ const SignUpPage = ({
                           className={classes.socialTitle}
                           style={{ fontFamily: "Roboto", fontWeight: 200, fontSize: 18 }}
                         >
-                          or Login with Email
+                          or Login/Register with Email
                         </h4>
                       </div>
                       <form className={classes.form} onSubmit={handleFormSubmit}>
