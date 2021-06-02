@@ -12,83 +12,33 @@ import {
   InputGroup,
 } from "reactstrap";
 import { connect } from "react-redux";
-import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
-import { setLoginError } from "../../redux/alerts/alerts.actions";
+import { auth } from "../../firebase/firebase.utils";
+import { setLoginMessage, setLoginHeader } from "../../redux/alerts/alerts.actions";
 
-const RegisterForm = ({ setLoginError }) => {
-  const [firstFocus, setfirstFocus] = useState(false);
-  const [secondFocus, setsecondFocus] = useState(false);
-  const [thirdFocus, setthirdFocus] = useState(false);
-  const [fourthFocus, setfourthFocus] = useState(false);
-  // FORM STATE
-  const [displayName, setDisplayName] = useState("");
+const RegisterForm = ({ setLoginMessage, setLoginHeader }) => {
+  const [focus, setFocus] = useState(false);
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   // EVENT HANDLERS -------------------------------------------------------->
-  const handleNameChange = (event) => {
-    let { value } = event.target;
-    value = value.replace(/[^A-Za-z]/gi, "");
-    setDisplayName(value);
-  };
-
   const handleEmailChange = (event) => {
     const { value } = event.target;
     setEmail(value);
   };
 
-  const handlePasswordChange = (event) => {
-    const { value } = event.target;
-    setPassword(value);
-  };
-
-  const handleCPasswordChange = (event) => {
-    const { value } = event.target;
-    setConfirmPassword(value);
-  };
-  //
   const handleRegisterSubmit = async (event) => {
     event.preventDefault();
-    if (password !== confirmPassword) {
-      setLoginError("Passwords don't match");
-      return;
-    }
 
-    if (displayName.length < 8) {
-      setLoginError("Please set Username to atleast 8 characters with only letters.");
-      return;
-    }
-
-    if (password.length < 8) {
-      setLoginError("Please set password to atleast 8 characters.");
-      return;
-    }
-
-    if (password.search(/[a-z]/) === -1) {
-      setLoginError("Your password must contain at least one lowercase letter.");
-      return;
-    }
-
-    if (password.search(/[A-Z]/) === -1) {
-      setLoginError("Your password must contain at least one uppercase letters.");
-      return;
-    }
-
-    if (password.search(/[!@#$%^&*]/) === -1) {
-      setLoginError("Your password must contain at least one special character.");
-      return;
-    }
-
+    var actionCodeSettings = {
+      url: "http://192.168.4.26:3000/signin/finish123",
+      handleCodeInApp: true,
+    };
     try {
-      const { user } = await auth.createUserWithEmailAndPassword(email, password);
-      await createUserProfileDocument(user, { displayName });
+      await auth.sendSignInLinkToEmail(email, actionCodeSettings);
+      window.localStorage.setItem("emailForSignIn", email);
+      setLoginMessage("Successfully sent link to email");
     } catch (error) {
-      setDisplayName("");
       setEmail("");
-      setPassword("");
-      setConfirmPassword("");
       console.log(error);
-      setLoginError(error.message);
+      setLoginMessage(error.message);
     }
   };
   // -------------------------------------------------------------------------------->
@@ -109,26 +59,7 @@ const RegisterForm = ({ setLoginError }) => {
           </CardHeader>
           <CardBody>
             <InputGroup
-              className={"no-border input-lg" + (firstFocus ? " input-group-focus" : "")}
-              autoComplete="off"
-            >
-              <InputGroupAddon addonType="prepend">
-                <InputGroupText>
-                  <i className="now-ui-icons users_circle-08"></i>
-                </InputGroupText>
-              </InputGroupAddon>
-              <Input
-                placeholder="Username..."
-                type="text"
-                onFocus={() => setfirstFocus(true)}
-                onBlur={() => setfirstFocus(false)}
-                onChange={(e) => handleNameChange(e)}
-                value={displayName}
-                minLength="8"
-              ></Input>
-            </InputGroup>
-            <InputGroup
-              className={"no-border input-lg" + (secondFocus ? " input-group-focus" : "")}
+              className={"no-border input-lg" + (focus ? " input-group-focus" : "")}
               autoComplete="off"
             >
               <InputGroupAddon addonType="prepend">
@@ -140,44 +71,10 @@ const RegisterForm = ({ setLoginError }) => {
                 placeholder="Email..."
                 type="text"
                 autoComplete="off"
-                onFocus={() => setsecondFocus(true)}
-                onBlur={() => setsecondFocus(false)}
+                onFocus={() => setFocus(true)}
+                onBlur={() => setFocus(false)}
                 onChange={(e) => handleEmailChange(e)}
                 value={email}
-              ></Input>
-            </InputGroup>
-            <InputGroup className={"no-border input-lg" + (thirdFocus ? " input-group-focus" : "")}>
-              <InputGroupAddon addonType="prepend">
-                <InputGroupText>
-                  <i className="now-ui-icons text_caps-small"></i>
-                </InputGroupText>
-              </InputGroupAddon>
-              <Input
-                placeholder="Password..."
-                type="password"
-                onFocus={() => setthirdFocus(true)}
-                onBlur={() => setthirdFocus(false)}
-                onChange={(e) => handlePasswordChange(e)}
-                value={password}
-                minLength="8"
-              ></Input>
-            </InputGroup>
-            <InputGroup
-              className={"no-border input-lg" + (fourthFocus ? " input-group-focus" : "")}
-            >
-              <InputGroupAddon addonType="prepend">
-                <InputGroupText>
-                  <i className="now-ui-icons text_caps-small"></i>
-                </InputGroupText>
-              </InputGroupAddon>
-              <Input
-                placeholder="Confirm Password..."
-                type="password"
-                onFocus={() => setfourthFocus(true)}
-                onBlur={() => setfourthFocus(false)}
-                onChange={(e) => handleCPasswordChange(e)}
-                value={confirmPassword}
-                minLength="8"
               ></Input>
             </InputGroup>
           </CardBody>
@@ -208,4 +105,4 @@ const RegisterForm = ({ setLoginError }) => {
 
 const mapStateToProps = (state) => ({});
 
-export default connect(mapStateToProps, { setLoginError })(RegisterForm);
+export default connect(mapStateToProps, { setLoginMessage, setLoginHeader })(RegisterForm);

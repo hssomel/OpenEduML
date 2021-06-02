@@ -30,6 +30,7 @@ export const createUserProfileDocument = async (userAuth) => {
   const snapShot = await userRef.get();
 
   if (!snapShot.exists) {
+    console.log("SNAP DOES NOT EXISTS");
     const { displayName, email } = userAuth;
     const createdAt = new Date();
     try {

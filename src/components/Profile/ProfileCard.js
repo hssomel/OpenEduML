@@ -12,7 +12,6 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import DraftsIcon from "@material-ui/icons/Drafts";
-import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import Filter1Icon from "@material-ui/icons/Filter1";
 import Filter2Icon from "@material-ui/icons/Filter2";
 import SchoolIcon from "@material-ui/icons/School";
@@ -37,12 +36,6 @@ const UpdateProfile = ({ currentUser, currentProfile }) => {
       </CardHeader>
       <CardBody>
         <List component="nav" aria-label="main mailbox folders">
-          <ListItem>
-            <ListItemIcon>
-              <AccountBoxIcon />
-            </ListItemIcon>
-            <ListItemText primary={`Username: ${currentUser.username}`} />
-          </ListItem>
           <ListItem>
             <ListItemIcon>
               <DraftsIcon />

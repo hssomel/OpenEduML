@@ -13,35 +13,32 @@ import {
 } from "reactstrap";
 import { connect } from "react-redux";
 import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
-import { setLoginError } from "../../redux/alerts/alerts.actions";
+import { setLoginMessage, setLoginHeader } from "../../redux/alerts/alerts.actions";
 
-const LoginForm = ({ setLoginError }) => {
+const LoginForm = ({ setLoginMessage, setLoginHeader }) => {
   const [firstFocus, setFirstFocus] = useState(false);
-  const [lastFocus, setLastFocus] = useState(false);
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
   const handleEmailChange = (event) => {
     const { value } = event.target;
     setEmail(value);
   };
 
-  const handlePasswordChange = (event) => {
-    const { value } = event.target;
-    setPassword(value);
-  };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
+    var actionCodeSettings = {
+      url: "http://192.168.4.26:3000/signin/finish123",
+      handleCodeInApp: true,
+    };
 
     try {
-      await auth.signInWithEmailAndPassword(email, password);
+      await auth.sendSignInLinkToEmail(email, actionCodeSettings);
+      window.localStorage.setItem("emailForSignIn", email);
+      setLoginMessage("Successfully sent link to email");
       setEmail("");
-      setPassword("");
     } catch (err) {
       setEmail("");
-      setPassword("");
-      setLoginError(err.message);
+      setLoginMessage(err.message);
     }
   };
 
@@ -49,7 +46,7 @@ const LoginForm = ({ setLoginError }) => {
     try {
       await signInWithGoogle();
     } catch (err) {
-      setLoginError(err.message);
+      setLoginMessage(err.message);
     }
   };
 
@@ -82,22 +79,6 @@ const LoginForm = ({ setLoginError }) => {
                 onBlur={() => setFirstFocus(false)}
                 onChange={(e) => handleEmailChange(e)}
                 value={email}
-              ></Input>
-            </InputGroup>
-            {/* */}
-            <InputGroup className={"no-border input-lg" + (lastFocus ? " input-group-focus" : "")}>
-              <InputGroupAddon addonType="prepend">
-                <InputGroupText>
-                  <i className="now-ui-icons text_caps-small"></i>
-                </InputGroupText>
-              </InputGroupAddon>
-              <Input
-                placeholder="Password..."
-                type="password"
-                onFocus={() => setLastFocus(true)}
-                onBlur={() => setLastFocus(false)}
-                onChange={(e) => handlePasswordChange(e)}
-                value={password}
               ></Input>
             </InputGroup>
           </CardBody>
@@ -139,4 +120,4 @@ const LoginForm = ({ setLoginError }) => {
 
 const mapStateToProps = (state) => ({});
 
-export default connect(mapStateToProps, { setLoginError })(LoginForm);
+export default connect(mapStateToProps, { setLoginMessage, setLoginHeader })(LoginForm);

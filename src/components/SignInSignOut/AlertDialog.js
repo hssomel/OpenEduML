@@ -22,7 +22,7 @@ const AlertDialog = (props) => {
           <DialogContentText id="alert-dialog-description">{message}</DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={onCloseFunction} color="#dc3545" style={{ color: "#dc3545" }} autoFocus>
+          <Button onClick={onCloseFunction} style={{ color: "#dc3545" }} autoFocus>
             Accept
           </Button>
         </DialogActions>

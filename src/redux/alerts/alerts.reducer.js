@@ -1,25 +1,38 @@
 import { AlertActionTypes } from "./alerts.action-types";
 
-const { SET_LOGIN_ERROR, CLEAR_LOGIN_ERROR } = AlertActionTypes;
+const { SET_LOGIN_MESSAGE, CLEAR_LOGIN_MESSAGE, SET_LOGIN_HEADER, CLEAR_LOGIN_HEADER } =
+  AlertActionTypes;
 
 const INITIAL_STATE = {
-  loginError: null,
+  loginMessage: null,
+  loginHeader: null,
 };
 
 const alertsReducer = (state = INITIAL_STATE, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case SET_LOGIN_ERROR:
+    case SET_LOGIN_MESSAGE:
       return {
         ...state,
-        loginError: payload,
+        loginMessage: payload,
       };
 
-    case CLEAR_LOGIN_ERROR:
+    case CLEAR_LOGIN_MESSAGE:
       return {
         ...state,
-        loginError: null,
+        loginMessage: null,
+      };
+    case SET_LOGIN_HEADER:
+      return {
+        ...state,
+        loginHeader: payload,
+      };
+
+    case CLEAR_LOGIN_HEADER:
+      return {
+        ...state,
+        loginHeader: null,
       };
     default:
       return state;

@@ -18,10 +18,9 @@ const App = ({ currentUser, setCurrentUser }) => {
       if (user) {
         const userRef = await createUserProfileDocument(user);
         userRef.onSnapshot((snapShot) => {
-          const { username, email } = snapShot.data();
+          const { email } = snapShot.data();
           setCurrentUser({
             id: snapShot.id,
-            username,
             email,
           });
         });
@@ -39,10 +38,13 @@ const App = ({ currentUser, setCurrentUser }) => {
     <Switch>
       <Route exact path="/" render={(props) => <LandingPage {...props} />} />
       <Route
-        exact
         path="/signin"
         render={(routeProps) =>
-          currentUser ? <Redirect to="/admin" {...routeProps} /> : <SignInSignUpPage />
+          currentUser ? (
+            <Redirect to="/admin" {...routeProps} />
+          ) : (
+            <SignInSignUpPage {...routeProps} />
+          )
         }
       />
       <Route
