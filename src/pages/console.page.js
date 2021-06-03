@@ -53,7 +53,7 @@ const ConsolePage = ({ currentUser, match }) => {
           className={classes.mainPanel}
           id="myDiv"
           ref={mainPanel}
-          style={{ overflowX: "hidden", paddingLeft: dashPadding, paddingTop: 10 }}
+          style={{ overflowX: "hidden", paddingLeft: dashPadding }}
         >
           <div className={classes.content}>
             <div className={classes.container} style={{ marginTop: 36 }}>

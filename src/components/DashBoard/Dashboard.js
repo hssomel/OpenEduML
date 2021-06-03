@@ -22,50 +22,68 @@ const api = axios.create({
 
 const Dashboard = ({ currentUser, setUserUsage, currentProfile, setCurrentProfile }) => {
   // EVENT HANDLERS ------------------------------>
-  const fetchData = async () => {
-    const res = await api.get(`/getprofile/${currentUser.id}`);
-    const usage = await api.get(`/getstats/${currentUser.id}`);
-    setCurrentProfile(res.data);
-    setUserUsage(usage.data);
-  };
+  // const fetchData = async () => {
+  //   const res = await api.get(`/getprofile/${currentUser.id}`);
+  //   const usage = await api.get(`/getstats/${currentUser.id}`);
+  //   setCurrentProfile(res.data);
+  //   setUserUsage(usage.data);
+  // };
 
-  useEffect(() => {
-    if (!currentProfile) {
-      fetchData();
-    }
-  }, [currentUser]);
+  // useEffect(() => {
+  //   if (!currentProfile) {
+  //     fetchData();
+  //   }
+  // }, [currentUser]);
   // ----------------------------------------------->
   return (
     <div>
       <Grid container spacing={4} style={{ marginBottom: 10 }}>
-        <Grid item xs={8}>
-          <UsageHistory />
+        <Grid item xs={9}>
+          <Grid container spacing={3}>
+            <Grid item xs={7}>
+              <UsageHistory />
+            </Grid>
+            <Grid item xs={5}>
+              <BillingChart />
+            </Grid>
+          </Grid>
+          <Grid container>
+            <Grid item xs={12}>
+              <ClusterAccessFree />
+            </Grid>
+          </Grid>
+          <Grid item xs={12}>
+            <DetailedSpecs />
+          </Grid>
         </Grid>
-        <Grid item xs={4}>
-          <BillingChart />
-        </Grid>
-      </Grid>
-      <Grid container spacing={4} style={{ marginBottom: 15 }}>
-        <Grid item xs={12} sm={6} lg={3}>
-          <NotebookState />
-        </Grid>
-        <Grid item xs={12} sm={6} lg={3}>
-          <TimeRemaining />
-        </Grid>
-        <Grid item xs={12} sm={6} lg={3}>
-          <NotebookCPU />
-        </Grid>
-        <Grid item xs={12} sm={6} lg={3}>
-          <NotebookGPU />
-        </Grid>
-      </Grid>
-      <Grid container spacing={4} style={{ marginTop: 10 }}>
-        <Grid item xs={12} lg={6} style={{ paddingTop: 0 }}>
-          <ClusterAccessFree />
-        </Grid>
+        <Grid item xs={3}>
+          <Grid container>
+            <Grid item xs={12}>
+              <NotebookState />
+            </Grid>
+          </Grid>
+          <Grid container>
+            <Grid item xs={12}>
+              <TimeRemaining />
+            </Grid>
+          </Grid>
+          <Grid container>
+            <Grid item xs={12}>
+              <NotebookCPU />
+            </Grid>
+          </Grid>
+          <Grid container>
+            <Grid item xs={12}>
+              <NotebookGPU />
+            </Grid>
+          </Grid>
+          <Grid container>
+            <Grid item xs={12}>
+              <NotebookCPU />
+            </Grid>
+          </Grid>
 
-        <Grid item xs={12} lg={6} style={{ paddingTop: 0 }}>
-          <DetailedSpecs />
+          <NotebookGPU />
         </Grid>
       </Grid>
     </div>

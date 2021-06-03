@@ -32,14 +32,14 @@ const ClusterAccessFree = () => {
   const classes2 = useStyles2();
 
   return (
-    <Card style={{ minHeight: 350 }}>
+    <Card style={{ minHeight: 280 }}>
       <CardHeader color="rose">
-        <h4 style={{ margin: 0, fontWeight: 700, fontFamily: "Roboto" }}>
+        <h4 style={{ margin: 0, fontWeight: 700, fontFamily: "Roboto Slab" }}>
           Access your Free Jupyter Notebook
         </h4>
       </CardHeader>
       <CardBody>
-        <h4 style={{ marginTop: 10 }}>Notebook Ready to Launch </h4>
+        <h4 style={{ marginTop: 10, fontFamily: "Roboto" }}>Notebook Ready to Launch </h4>
         <p
           className={classes.cardCategory}
           style={{
@@ -51,9 +51,7 @@ const ClusterAccessFree = () => {
         >
           With your free tier membership of OpenEduML you get 30 hours per month total to access
           your free online Jupyter Notebook! Click on the button below to be redirected to your
-          notebook! Putting together a page has never been easier than matching together sections.
-          From team presentation to pricing options, you can easily customise and built your pages.
-          If
+          online Jupyter notebook!
         </p>
 
         <Button
@@ -63,7 +61,8 @@ const ClusterAccessFree = () => {
           startIcon={<PowerSettingsNewIcon />}
           style={{
             marginTop: 8,
-            minWidth: 140,
+            minWidth: 190,
+            minHeight: 36,
             fontWeight: 700,
           }}
         >
