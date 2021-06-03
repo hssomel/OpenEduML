@@ -33,7 +33,7 @@ const CustomerTier = () => {
   return (
     <Card>
       <CardHeader color="warning" stats icon>
-        <CardIcon color="warning">
+        <CardIcon color="primary4">
           <AccessTime />
         </CardIcon>
         <p className={classes.cardCategory}>Your current subscription Tier</p>

@@ -32,8 +32,8 @@ const DaysLeft = () => {
   // ---------------------------------------------------------
   return (
     <Card>
-      <CardHeader color="warning" stats icon>
-        <CardIcon color="warning">
+      <CardHeader color="primary" stats icon>
+        <CardIcon color="primary2">
           <AccessTime />
         </CardIcon>
         <p className={classes.cardCategory}>Days Remaining in Trial</p>
