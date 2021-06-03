@@ -32,7 +32,7 @@ const ClusterAccessFree = () => {
   const classes2 = useStyles2();
 
   return (
-    <Card style={{ minHeight: 280 }}>
+    <Card style={{ minHeight: 260 }}>
       <CardHeader color="rose">
         <h4 style={{ margin: 0, fontWeight: 700, fontFamily: "Roboto Slab" }}>
           Access your Free Jupyter Notebook

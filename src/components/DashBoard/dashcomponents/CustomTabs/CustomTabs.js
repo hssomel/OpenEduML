@@ -29,10 +29,10 @@ export default function CustomTabs(props) {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          padding: 10,
+          padding: 5,
         }}
       >
-        <h4 style={{ margin: 0, fontWeight: 700 }}>{title}</h4>
+        <h4 style={{ margin: 0, fontWeight: 700, fontFamily: "Roboto" }}>{title}</h4>
         <Tabs
           value={value}
           onChange={handleChange}
@@ -69,7 +69,7 @@ export default function CustomTabs(props) {
       {/* only rendering one tab/set of tasks at a time */}
       <Paper
         className={classes.customScroll}
-        style={{ maxHeight: 300, overflow: "auto", paddingLeft: 25, overflowX: "hidden" }}
+        style={{ maxHeight: 480, overflow: "auto", paddingLeft: 25, overflowX: "hidden" }}
       >
         {tabs.map((prop, index) => {
           if (index === value) {

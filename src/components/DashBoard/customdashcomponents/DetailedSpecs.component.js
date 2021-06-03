@@ -11,7 +11,7 @@ import { categories, free, plus, pro } from "../general.js";
 const DetailedSpecs = () => {
   return (
     <CustomTabs
-      title="Compare Jupyter Notebook Specs: "
+      title="Compare Jupyter Notebook Specs Between Tiers: "
       headerColor="warning"
       tabs={[
         {
