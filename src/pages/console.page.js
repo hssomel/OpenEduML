@@ -16,8 +16,7 @@ const ConsolePage = ({ currentUser, match }) => {
   const [sideOpen, setSideOpen] = useState(false);
   const [dashPadding, setDashPadding] = useState(110);
   const [navbarColor, setNavbarColor] = useState("transparent");
-  //
-  //  event handlers
+  //  Event Handlers
   const openSideBar = () => {
     setSideOpen(!sideOpen);
     let pad = dashPadding === 110 ? 220 : 110;

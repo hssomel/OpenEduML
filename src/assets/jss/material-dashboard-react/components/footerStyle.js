@@ -16,17 +16,18 @@ const footerStyle = {
     display: "block",
     ...defaultFont,
     fontWeight: "500",
-    fontSize: "12px",
+    fontSize: "13px",
   },
   left: {
     float: "left!important",
     display: "block",
   },
   right: {
-    padding: "15px 0",
+    padding: "15px 30px 5px 0px",
     margin: "0",
-    fontSize: "14px",
+    fontSize: "13px",
     float: "right!important",
+    fontWeight: 400,
   },
   right2: {
     padding: "15px 90px 15px 0px",
@@ -47,7 +48,7 @@ const footerStyle = {
   footer: {
     bottom: "0",
     borderTop: "1px solid " + grayColor[11],
-    padding: "15px 0",
+    padding: "10px 0px 0px 0px",
     ...defaultFont,
   },
   container,
@@ -57,8 +58,6 @@ const footerStyle = {
     backgroundColor: "transparent",
   },
   container2: {
-    // color: "lawngreen",
-    // textDecoration: "none",
     backgroundColor: "#20232a",
   },
   list: {

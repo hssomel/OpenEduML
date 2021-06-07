@@ -19,12 +19,7 @@ export default function Footer() {
           <List className={classes.list}>
             <ListItem className={classes.inlineBlock}>
               <Link to="/" className={classes.block}>
-                OPENEDUML
-              </Link>
-            </ListItem>
-            <ListItem className={classes.inlineBlock}>
-              <Link to="/" className={classes.block}>
-                About us
+                HOME
               </Link>
             </ListItem>
           </List>
