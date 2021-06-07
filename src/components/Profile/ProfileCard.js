@@ -46,37 +46,41 @@ const UpdateProfile = ({ currentUser, currentProfile }) => {
             <ListItemIcon>
               <Filter1Icon />
             </ListItemIcon>
-            <ListItemText primary={`First Name: ${currentProfile.firstname}`} />
+            <ListItemText
+              primary={`First Name: ${currentProfile ? currentProfile.firstname : ""}`}
+            />
           </ListItem>
           <ListItem>
             <ListItemIcon>
               <Filter2Icon />
             </ListItemIcon>
-            <ListItemText primary={`Last Name: ${currentProfile.lastname}`} />
+            <ListItemText primary={`Last Name: ${currentProfile ? currentProfile.lastname : ""}`} />
           </ListItem>
           <ListItem>
             <ListItemIcon>
               <SchoolIcon />
             </ListItemIcon>
-            <ListItemText primary={`College: ${currentProfile.college}`} />
+            <ListItemText primary={`College: ${currentProfile ? currentProfile.college : ""}`} />
           </ListItem>
           <ListItem>
             <ListItemIcon>
               <HomeIcon />
             </ListItemIcon>
-            <ListItemText primary={`Postal Code: ${currentProfile.postal}`} />
+            <ListItemText primary={`Postal Code: ${currentProfile ? currentProfile.postal : ""}`} />
           </ListItem>
           <ListItem>
             <ListItemIcon>
               <PublicIcon />
             </ListItemIcon>
-            <ListItemText primary={`Country: ${currentProfile.country}`} />
+            <ListItemText primary={`Country: ${currentProfile ? currentProfile.country : ""}`} />
           </ListItem>
           <ListItem>
             <ListItemIcon>
               <WorkIcon />
             </ListItemIcon>
-            <ListItemText primary={`Occupation: ${currentProfile.occupation}`} />
+            <ListItemText
+              primary={`Occupation: ${currentProfile ? currentProfile.occupation : ""}`}
+            />
           </ListItem>
         </List>
       </CardBody>

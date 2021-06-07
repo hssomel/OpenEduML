@@ -22,8 +22,6 @@ const useStyles2 = makeStyles((theme) => ({
 const HtmlTooltip = withStyles(() => ({
   tooltip: {
     maxWidth: 450,
-    // backgroundColor: "red",
-    // background: "rgba(0, 0, 0, 0.9)",
     opacity: 1,
     border: "1px solid #dadde9",
   },
@@ -36,7 +34,7 @@ const NotebookCPU = () => {
   return (
     <Card>
       <CardHeader color="info" stats icon>
-        <CardIcon color="primary1">
+        <CardIcon color="primary2">
           <ComputerIcon />
         </CardIcon>
         <p className={classes.cardCategory}>Minimum Notebook CPU</p>
@@ -51,10 +49,11 @@ const NotebookCPU = () => {
           title={
             <React.Fragment>
               <Typography className={classes2.typography}>
-                See the minimum guaranteed resources for your Jupyter Notebook! Please note that if you are on
-                the free tier you may only run a single workload at a time! To increase your Jupyter Notebook
-                resources please visit your payments page where you can upgrade to the Plus or Pro tiers!
-                Allowing you to run multiple workloads and have access to GPU resources.
+                See the minimum guaranteed resources for your Jupyter Notebook! Please note that if
+                you are on the free tier you may only run a single workload at a time! To increase
+                your Jupyter Notebook resources please visit your payments page where you can
+                upgrade to the Plus or Pro tiers! Allowing you to run multiple workloads and have
+                access to GPU resources.
               </Typography>
             </React.Fragment>
           }

@@ -12,7 +12,7 @@ const DetailedSpecs = () => {
   return (
     <CustomTabs
       title="Compare Jupyter Notebook Specs Between Tiers: "
-      headerColor="primary3"
+      headerColor="primary6"
       tabs={[
         {
           tabName: "Free",

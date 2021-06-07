@@ -170,11 +170,12 @@ const primaryCardHeader = {
 };
 //
 const primary1CardHeader = {
-  background: "linear-gradient(60deg,#1d8cf8,#3358f4)",
+  background: "linear-gradient(180deg,#1d8cf8,#3358f4)",
   ...infoBoxShadow,
 };
 const primary2CardHeader = {
-  background: "linear-gradient(60deg,#00f2c3,#0098f0)",
+  background: "linear-gradient(to bottom left, #0098f0, #0098f0)",
+  // background: "linear-gradient(to bottom left, #0098f0, #00f2c3, #0098f0)",
   ...infoBoxShadow,
 };
 //
@@ -183,14 +184,20 @@ const primary3CardHeader = {
   ...infoBoxShadow,
 };
 const primary4CardHeader = {
-  background: "linear-gradient(60deg,#ff8d72,#ff6491)",
+  // background: "linear-gradient(to bottom left, #ff8d72, #ff6491, #ff8d72)",
+  background: "linear-gradient(to bottom left, #ff6491, #ff6491)",
   ...primaryBoxShadow,
 };
 //
 const primary5CardHeader = {
-  background: "linear-gradient(60deg,#fd5d93,#ec250d)",
+  background: "linear-gradient(to bottom left, #fd5d93, #ec250d, #fd5d93)",
   ...infoBoxShadow,
 };
+const primary6CardHeader = {
+  background: "linear-gradient(180deg,#f67c1b,#e15500)",
+  ...infoBoxShadow,
+};
+// background-image: -webkit-linear-gradient(to bottom left, #fd5d93, #ec250d, #fd5d93);
 const roseCardHeader = {
   background: "linear-gradient(60deg, " + roseColor[1] + ", " + roseColor[2] + ")",
   ...roseBoxShadow,
@@ -313,6 +320,7 @@ export {
   primary3CardHeader,
   primary4CardHeader,
   primary5CardHeader,
+  primary6CardHeader,
   roseCardHeader,
   cardActions,
   cardHeader,

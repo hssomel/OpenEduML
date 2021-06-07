@@ -38,6 +38,7 @@ const NotebookState = ({ userUsage }) => {
         <CardIcon color="primary5">
           <BatteryAlertIcon />
         </CardIcon>
+
         <p className={classes.cardCategory}>Jupyter Notebook State</p>
         <h5 style={{ color: "black" }}>{userUsage !== null ? userUsage.notebookState : "Off"}</h5>
       </CardHeader>
