@@ -34,6 +34,7 @@ const SignUpPage = ({
   clearLoginMessage,
   loginHeader,
   loginMessage,
+  match,
 }) => {
   const classes = useStyles();
   const [email, setEmail] = useState("");
@@ -127,7 +128,7 @@ const SignUpPage = ({
 
   return (
     <div>
-      <NavbarMain />
+      <NavbarMain route={match} />
       <div
         className={classes.pageHeader}
         style={{

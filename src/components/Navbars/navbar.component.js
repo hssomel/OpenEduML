@@ -1,21 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ReactComponent as Logo } from "../../assets/img/3d.svg";
 import { connect } from "react-redux";
 import { clearProfile } from "../../redux/user/user.actions";
 import { auth } from "../../firebase/firebase.utils";
-// reactstrap components
-import {
-  Collapse,
-  UncontrolledDropdown,
-  Navbar,
-  NavItem,
-  NavLink,
-  Nav,
-  Container,
-} from "reactstrap";
+import { Collapse, Navbar, NavItem, NavLink, Nav, Container } from "reactstrap";
 //
-const NavbarMain = ({ currentUser, clearProfile }) => {
+const NavbarMain = ({ currentUser, clearProfile, route }) => {
   const [navbarColor, setNavbarColor] = useState("navbar-transparent");
   const [collapseOpen, setCollapseOpen] = useState(false);
   // lifecycle
@@ -32,7 +22,7 @@ const NavbarMain = ({ currentUser, clearProfile }) => {
       window.removeEventListener("scroll", updateNavbarColor);
     };
   });
-  //
+
   const handleSignOut = async () => {
     try {
       clearProfile();
@@ -60,14 +50,16 @@ const NavbarMain = ({ currentUser, clearProfile }) => {
         style={{ backgroundColor: "#20232a" }}
       >
         <Container>
-          <UncontrolledDropdown className="button-dropdown" style={{ marginRight: -20 }}>
-            <Link to="/">
-              <Logo style={styles.logo} />
-            </Link>
-          </UncontrolledDropdown>
-          <NavLink to="/" tag={Link} style={{ fontSize: 15, fontWeight: 700 }}>
-            OpenEduML
-          </NavLink>
+          {route.path !== "/" && (
+            <NavLink
+              to="/"
+              tag={Link}
+              style={{ fontSize: 14, fontFamily: "Roboto", fontWeight: 700 }}
+            >
+              OPENEDUML
+            </NavLink>
+          )}
+
           <div className="navbar-translate">
             <button
               className="navbar-toggler navbar-toggler"
@@ -84,25 +76,27 @@ const NavbarMain = ({ currentUser, clearProfile }) => {
             </button>
           </div>
           <Collapse className="justify-content-end" isOpen={collapseOpen} navbar>
-            <Nav navbar>
+            <Nav navbar style={{ paddingRight: 75 }}>
               <NavItem>
                 {currentUser ? (
                   <div onClick={() => handleSignOut()}>
-                    <NavLink to="/" tag={Link} style={{ fontSize: 15, fontWeight: 700 }}>
+                    <NavLink to="/" tag={Link} style={{ fontSize: 14, fontWeight: 700 }}>
                       SIGN OUT
                     </NavLink>
                   </div>
                 ) : (
-                  <NavLink to="/signin" tag={Link} style={{ fontSize: 15, fontWeight: 700 }}>
+                  <NavLink to="/signin" tag={Link} style={{ fontSize: 14, fontWeight: 700 }}>
                     LOGIN
                   </NavLink>
                 )}
               </NavItem>
-              <NavItem>
-                <NavLink to="/admin" tag={Link} style={{ fontSize: 15, fontWeight: 700 }}>
-                  CONSOLE
-                </NavLink>
-              </NavItem>
+              {currentUser && (
+                <NavItem>
+                  <NavLink to="/admin" tag={Link} style={{ fontSize: 14, fontWeight: 700 }}>
+                    CONSOLE
+                  </NavLink>
+                </NavItem>
+              )}
             </Nav>
           </Collapse>
         </Container>
@@ -116,11 +110,3 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, { clearProfile })(NavbarMain);
-
-const styles = {
-  logo: {
-    height: 26,
-    width: 26,
-    marginBottom: 5,
-  },
-};

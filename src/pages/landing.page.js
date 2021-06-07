@@ -9,7 +9,7 @@ import { ReactComponent as Logo2 } from "../assets/img/JupyterHub.svg";
 import { ReactComponent as Logo3 } from "../assets/img/Jupyter-Notebook.svg";
 import FooterHome from "components/Footer/FooterHome.js";
 
-const LandingPage = () => {
+const LandingPage = (props) => {
   //   lifecycle methods
   useEffect(() => {
     document.body.classList.add("landing-page");
@@ -24,7 +24,7 @@ const LandingPage = () => {
   }, []);
   return (
     <>
-      <NavbarMain />
+      <NavbarMain route={props.match} />
       <div className="wrapper">
         <LandingPageHeader />
         <div className="section section-about-us">

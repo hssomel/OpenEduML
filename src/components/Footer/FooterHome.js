@@ -18,9 +18,7 @@ export default function FooterHome() {
         alignItems: "center",
       }}
     >
-      <Link to="/contact" className={classes.left2}>
-        ABOUT US
-      </Link>
+      <Link to="/contact" className={classes.left2}></Link>
       <p className={classes.right2}>
         <span>
           &copy; {1900 + new Date().getYear()}{" "}
