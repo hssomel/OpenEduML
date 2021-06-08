@@ -1,5 +1,6 @@
 import React from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
+import { connect } from "react-redux";
 import Card from "../dashcomponents/Card/Card.js";
 import CardHeader from "../dashcomponents/Card/CardHeader.js";
 import CardIcon from "../dashcomponents/Card/CardIcon.js";
@@ -26,9 +27,21 @@ const HtmlTooltip = withStyles(() => ({
   },
 }))(Tooltip);
 
-const DaysLeft = () => {
+const DaysLeft = ({ userUsage }) => {
   const classes = useStyles();
   const classes2 = useStyles2();
+
+  const convertDate = () => {
+    const { createdAt } = userUsage;
+    let epochSeconds = createdAt.seconds.toString() + "000";
+    let utcseconds = Number(epochSeconds);
+    let date = new Date(utcseconds);
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    let yearA = year.toString().slice(-2);
+    return month.toString() + "/" + day.toString() + "/" + yearA;
+  };
   // ---------------------------------------------------------
   return (
     <Card>
@@ -37,12 +50,14 @@ const DaysLeft = () => {
           <TimelapseIcon />
         </CardIcon>
         <p className={classes.cardCategory}>Days Remaining in Trial</p>
-        <h5 style={{ color: "black", fontFamily: "Roboto" }}>31</h5>
+        <h5 style={{ color: "black", fontFamily: "Roboto" }}>
+          {userUsage ? userUsage.freeTrialLeft : "Searching..."}
+        </h5>
       </CardHeader>
       <CardFooter stats>
         <div className={classes.stats}>
           <DateRange />
-          Trial Date Started: 5/04/21
+          Trial Date Started: {userUsage ? convertDate() : "Searching..."}
         </div>
         <HtmlTooltip
           title={
@@ -64,4 +79,8 @@ const DaysLeft = () => {
   );
 };
 
-export default DaysLeft;
+const mapStateToProps = (state) => ({
+  userUsage: state.user.userUsage,
+});
+
+export default connect(mapStateToProps)(DaysLeft);

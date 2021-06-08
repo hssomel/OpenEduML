@@ -1,16 +1,15 @@
 import React from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import Danger from "../dashcomponents/Typography/Danger.js";
 import Card from "../dashcomponents/Card/Card.js";
 import CardHeader from "../dashcomponents/Card/CardHeader.js";
 import CardIcon from "../dashcomponents/Card/CardIcon.js";
 import CardFooter from "../dashcomponents/Card/CardFooter.js";
-import Warning from "@material-ui/icons/Warning";
 import { connect } from "react-redux";
 import BatteryAlertIcon from "@material-ui/icons/BatteryAlert";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import Tooltip from "@material-ui/core/Tooltip";
 import Typography from "@material-ui/core/Typography";
+import LaunchIcon from "@material-ui/icons/Launch";
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
 // STYLES
 const useStyles = makeStyles(styles);
@@ -41,15 +40,13 @@ const NotebookState = ({ userUsage }) => {
 
         <p className={classes.cardCategory}>Jupyter Notebook State</p>
         <h5 style={{ color: "black", fontFamily: "Roboto" }}>
-          {userUsage !== null ? userUsage.notebookState : "Off"}
+          {userUsage !== null ? userUsage.notebookState : "Searching..."}
         </h5>
       </CardHeader>
       <CardFooter stats>
         <div className={classes.stats}>
-          <Danger>
-            <Warning />
-          </Danger>
-          <a href="#pablo">Ready to Launch</a>
+          <LaunchIcon />
+          Ready to Launch
         </div>
         <HtmlTooltip
           title={
