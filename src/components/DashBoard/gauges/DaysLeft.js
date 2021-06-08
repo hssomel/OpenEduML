@@ -48,12 +48,10 @@ const DaysLeft = () => {
           title={
             <React.Fragment>
               <Typography className={classes2.typography}>
-                See the time remaining for this monthly period for accessing your Jupyter Notebook.
-                Please note if you are a Plus or Pro tier member we will give you a popup and email
-                notification to let you know that you have utilized your entire monthly balance and
-                will now be billed by the hour. Maximum of up to an additional 100 hours. If you are
-                a free tier member you will have to wait until the next billing period! Please check
-                the payments page to see the standard hours given to each tier!
+                See the days remaining in your free trial! Every user account is given a 31 day free
+                trial where you have 30 hours of free usage of your online Jupyter Notebook! Please
+                visit our payments page for more details on the different subscription tiers we
+                offer!
               </Typography>
             </React.Fragment>
           }

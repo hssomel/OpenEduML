@@ -42,18 +42,16 @@ const CustomerTier = () => {
       <CardFooter stats>
         <div className={classes.stats}>
           <DateRange />
-          Date Last Accessed: 5/04/21
+          Last Updated: 5/04/21
         </div>
         <HtmlTooltip
           title={
             <React.Fragment>
               <Typography className={classes2.typography}>
-                See the time remaining for this monthly period for accessing your Jupyter Notebook.
-                Please note if you are a Plus or Pro tier member we will give you a popup and email
-                notification to let you know that you have utilized your entire monthly balance and
-                will now be billed by the hour. Maximum of up to an additional 100 hours. If you are
-                a free tier member you will have to wait until the next billing period! Please check
-                the payments page to see the standard hours given to each tier!
+                See your current subscription tier! OpenEduML offers "Plus" and "Pro" tiers in
+                addition to the default free tier provided to each user. Please visit the payments
+                page to change your subscription plan and if you have any questions please don't
+                hesitate to email support!
               </Typography>
             </React.Fragment>
           }

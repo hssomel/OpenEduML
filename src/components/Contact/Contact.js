@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import PinDrop from "@material-ui/icons/PinDrop";
-import Phone from "@material-ui/icons/Phone";
 import axios from "axios";
 import GridContainer from "components/proTheme/Grid/GridContainer.js";
 import GridItem from "components/proTheme/Grid/GridItem.js";
@@ -163,17 +162,6 @@ const Contact = () => {
                 </p>
               }
               icon={PinDrop}
-              iconColor="secondary"
-            />
-            <InfoArea
-              className={classes.info}
-              title="Give us a ring"
-              description={
-                <p>
-                  HARPREET SOMEL <br /> +1 714 553 5938 <br /> Mon - Fri, 8:00-22:00
-                </p>
-              }
-              icon={Phone}
               iconColor="secondary"
             />
           </GridItem>
