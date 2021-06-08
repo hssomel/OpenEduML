@@ -26,10 +26,20 @@ export default function CustomTabs(props) {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          padding: 5,
+          padding: 3,
         }}
       >
-        <h4 style={{ margin: 0, fontWeight: 700, fontFamily: "Roboto Slab" }}>{title}</h4>
+        <h4
+          style={{
+            margin: 0,
+            fontWeight: 700,
+            fontFamily: "Roboto Slab",
+            fontSize: 19,
+            paddingLeft: 10,
+          }}
+        >
+          {title}
+        </h4>
         <Tabs
           value={value}
           onChange={handleChange}

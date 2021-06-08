@@ -18,7 +18,11 @@ export default function Footer() {
         <div className={classes.left}>
           <List className={classes.list}>
             <ListItem className={classes.inlineBlock}>
-              <Link to="/" className={classes.block}>
+              <Link
+                to="/"
+                className={classes.block}
+                style={{ fontFamily: "Montserrat", fontWeight: 700, fontSize: 12 }}
+              >
                 HOME
               </Link>
             </ListItem>
@@ -27,7 +31,12 @@ export default function Footer() {
         <p className={classes.right}>
           <span>
             &copy; {1900 + new Date().getYear()}{" "}
-            <a href="/contact" target="_blank" className={classes.a}>
+            <a
+              href="/contact"
+              target="_blank"
+              className={classes.a}
+              style={{ fontFamily: "Montserrat", fontWeight: 700, fontSize: 13 }}
+            >
               OPENEDUML
             </a>
           </span>

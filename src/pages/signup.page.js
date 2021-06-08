@@ -218,7 +218,7 @@ const SignUpPage = ({
                         }}
                       >
                         <h6>
-                          <a className="link" href="/contact">
+                          <a className="link" href="/contact" style={{ fontFamily: "Roboto" }}>
                             Need Help?
                           </a>
                         </h6>

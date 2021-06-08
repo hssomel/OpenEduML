@@ -34,19 +34,22 @@ const ClusterAccessFree = () => {
   return (
     <Card style={{ minHeight: 260 }}>
       <CardHeader color="primary6">
-        <h4 style={{ margin: 0, fontWeight: 700, fontFamily: "Roboto Slab" }}>
+        <h4 style={{ margin: 0, fontWeight: 700, fontFamily: "Roboto Slab", fontSize: 19 }}>
           Access your Free Jupyter Notebook
         </h4>
       </CardHeader>
       <CardBody>
-        <h4 style={{ marginTop: 10, fontFamily: "Roboto" }}>Notebook Ready to Launch </h4>
+        <h4 style={{ marginTop: 10, fontFamily: "Montserrat", fontWeight: 400, fontSize: 18 }}>
+          Notebook Ready to Launch{" "}
+        </h4>
         <p
           className={classes.cardCategory}
           style={{
             marginBottom: 25,
             marginTop: 10,
             color: "#303030",
-            fontSize: 15,
+            fontSize: 14,
+            fontFamily: "Montserrat",
           }}
         >
           With your free tier membership of OpenEduML you get 30 hours per month total to access
@@ -65,6 +68,7 @@ const ClusterAccessFree = () => {
             minHeight: 36,
             fontWeight: 700,
             backgroundColor: "red",
+            fontFamily: "Montserrat",
           }}
         >
           Launch

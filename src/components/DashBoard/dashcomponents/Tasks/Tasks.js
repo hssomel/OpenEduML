@@ -22,17 +22,14 @@ export default function Tasks(props) {
           <TableRow key={value} className={classes.tableRow}>
             <GridContainer>
               <CustomGridItem xs={12} lg={7} style={{ justifyContent: "flex-start", marginTop: 5 }}>
-                <CardBody style={{ fontSize: 15, fontFamily: "Roboto" }}>
-                  {categories[value]}
-                </CardBody>
+                <CardBody style={{ fontSize: 14 }}>{categories[value]}</CardBody>
               </CustomGridItem>
               <CustomGridItem xs={12} lg={5} style={{ justifyContent: "center" }}>
                 <CardBody
                   style={{
                     justifyContent: "center",
                     display: "flex",
-                    fontFamily: "Roboto",
-                    fontSize: 15,
+                    fontSize: 14,
                   }}
                 >
                   {tasks[value]}

@@ -35,7 +35,7 @@ const LandingPage = (props) => {
                   A handy online environment for building, training, and testing machine-learning
                   models
                 </h3>
-                <h5 className="description" style={{ color: "black" }}>
+                <p>
                   OpenEduML is created by graduate students at the University of Texas, Austin who
                   are aspiring data scientists and AI researchers. Our mission is to provide an
                   online environment (utilizing the familiar Jupyter Notebooks) for students to run
@@ -44,8 +44,9 @@ const LandingPage = (props) => {
                   accomodate a wide range of use cases; whether you are a graduate student looking
                   to complete a machine-learning assignment, or an experienced data scientist
                   looking to train your machine-learning models for several hours per week! We offer
-                  a complimentary free trial plan as well as more premium options!
-                </h5>
+                  a complimentary free trial plan as well as additional premium options for all
+                  backgrounds!
+                </p>
               </Col>
             </Row>
             <div className="separator separator-primary"></div>
@@ -133,13 +134,13 @@ const LandingPage = (props) => {
                   <h3 className="title" style={{ fontFamily: "Roboto Slab" }}>
                     Ready to start your free trial?
                   </h3>
-                  <h5 className="description" style={{ color: "black" }}>
+                  <p>
                     OpenEduML is proud to offer all new members a 30 day complimentary free trial
                     for our free tier subscription! This will allow you to launch multiple different
                     machine learning kernels as well as allow you to save your work online for 30
                     days! OpenEduML strives to offer extremely affordable rates for all backgrounds!
                     Sign up for an account today to get started!
-                  </h5>
+                  </p>
                   <Link to="/signin" style={{ color: "white" }}>
                     <Button
                       variant="contained"
