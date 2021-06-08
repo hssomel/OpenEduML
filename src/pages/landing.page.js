@@ -56,7 +56,7 @@ const LandingPage = (props) => {
                     className="image-container"
                     style={{ backgroundImage: `url(${Image1})`, height: 380 }}
                   ></div>
-                  <h3 style={{ marginTop: 65, fontFamily: "Roboto Slab" }}>
+                  <h3 style={{ marginTop: 85, fontFamily: "Roboto Slab" }}>
                     OpenEduML leverages JupyterHub
                   </h3>
                   <p>
@@ -82,7 +82,7 @@ const LandingPage = (props) => {
                     />
                   </div>
                 </Col>
-                <Col md="6" style={{ paddingLeft: 36, paddingTop: 20 }}>
+                <Col md="6" style={{ paddingLeft: 36, paddingTop: 0 }}>
                   <h3 style={{ fontFamily: "Roboto Slab" }}>
                     Unlock the full power of Jupyter Notebooks simply via Internet
                   </h3>
@@ -108,7 +108,7 @@ const LandingPage = (props) => {
                   />
 
                   <div style={{ paddingLeft: 100 }}>
-                    <h3 style={{ fontFamily: "Roboto Slab", marginTop: 100 }}>
+                    <h3 style={{ fontFamily: "Roboto Slab", marginTop: 150 }}>
                       A familiar IDE environment with the following kernels:
                     </h3>
                     <p>

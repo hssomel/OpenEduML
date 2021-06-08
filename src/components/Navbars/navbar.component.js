@@ -51,11 +51,7 @@ const NavbarMain = ({ currentUser, clearProfile, route }) => {
       >
         <Container>
           {route.path !== "/" && (
-            <NavLink
-              to="/"
-              tag={Link}
-              style={{ fontSize: 14, fontFamily: "Roboto", fontWeight: 700 }}
-            >
+            <NavLink to="/" tag={Link} style={{ fontSize: 14, fontWeight: 700 }}>
               OPENEDUML
             </NavLink>
           )}

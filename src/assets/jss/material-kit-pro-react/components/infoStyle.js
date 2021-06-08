@@ -67,6 +67,7 @@ const infoStyle = {
     color: grayColor[0],
     overflow: "hidden",
     marginTop: "0px",
+    fontFamily: "Roboto",
     "& p": {
       color: grayColor[0],
       fontSize: "14px",

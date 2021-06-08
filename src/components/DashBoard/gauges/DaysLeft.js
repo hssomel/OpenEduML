@@ -42,6 +42,16 @@ const DaysLeft = ({ userUsage }) => {
     let yearA = year.toString().slice(-2);
     return month.toString() + "/" + day.toString() + "/" + yearA;
   };
+
+  const returnDays = () => {
+    const { createdAt, freeTrialLeft } = userUsage;
+    let epochSeconds = createdAt.seconds.toString() + "000";
+    let utcseconds = Number(epochSeconds);
+    let date = new Date(utcseconds);
+    let today = new Date();
+    let hrs = (today - date) / (1000 * 60 * 60);
+    return freeTrialLeft - Math.floor(Math.floor(hrs) / 24);
+  };
   // ---------------------------------------------------------
   return (
     <Card>
@@ -51,7 +61,7 @@ const DaysLeft = ({ userUsage }) => {
         </CardIcon>
         <p className={classes.cardCategory}>Days Remaining in Trial</p>
         <h5 style={{ color: "black", fontFamily: "Roboto" }}>
-          {userUsage ? userUsage.freeTrialLeft : "Searching..."}
+          {userUsage ? returnDays() : "Searching..."}
         </h5>
       </CardHeader>
       <CardFooter stats>

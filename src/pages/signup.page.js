@@ -117,12 +117,12 @@ const SignUpPage = ({
     " link. ";
 
   let consoleDescription =
-    "Access your very own console page where " +
-    "you will be able to access your online Jupyter Notebook and be able to view your usage " +
+    "Access your very own console page! " +
+    "You will be able to access your online Jupyter Notebook and be able to view your usage " +
     "history and explore all our different subscription plans!";
 
   let paymentDescription =
-    "The console page will show on the dashboard how many days are left in your free trial! " +
+    "The console page shows on the dashboard how many days are left in your free trial! " +
     "Explore the payments page to view  additional details " +
     "on the benefits of upgrading to our Plus or Pro tiers.";
 
@@ -146,7 +146,7 @@ const SignUpPage = ({
                 </h2>
                 <CardBody>
                   <Grid container style={{ justifyContent: "space-evenly" }}>
-                    <Grid item xs={12} sm={5} md={5}>
+                    <Grid item xs={12} sm={5} md={5} style={{ paddingRight: 15 }}>
                       <InfoArea
                         className={classes.infoArea}
                         title="Only Email Required"
