@@ -38,7 +38,7 @@ const NotebookCPU = () => {
           <ComputerIcon />
         </CardIcon>
         <p className={classes.cardCategory}>Minimum Notebook CPU</p>
-        <h5 style={{ color: "black" }}>2 vCPUs / 4GB RAM</h5>
+        <h5 style={{ color: "black", fontFamily: "Roboto" }}>2 vCPUs / 4GB RAM</h5>
       </CardHeader>
       <CardFooter stats>
         <div className={classes.stats}>

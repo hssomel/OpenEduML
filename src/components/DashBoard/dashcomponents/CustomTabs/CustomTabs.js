@@ -1,14 +1,11 @@
 import React from "react";
-// material-ui components
 import { makeStyles } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Paper from "@material-ui/core/Paper";
-// core components
 import Card from "../Card/Card.js";
 import CardHeader from "../Card/CardHeader.js";
-
-import styles from "../../../../assets/jss/material-dashboard-react/components/customTabsStyle.js";
+import styles from "assets/jss/material-dashboard-react/components/customTabsStyle.js";
 
 const useStyles = makeStyles(styles);
 
@@ -32,7 +29,7 @@ export default function CustomTabs(props) {
           padding: 5,
         }}
       >
-        <h4 style={{ margin: 0, fontWeight: 700, fontFamily: "Roboto" }}>{title}</h4>
+        <h4 style={{ margin: 0, fontWeight: 700, fontFamily: "Roboto Slab" }}>{title}</h4>
         <Tabs
           value={value}
           onChange={handleChange}
@@ -74,6 +71,7 @@ export default function CustomTabs(props) {
         {tabs.map((prop, index) => {
           if (index === value) {
             return <div key={index}>{prop.tabContent}</div>;
+            // rendering <Tasks /> component from DetailedSpecs
           }
           return null;
         })}

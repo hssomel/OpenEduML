@@ -37,6 +37,7 @@ const dashboardStyle = {
     marginTop: "0",
     paddingTop: "10px",
     marginBottom: "0",
+    fontWeight: 400,
     fontFamily: "Helvetica",
   },
   cardCategoryWhite: {

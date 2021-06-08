@@ -5,8 +5,8 @@ import CardHeader from "../dashcomponents/Card/CardHeader.js";
 import CardIcon from "../dashcomponents/Card/CardIcon.js";
 import CardFooter from "../dashcomponents/Card/CardFooter.js";
 import DateRange from "@material-ui/icons/DateRange";
-import AccessTime from "@material-ui/icons/AccessTime";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
+import PaymentIcon from "@material-ui/icons/Payment";
 import Typography from "@material-ui/core/Typography";
 import Tooltip from "@material-ui/core/Tooltip";
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
@@ -32,12 +32,12 @@ const CustomerTier = () => {
   // ---------------------------------------------------------
   return (
     <Card>
-      <CardHeader color="warning" stats icon>
+      <CardHeader color="primary4" stats icon>
         <CardIcon color="primary4">
-          <AccessTime />
+          <PaymentIcon />
         </CardIcon>
         <p className={classes.cardCategory}>Your current subscription Tier</p>
-        <h5 style={{ color: "black" }}>Free</h5>
+        <h5 style={{ color: "black", fontFamily: "Roboto" }}>Free</h5>
       </CardHeader>
       <CardFooter stats>
         <div className={classes.stats}>

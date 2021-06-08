@@ -40,7 +40,9 @@ const NotebookState = ({ userUsage }) => {
         </CardIcon>
 
         <p className={classes.cardCategory}>Jupyter Notebook State</p>
-        <h5 style={{ color: "black" }}>{userUsage !== null ? userUsage.notebookState : "Off"}</h5>
+        <h5 style={{ color: "black", fontFamily: "Roboto" }}>
+          {userUsage !== null ? userUsage.notebookState : "Off"}
+        </h5>
       </CardHeader>
       <CardFooter stats>
         <div className={classes.stats}>

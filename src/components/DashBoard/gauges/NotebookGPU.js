@@ -37,7 +37,7 @@ const NotebookGPU = () => {
           <GrainIcon />
         </CardIcon>
         <p className={classes.cardCategory}>Minimum Notebook GPU</p>
-        <h5 style={{ color: "black" }}>Not Available</h5>
+        <h5 style={{ color: "black", fontFamily: "Roboto" }}>Not Available</h5>
       </CardHeader>
       <CardFooter stats>
         <div className={classes.stats}>
@@ -48,8 +48,9 @@ const NotebookGPU = () => {
           title={
             <React.Fragment>
               <Typography className={classes2.typography}>
-                Access to GPU resources for running workloads (i.e. TensorFlow w/GPU) is only available on our
-                Pro tier! Please visit our payments page to upgrade your subscription!
+                Access to GPU resources for running workloads (i.e. TensorFlow w/GPU) is only
+                available on our Pro tier! Please visit our payments page to upgrade your
+                subscription!
               </Typography>
             </React.Fragment>
           }

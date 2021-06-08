@@ -22,18 +22,18 @@ const api = axios.create({
 
 const Dashboard = ({ currentUser, setUserUsage, currentProfile, setCurrentProfile }) => {
   // EVENT HANDLERS ------------------------------>
-  // const fetchData = async () => {
-  //   const res = await api.get(`/getprofile/${currentUser.id}`);
-  //   const usage = await api.get(`/getstats/${currentUser.id}`);
-  //   setCurrentProfile(res.data);
-  //   setUserUsage(usage.data);
-  // };
+  const fetchData = async () => {
+    const res = await api.get(`/getprofile/${currentUser.id}`);
+    const usage = await api.get(`/getstats/${currentUser.id}`);
+    setCurrentProfile(res.data);
+    setUserUsage(usage.data);
+  };
 
-  // useEffect(() => {
-  //   if (!currentProfile) {
-  //     fetchData();
-  //   }
-  // }, [currentUser]);
+  useEffect(() => {
+    if (!currentProfile) {
+      fetchData();
+    }
+  }, [currentUser]);
   // ----------------------------------------------->
   return (
     <div>

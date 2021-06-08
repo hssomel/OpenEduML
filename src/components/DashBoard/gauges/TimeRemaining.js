@@ -37,7 +37,7 @@ const TimeRemaining = () => {
           <AccessTime />
         </CardIcon>
         <p className={classes.cardCategory}>Time Remaining (hrs:mins)</p>
-        <h5 style={{ color: "black" }}>30:00</h5>
+        <h5 style={{ color: "black", fontFamily: "Roboto" }}>30:00</h5>
       </CardHeader>
       <CardFooter stats>
         <div className={classes.stats}>

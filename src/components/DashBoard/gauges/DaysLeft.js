@@ -5,8 +5,8 @@ import CardHeader from "../dashcomponents/Card/CardHeader.js";
 import CardIcon from "../dashcomponents/Card/CardIcon.js";
 import CardFooter from "../dashcomponents/Card/CardFooter.js";
 import DateRange from "@material-ui/icons/DateRange";
-import AccessTime from "@material-ui/icons/AccessTime";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
+import TimelapseIcon from "@material-ui/icons/Timelapse";
 import Typography from "@material-ui/core/Typography";
 import Tooltip from "@material-ui/core/Tooltip";
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
@@ -34,10 +34,10 @@ const DaysLeft = () => {
     <Card>
       <CardHeader color="primary" stats icon>
         <CardIcon color="primary3">
-          <AccessTime />
+          <TimelapseIcon />
         </CardIcon>
         <p className={classes.cardCategory}>Days Remaining in Trial</p>
-        <h5 style={{ color: "black" }}>31</h5>
+        <h5 style={{ color: "black", fontFamily: "Roboto" }}>31</h5>
       </CardHeader>
       <CardFooter stats>
         <div className={classes.stats}>
