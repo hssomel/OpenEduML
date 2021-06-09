@@ -107,8 +107,9 @@ const UpdateProfile = ({ currentUser, setCurrentProfile }) => {
             <CardIcon color="pink">
               <PersonOutlineIcon />
             </CardIcon>
-            <h4 style={{ color: "#606060", paddingTop: 12 }}>
-              Edit Profile - <span style={{ fontSize: 15 }}>Postal code solely used for billing</span>
+            <h4 style={{ color: "#606060", paddingTop: 12, fontFamily: "Roboto" }}>
+              Edit Profile -{" "}
+              <span style={{ fontSize: 15 }}>Postal code solely used for billing</span>
             </h4>
           </CardHeader>
           <CardBody style={{ paddingTop: 30 }}>
@@ -201,10 +202,20 @@ const UpdateProfile = ({ currentUser, setCurrentProfile }) => {
               {!loading && (
                 <CardFooter
                   stats
-                  style={{ display: "flex", justifyContent: "flex-end", paddingRight: 30, paddingTop: 16 }}
+                  style={{
+                    display: "flex",
+                    justifyContent: "flex-end",
+                    paddingRight: 30,
+                    paddingTop: 16,
+                  }}
                 >
                   <Button
-                    style={{ backgroundColor: "#f6a4eb", minHeight: 45, minWidth: 180, fontSize: 14 }}
+                    style={{
+                      backgroundColor: "#f6a4eb",
+                      minHeight: 45,
+                      minWidth: 180,
+                      fontSize: 14,
+                    }}
                     type="submit"
                   >
                     Update Profile

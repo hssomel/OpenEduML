@@ -27,7 +27,7 @@ const PricingCard = (props) => {
             <small>$</small>
             {time === "MO." ? price : priceyr} <small>/{time}</small>
           </h1>
-          <ul style={{ maxWidth: 300 }}>
+          <ul style={{ maxWidth: 340 }}>
             <li>
               Hours included Per Month: <b>{props.hours}</b>
             </li>

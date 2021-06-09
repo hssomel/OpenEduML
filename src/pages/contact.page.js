@@ -18,7 +18,12 @@ const ContactPage = () => {
 
   return (
     <div>
-      <Header brand="OPENEDUML" links={<HeaderLinks dropdownHoverColor="dark" />} fixed color="dark" />
+      <Header
+        brand="OPENEDUML"
+        links={<HeaderLinks dropdownHoverColor="dark" />}
+        fixed
+        color="dark"
+      />
       <div className={classes.bigMap}>
         <CustomSkinMap
           googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_API_KEY}`}
@@ -46,11 +51,6 @@ const ContactPage = () => {
                 <ListItem className={classes.inlineBlock}>
                   <Link to="/" className={classes.block}>
                     OPENEDUML
-                  </Link>
-                </ListItem>
-                <ListItem className={classes.inlineBlock}>
-                  <Link to="/" className={classes.block}>
-                    About us
                   </Link>
                 </ListItem>
               </List>

@@ -88,7 +88,7 @@ const Contact = () => {
         <h2 className={classes.title}>Send us a message</h2>
         <GridContainer>
           <GridItem md={6} sm={6}>
-            <p>
+            <p style={{ fontFamily: "Roboto" }}>
               You can contact us with anything related to our Products or if you have any issues
               regarding your account (issues with payment methods etc.). We
               {"'"}ll get in touch with you as soon as possible.

@@ -32,7 +32,7 @@ const UpdateProfile = ({ currentUser, currentProfile }) => {
         <CardIcon color="warning">
           <ContactMailIcon />
         </CardIcon>
-        <h4 style={{ color: "#606060", paddingTop: 12 }}>My Profile</h4>
+        <h4 style={{ color: "#606060", paddingTop: 12, fontFamily: "Roboto" }}>My Profile</h4>
       </CardHeader>
       <CardBody>
         <List component="nav" aria-label="main mailbox folders">
@@ -93,7 +93,7 @@ const UpdateProfile = ({ currentUser, currentProfile }) => {
           }}
         >
           <PaymentIcon style={{ marginTop: 0 }} />
-          <p style={{ fontSize: 14, alignSelf: "center", marginBottom: 0 }}>
+          <p style={{ fontSize: 14, alignSelf: "center", marginBottom: 0, fontFamily: "Roboto" }}>
             Edit payment methods and subscriptions on the payments page!
           </p>
         </div>
