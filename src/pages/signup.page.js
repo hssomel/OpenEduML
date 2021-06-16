@@ -171,11 +171,17 @@ const SignUpPage = ({
                     </Grid>
                     <Grid item xs={12} sm={5} md={5} style={{ paddingTop: 40 }}>
                       <div className={classes.textCenter}>
-                        <Button justIcon round color="dribbble">
+                        <Button
+                          justIcon
+                          color="dribbble"
+                          style={{ minWidth: 200, fontSize: 14, height: 45, paddingLeft: 24 }}
+                          onClick={(e) => handleGoogleSignIn(e)}
+                        >
                           <i
                             className={classes.socials + " fab fa-google"}
-                            onClick={(e) => handleGoogleSignIn(e)}
+                            style={{ height: 12, width: 12, marginLeft: 8 }}
                           />
+                          SIGN IN WITH GOOGLE
                         </Button>
 
                         <h4

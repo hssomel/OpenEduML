@@ -78,8 +78,8 @@ const signupPageStyle = {
     left: "0",
     top: "0",
     height: "100%",
-    lineHeight: "51px",
-    fontSize: "20px",
+    lineHeight: "45px",
+    fontSize: "12px",
   },
   textCenter: {
     textAlign: "center",
