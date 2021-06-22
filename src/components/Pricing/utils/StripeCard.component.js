@@ -61,7 +61,7 @@ export const ResetButton = ({ onClick }) => (
 );
 
 export const api = axios.create({
-  baseURL: `${process.env.REACT_APP_ADDR}/api/payments`,
+  baseURL: `${process.env.REACT_APP_ADDR}/payments`,
   headers: {
     "Content-Type": "application/json",
   },

@@ -11,7 +11,7 @@ export const occupations = [
 ];
 
 export const api = axios.create({
-  baseURL: `${process.env.REACT_APP_ADDR}/api/profile`,
+  baseURL: `${process.env.REACT_APP_ADDR}/profile`,
   headers: {
     "Content-Type": "application/json",
   },

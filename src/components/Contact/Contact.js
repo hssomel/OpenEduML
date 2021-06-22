@@ -33,8 +33,8 @@ const inputPropsEmail = {
   maxLength: 30,
 };
 
-const api = axios.create({
-  baseURL: `http://192.168.4.22:5000/api/profile`,
+export const api = axios.create({
+  baseURL: `${process.env.REACT_APP_ADDR}/profile`,
   headers: {
     "Content-Type": "application/json",
   },

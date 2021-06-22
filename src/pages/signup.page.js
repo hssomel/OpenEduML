@@ -63,7 +63,7 @@ const SignUpPage = ({
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     var actionCodeSettings = {
-      url: "http://192.168.4.26:3000/signin/finish123",
+      url: "openeduml.io/signin/finishsignin",
       handleCodeInApp: true,
     };
 

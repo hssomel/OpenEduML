@@ -14,7 +14,7 @@ import DaysLeft from "components/DashBoard/gauges/DaysLeft";
 import CustomerTier from "components/DashBoard/gauges/CustomerTier";
 
 const api = axios.create({
-  baseURL: `${process.env.REACT_APP_ADDR}/api/profile`,
+  baseURL: `${process.env.REACT_APP_ADDR}/profile`,
   headers: {
     "Content-Type": "application/json",
   },

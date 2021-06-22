@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-import AccessTime from "@material-ui/icons/AccessTime";
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 import Card from "../dashcomponents/Card/Card.js";
 import CardHeader from "../dashcomponents/Card/CardHeader.js";
@@ -26,6 +25,58 @@ const HtmlTooltip = withStyles(() => ({
     border: "1px solid #dadde9",
   },
 }))(Tooltip);
+
+// const api = axios.create({
+//   baseURL: `${process.env.REACT_APP_ADDR}/profile`,
+//   headers: {
+//     "Content-Type": "application/json",
+//   },
+// });
+
+// const onToken = async (token) => {
+//   try {
+//     await axios({
+//       url: "payments",
+//       method: "post",
+//       data: {
+//         amount: priceForStripe,
+//         userId: user.id,
+//         token,
+//       },
+//     });
+//     alert("Payment successful");
+//     createNamespace();
+//   } catch (err) {
+//     alert("There was an issue with your payment");
+//   }
+// };
+
+// const createNamespace = async () => {
+//   try {
+//     let namespace = user.id.toLowerCase();
+//     deleteNS();
+//     await axios({
+//       url: "jupyterhub/install",
+//       method: "post",
+//       data: {
+//         name: namespace,
+//         userId: user.id,
+//       },
+//     });
+//   } catch (err) {
+//     console.log("error: ", err);
+//   }
+// };
+
+// const deleteNS = () => {
+//   axios({
+//     url: "namespace/delete",
+//     method: "post",
+//     data: {
+//       userId: user.id,
+//     },
+//   });
+// };
 
 const ClusterAccessFree = () => {
   const classes = useStyles();
@@ -75,9 +126,7 @@ const ClusterAccessFree = () => {
         </Button>
       </CardBody>
       <CardFooter chart>
-        <div className={classes.stats}>
-          <AccessTime /> last launched: 4 minutes ago
-        </div>
+        <div className={classes.stats}></div>
         <HtmlTooltip
           title={
             <React.Fragment>

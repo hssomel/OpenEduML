@@ -11,8 +11,6 @@ import Divider from "@material-ui/core/Divider";
 import { Link } from "react-router-dom";
 import Person from "@material-ui/icons/Person";
 import Dashboard from "@material-ui/icons/Dashboard";
-import Search from "@material-ui/icons/Search";
-import CustomInput from "components/DashBoard/dashcomponents/CustomInput/CustomInput.js";
 import Button from "components/DashBoard/dashcomponents/CustomButtons/Button.js";
 import { auth } from "firebase/firebase.utils";
 import { connect } from "react-redux";
@@ -46,22 +44,6 @@ const AdminNavbarLinks = ({ clearProfile }) => {
   };
   return (
     <div>
-      <div className={classes.searchWrapper} style={{ paddingRight: 6 }}>
-        <CustomInput
-          formControlProps={{
-            className: classes.margin + " " + classes.search,
-          }}
-          inputProps={{
-            placeholder: "Search",
-            inputProps: {
-              "aria-label": "Search",
-            },
-          }}
-        />
-        <Button color="white" aria-label="edit" justIcon round>
-          <Search />
-        </Button>
-      </div>
       <Button
         color={window.innerWidth > 959 ? "transparent" : "white"}
         justIcon={window.innerWidth > 959}
