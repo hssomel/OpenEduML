@@ -12,6 +12,14 @@ const config = {
   // messagingSenderId: "793059014618",
   // appId: "1:793059014618:web:81c9159b05e685b07072e3",
   // measurementId: "G-6P17PWXG2Q",
+  apiKey: "AIzaSyDnERHwZNG8ClDfAjJgYKmLbWNwes8sW5U",
+  authDomain: "openeduml.firebaseapp.com",
+  databaseURL: "https://openeduml.firebaseio.com",
+  projectId: "openeduml",
+  storageBucket: "openeduml.appspot.com",
+  messagingSenderId: "78197796210",
+  appId: "1:78197796210:web:d18aaed090ae98e3f401eb",
+  measurementId: "G-HB6NY8HS6Q",
 };
 firebase.initializeApp(config);
 // ----------------------------------------------------------------------

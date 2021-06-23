@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# OpenEduML
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
 
-## Available Scripts
+OpenEduML is an online PaaS designed to provide students of all levels access to an easy to use
+online environment where they can launch machine learning workloads. OpenEduML uses Jupyter
+open-source software to provide users with an online notebook environment in which they can launch
+different types of machine-learning kernels (Python w/ Tensorflow, R, etc.). The mission of
+OpenEduML is to give aspiring data scientists an online location to store and access their work;
+along with removing the overhead of installing and managing all the software for developing machine
+learning models. OpenEduML represents great value to users who are looking for a simplified
+experience (particularly students who will be running workloads in excess of 30 hours per month).
+OpenEduML is comparatively 25-30% cheaper on an per-hourly basis compared to AWS Sagemaker, which
+the latter does contain extra features.
 
-In the project directory, you can run:
+<!-- ![alt text](./assets/jhub-kernels.jpeg?raw=true) -->
 
-### `yarn start`
+<h4 align="center">OpenEduML Jupyterhub Notebook</h4>
+<p align="center">
+  <img src="./src/assets/img/OpenEduML-kernels.png" width="650" title="Kernels">
+</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<h4 align="center">AWS SageMaker Jupyterhub Notebook</h4>
+<p align="center">
+  <img src="./src/assets/img/SageMaker.png" width="650" title="Kernels">
+</p>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<h4 align="center">OpenEduML Python3 w/ TensorFlow Kernel</h4>
+<p align="center">
+  <img src="./src/assets/img/OpenEduML-kernel.jpeg" width="650" title="Kernels">
+</p>
 
-### `yarn test`
+<h4 align="center">SageMaker Python3 kernel</h4>
+<p align="center">
+  <img src="./src/assets/img/sagemaker-kernel.png" width="650" title="Kernels">
+</p>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
