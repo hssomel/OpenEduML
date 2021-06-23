@@ -16,9 +16,10 @@ import { auth } from "firebase/firebase.utils";
 import { connect } from "react-redux";
 import { clearProfile } from "../../redux/user/user.actions";
 import styles from "assets/jss/material-dashboard-react/components/headerLinksStyle.js";
+import { setLaunchDeactivated } from "redux/alerts/alerts.actions";
 const useStyles = makeStyles(styles);
 
-const AdminNavbarLinks = ({ clearProfile }) => {
+const AdminNavbarLinks = ({ clearProfile, setLaunchDeactivated }) => {
   const classes = useStyles();
   const [openProfile, setOpenProfile] = React.useState(null);
 
@@ -33,6 +34,7 @@ const AdminNavbarLinks = ({ clearProfile }) => {
   const handleSignOut = async () => {
     try {
       clearProfile();
+      setLaunchDeactivated();
       await auth.signOut();
     } catch (err) {
       console.log(err);
@@ -113,4 +115,4 @@ const mapStateToProps = (state) => ({
   // currentProfile: state.user.currentProfile,
 });
 
-export default connect(mapStateToProps, { clearProfile })(AdminNavbarLinks);
+export default connect(mapStateToProps, { clearProfile, setLaunchDeactivated })(AdminNavbarLinks);

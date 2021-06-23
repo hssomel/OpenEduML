@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { clearProfile } from "../../redux/user/user.actions";
 import { auth } from "../../firebase/firebase.utils";
+import { setLaunchDeactivated } from "redux/alerts/alerts.actions.js";
 import { Collapse, Navbar, NavItem, NavLink, Nav, Container } from "reactstrap";
 //
-const NavbarMain = ({ currentUser, clearProfile, route }) => {
+const NavbarMain = ({ currentUser, clearProfile, route, setLaunchDeactivated }) => {
   const [navbarColor, setNavbarColor] = useState("navbar-transparent");
   const [collapseOpen, setCollapseOpen] = useState(false);
   // lifecycle
@@ -26,6 +27,7 @@ const NavbarMain = ({ currentUser, clearProfile, route }) => {
   const handleSignOut = async () => {
     try {
       clearProfile();
+      setLaunchDeactivated();
       await auth.signOut();
     } catch (err) {
       console.log(err);
@@ -105,4 +107,4 @@ const mapStateToProps = (state) => ({
   currentUser: state.user.currentUser,
 });
 
-export default connect(mapStateToProps, { clearProfile })(NavbarMain);
+export default connect(mapStateToProps, { clearProfile, setLaunchDeactivated })(NavbarMain);

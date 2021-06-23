@@ -18,10 +18,11 @@ const App = ({ currentUser, setCurrentUser }) => {
       if (user) {
         const userRef = await createUserProfileDocument(user);
         userRef.onSnapshot((snapShot) => {
-          const { email } = snapShot.data();
+          const { email, clusterURL } = snapShot.data();
           setCurrentUser({
             id: snapShot.id,
             email,
+            clusterURL,
           });
         });
       } else {

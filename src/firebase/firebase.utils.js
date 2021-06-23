@@ -4,14 +4,14 @@ import axios from "axios";
 import "firebase/auth";
 // -------------------------> FIREBASE <----------------------------------
 const config = {
-  apiKey: "AIzaSyAa68yAJ4QNHIOPeeXdDfu3tljVKphw-Xo",
-  authDomain: "ecommerce-app-57873.firebaseapp.com",
-  databaseURL: "https://ecommerce-app-57873.firebaseio.com",
-  projectId: "ecommerce-app-57873",
-  storageBucket: "ecommerce-app-57873.appspot.com",
-  messagingSenderId: "793059014618",
-  appId: "1:793059014618:web:81c9159b05e685b07072e3",
-  measurementId: "G-6P17PWXG2Q",
+  // apiKey: "AIzaSyAa68yAJ4QNHIOPeeXdDfu3tljVKphw-Xo",
+  // authDomain: "ecommerce-app-57873.firebaseapp.com",
+  // databaseURL: "https://ecommerce-app-57873.firebaseio.com",
+  // projectId: "ecommerce-app-57873",
+  // storageBucket: "ecommerce-app-57873.appspot.com",
+  // messagingSenderId: "793059014618",
+  // appId: "1:793059014618:web:81c9159b05e685b07072e3",
+  // measurementId: "G-6P17PWXG2Q",
 };
 firebase.initializeApp(config);
 // ----------------------------------------------------------------------
@@ -37,6 +37,7 @@ export const createUserProfileDocument = async (userAuth) => {
         username: displayName,
         email,
         createdAt,
+        clusterURL: false,
       });
       await api.post("/createprofile", {
         id: userAuth.uid,

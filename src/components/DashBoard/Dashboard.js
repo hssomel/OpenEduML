@@ -20,20 +20,28 @@ const api = axios.create({
   },
 });
 
-const Dashboard = ({ currentUser, setUserUsage, currentProfile, setCurrentProfile }) => {
+const Dashboard = ({ currentUser, setUserUsage, currentProfile, setCurrentProfile, userUsage }) => {
   // EVENT HANDLERS ------------------------------>
-  const fetchData = async () => {
+  const fetchProfile = async () => {
     const res = await api.get(`/getprofile/${currentUser.id}`);
-    const usage = await api.get(`/getstats/${currentUser.id}`);
     setCurrentProfile(res.data);
+  };
+
+  const fetchUsageData = async () => {
+    const usage = await api.get(`/getstats/${currentUser.id}`);
     setUserUsage(usage.data);
   };
 
   useEffect(() => {
     if (!currentProfile) {
-      fetchData();
+      fetchProfile();
     }
   }, [currentUser]);
+
+  useEffect(() => {
+    fetchUsageData();
+  }, []);
+
   // ----------------------------------------------->
   return (
     <div>
@@ -41,7 +49,7 @@ const Dashboard = ({ currentUser, setUserUsage, currentProfile, setCurrentProfil
         <Grid item xs={9}>
           <Grid container>
             <Grid item xs={12}>
-              <ClusterAccessFree />
+              <ClusterAccessFree currentUser={currentUser} userUsage={userUsage} />
             </Grid>
           </Grid>
           <Grid item xs={12}>

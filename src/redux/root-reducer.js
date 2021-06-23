@@ -8,7 +8,7 @@ import alertsReducer from "./alerts/alerts.reducer";
 const persistConfig = {
   key: "root",
   storage: storageSession,
-  whitelist: ["user"],
+  whitelist: ["user", "alerts"],
 };
 
 const rootReducer = combineReducers({
