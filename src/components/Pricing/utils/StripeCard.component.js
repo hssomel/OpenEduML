@@ -12,7 +12,16 @@ export const CardField = ({ onChange }) => {
   );
 };
 
-export const Field = ({ label, id, type, placeholder, required, autoComplete, value, onChange }) => (
+export const Field = ({
+  label,
+  id,
+  type,
+  placeholder,
+  required,
+  autoComplete,
+  value,
+  onChange,
+}) => (
   <div className="FormRow">
     <label htmlFor={id} className="FormRowLabel">
       {label}
@@ -61,7 +70,7 @@ export const ResetButton = ({ onClick }) => (
 );
 
 export const api = axios.create({
-  baseURL: `${process.env.REACT_APP_ADDR}/payments`,
+  baseURL: `${process.env.REACT_APP_ADDR}/pricing`,
   headers: {
     "Content-Type": "application/json",
   },
