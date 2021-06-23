@@ -27,7 +27,7 @@ the latter does contain extra features.
 
 <h4 align="center">OpenEduML Python3 w/ TensorFlow Kernel</h4>
 <p align="center">
-  <img src="./src/assets/img/OpenEduML-kernel.jpeg" width="650" title="Kernels">
+  <img src="./src/assets/img/OpenEduML-kernel.png" width="650" title="Kernels">
 </p>
 
 <h4 align="center">SageMaker Python3 kernel</h4>
